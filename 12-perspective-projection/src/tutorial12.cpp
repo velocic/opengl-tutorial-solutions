@@ -126,8 +126,11 @@ int main()
 
     //Initialize glVertexAttribPointers while VBO is bound
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
+
+    basicPassthroughMaterial.addAttribute("position");
     basicPassthroughMaterial.setGLVertexAttribPointer("position", 3, GL_FLOAT, GL_FALSE, 0, 0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+    auto debug = basicPassthroughMaterial.isMaterialValid();
 
     while (userRequestedExit == false)
     {
@@ -146,16 +149,17 @@ int main()
 
         worldPosition = perspectiveProjection * translationMatrix * rotationMatrix * scaleMatrix;
 
+        basicPassthroughMaterial.bind();
+
         glUniformMatrix4fv(worldPositionHandle, 1, GL_FALSE, &worldPosition[0][0]);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        basicPassthroughMaterial.bind();
         // glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        // glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
         // glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
         glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
         basicPassthroughMaterial.unbind();
         // glBindBuffer(GL_ARRAY_BUFFER, 0);
-        // glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
         SDL_GL_SwapWindow(window);
     }
