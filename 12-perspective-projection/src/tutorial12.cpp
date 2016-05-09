@@ -153,12 +153,9 @@ int main()
 
         glUniformMatrix4fv(worldPositionHandle, 1, GL_FALSE, &worldPosition[0][0]);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        // glBindBuffer(GL_ARRAY_BUFFER, VBO);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-        // glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
         glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
         basicPassthroughMaterial.unbind();
-        // glBindBuffer(GL_ARRAY_BUFFER, 0);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
         SDL_GL_SwapWindow(window);
