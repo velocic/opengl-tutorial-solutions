@@ -12,13 +12,6 @@ const double PI = 3.1415926535897;
 const unsigned int screenWidth = 800;
 const unsigned int screenHeight = 600;
 
-struct ShaderProgramStages
-{
-    GLuint vertexShader = 0;
-    GLuint geometryShader = 0;
-    GLuint fragmentShader = 0;
-};
-
 double degreesToRadians(double angle)
 {
     return (angle * PI) / 180;
@@ -42,85 +35,6 @@ std::vector<char> loadShaderSourceFromFile(std::string filePath)
     inFileStream.read(fileContents.data(), fileLength);
 
     return fileContents;
-}
-
-GLuint compileShaderProgramFromSource(const std::vector<char> &shaderSource, GLenum shaderType)
-{
-    GLuint shader = glCreateShader(shaderType);
-    const GLchar *glFormatShaderSource = shaderSource.data();
-    const GLint shaderSourceLength = shaderSource.size();
-    glShaderSource(shader, 1, &glFormatShaderSource, &shaderSourceLength);
-    glCompileShader(shader);
-
-    GLint compilationSuccess = 0;
-    glGetShaderiv(shader, GL_COMPILE_STATUS, &compilationSuccess);
-
-    if (!compilationSuccess) {
-        GLchar infoLog[1024];
-        glGetShaderInfoLog(shader, sizeof(infoLog), nullptr, infoLog);
-
-        for (int i = 0; i < 1024; ++i) {
-            std::cout << infoLog[i];
-        }
-        std::cout << std::endl;
-
-        return 0;
-    }
-
-    return shader;
-}
-
-GLuint linkShaderProgram(const ShaderProgramStages& shaderStages)
-{
-    GLuint program = glCreateProgram();
-    bool vertexShaderAttached = false;
-    bool geometryShaderAttached = false;
-    bool fragmentShaderAttached = false;
-
-    if (shaderStages.vertexShader != 0) {
-        glAttachShader(program, shaderStages.vertexShader);
-        vertexShaderAttached = true;
-    }
-
-    if (shaderStages.geometryShader != 0) {
-        glAttachShader(program, shaderStages.geometryShader);
-        geometryShaderAttached = true;
-    }
-
-    if (shaderStages.fragmentShader != 0) {
-        glAttachShader(program, shaderStages.fragmentShader);
-        fragmentShaderAttached = true;
-    }
-
-    glLinkProgram(program);
-
-    if (vertexShaderAttached) {
-        glDetachShader(program, shaderStages.vertexShader);
-    }
-
-    if (geometryShaderAttached) {
-        glDetachShader(program, shaderStages.geometryShader);
-    }
-
-    if (fragmentShaderAttached) {
-        glDetachShader(program, shaderStages.fragmentShader);
-    }
-
-    GLint linkSuccess = 0;
-    glGetProgramiv(program, GL_LINK_STATUS, &linkSuccess);
-    if (!linkSuccess) {
-        GLchar infoLog[1024];
-        glGetProgramInfoLog(program, sizeof(infoLog), nullptr, infoLog);
-
-        for (int i = 0; i < 1024; ++i) {
-            std::cout << infoLog[i];
-        }
-        std::cout << std::endl;
-
-        return 0;
-    }
-
-    return program;
 }
 
 int main()
@@ -181,16 +95,17 @@ int main()
     std::vector<char> vertexShaderSource = loadShaderSourceFromFile("../src/shaders/passthrough.vsh");
     std::vector<char> fragmentShaderSource = loadShaderSourceFromFile("../src/shaders/passthrough.fsh");
 
-    ShaderProgramStages shaderStages;
-    shaderStages.vertexShader = compileShaderProgramFromSource(vertexShaderSource, GL_VERTEX_SHADER);
-    shaderStages.fragmentShader = compileShaderProgramFromSource(fragmentShaderSource, GL_FRAGMENT_SHADER);
-
-    GLuint passthroughProgram = linkShaderProgram(shaderStages);
-
-    GLuint VAO;
-    glGenVertexArrays(1, &VAO);
-    glBindVertexArray(VAO);
-    glUseProgram(passthroughProgram);
+    //Replace block with Material class
+    // ShaderProgramStages shaderStages;
+    // shaderStages.vertexShader = compileShaderProgramFromSource(vertexShaderSource, GL_VERTEX_SHADER);
+    // shaderStages.fragmentShader = compileShaderProgramFromSource(fragmentShaderSource, GL_FRAGMENT_SHADER);
+    //
+    // GLuint passthroughProgram = linkShaderProgram(shaderStages);
+    //
+    // GLuint VAO;
+    // glGenVertexArrays(1, &VAO);
+    // glBindVertexArray(VAO);
+    // glUseProgram(passthroughProgram);
 
 
     //Sit around for a while until user input
