@@ -3,6 +3,7 @@
 
 #include <GL/gl3w.h>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 struct ShaderProgramStages
@@ -28,9 +29,9 @@ class Material
         GLuint linkShaderProgram(const ShaderProgramStages& shaderStages);
     public:
         Material(
-            std::vector<char> &vertexShaderSource,
-            std::vector<char> &geometryShaderSource,
-            std::vector<char> &fragmentShaderSource
+            const std::vector<char> &vertexShaderSource,
+            const std::vector<char> &geometryShaderSource,
+            const std::vector<char> &fragmentShaderSource
         );
 
         //Delete shaders, linked program, VBO & VAO
@@ -41,13 +42,13 @@ class Material
         void bind();
         GLint getAttribute(std::string attributeName);
         GLint getUniformAttribute(std::string uniformName);
-        inline bool isValid() {return isValid;}
+        inline bool isMaterialValid() {return isValid;}
 
         //Calls glVertexAttribPointer, but allows use of shader attribute location
         //by name. Must be called after proper VBO is bound, which needs to happen
         //externally from this class.
         //Defaults values assume non-normalized, tightly-packed data buffer
-        void setGlVertexAttribPointer(
+        void setGLVertexAttribPointer(
             std::string attributeName,
             GLint size,
             GLenum type,

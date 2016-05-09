@@ -1,4 +1,5 @@
 #include <material.h>
+#include <iostream>
 
 Material::Material(
     const std::vector<char> &vertexShaderSource,
@@ -37,7 +38,7 @@ Material::~Material()
     glDeleteProgram(shaderProgram);
 
     //glDeleteVertexArrays silently ignored if the name is unused, or 0 is passed
-    glDeleteVertexArrays(1, VAO);
+    glDeleteVertexArrays(1, &VAO);
 
     isValid = false;
 }
@@ -45,6 +46,8 @@ Material::~Material()
 bool Material::addAttribute(std::string attributeName)
 {
     if (isValid == false) {
+        //TODO: Replace cout with logfile writing
+        std::cout << "addAttribute called on Material instance with invalid state.";
         return false;
     }
 
@@ -65,6 +68,8 @@ bool Material::addAttribute(std::string attributeName)
 bool Material::addUniformAttribute(std::string uniformName)
 {
     if (isValid == false) {
+        //TODO: Replace cout with logfile writing
+        std::cout << "addUniformAttribute called on Material instance with invalid state.";
         return false;
     }
 
@@ -82,6 +87,8 @@ bool Material::addUniformAttribute(std::string uniformName)
 void Material::bind()
 {
     if (isValid == false) {
+        //TODO: Replace cout with logfile writing
+        std::cout << "bind called on Material instance with invalid state.";
         return;
     }
 
@@ -105,7 +112,7 @@ GLint Material::getAttribute(std::string attributeName)
 
 GLint Material::getUniformAttribute(std::string uniformName)
 {
-    auto mapIterator = uniformAttribtues.find(uniformName);
+    auto mapIterator = uniformAttributes.find(uniformName);
 
     if (mapIterator == uniformAttributes.end()) {
         return -1;
@@ -114,9 +121,11 @@ GLint Material::getUniformAttribute(std::string uniformName)
     return mapIterator->second;
 }
 
-void Material::setGlVertexAttribPointer(std::string attributeName, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid *glPointer)
+void Material::setGLVertexAttribPointer(std::string attributeName, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid *glPointer)
 {
     if (isValid == false) {
+        //TODO: Replace cout with logfile writing
+        std::cout << "setGLVertexAttribPointer called on Material instance with invalid state.";
         return;
     }
 

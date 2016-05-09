@@ -8,6 +8,8 @@
 #include <string>
 #include <vector>
 
+#include <material.h>
+
 const double PI = 3.1415926535897;
 const unsigned int screenWidth = 800;
 const unsigned int screenHeight = 600;
@@ -93,20 +95,10 @@ int main()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
     std::vector<char> vertexShaderSource = loadShaderSourceFromFile("../src/shaders/passthrough.vsh");
+    std::vector<char> geometryShaderSource;
     std::vector<char> fragmentShaderSource = loadShaderSourceFromFile("../src/shaders/passthrough.fsh");
 
-    //Replace block with Material class
-    // ShaderProgramStages shaderStages;
-    // shaderStages.vertexShader = compileShaderProgramFromSource(vertexShaderSource, GL_VERTEX_SHADER);
-    // shaderStages.fragmentShader = compileShaderProgramFromSource(fragmentShaderSource, GL_FRAGMENT_SHADER);
-    //
-    // GLuint passthroughProgram = linkShaderProgram(shaderStages);
-    //
-    // GLuint VAO;
-    // glGenVertexArrays(1, &VAO);
-    // glBindVertexArray(VAO);
-    // glUseProgram(passthroughProgram);
-
+    Material basicPassthroughMaterial(vertexShaderSource, geometryShaderSource, fragmentShaderSource);
 
     //Sit around for a while until user input
     SDL_Event event;
@@ -129,7 +121,13 @@ int main()
     );
 
     //Get handle to worldPosition uniform in the shader program
-    GLint worldPositionHandle = glGetUniformLocation(passthroughProgram, "worldPosition");
+    basicPassthroughMaterial.addUniformAttribute("worldPosition");
+    auto worldPositionHandle = basicPassthroughMaterial.getUniformAttribute("worldPosition");
+
+    //Initialize glVertexAttribPointers while VBO is bound
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    basicPassthroughMaterial.setGLVertexAttribPointer("position", 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     while (userRequestedExit == false)
     {
@@ -150,14 +148,14 @@ int main()
 
         glUniformMatrix4fv(worldPositionHandle, 1, GL_FALSE, &worldPosition[0][0]);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        glEnableVertexAttribArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+        basicPassthroughMaterial.bind();
+        // glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        // glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+        // glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
         glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
-        glDisableVertexAttribArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+        basicPassthroughMaterial.unbind();
+        // glBindBuffer(GL_ARRAY_BUFFER, 0);
+        // glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
         SDL_GL_SwapWindow(window);
     }
