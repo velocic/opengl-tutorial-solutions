@@ -11,7 +11,7 @@ class Camera
         glm::mat4 viewMatrix;
         glm::vec3 cameraWorldPosition = glm::vec3(0, 0, 0);
         glm::vec3 cameraDirection = glm::vec3(0, 0, -1);
-        double movementSpeed = .5;
+        double movementSpeed = .1;
 
     public:
         Camera(glm::mat4 defaultViewMatrix) :
