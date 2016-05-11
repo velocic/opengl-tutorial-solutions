@@ -12,6 +12,7 @@ add_executable(${PROJECT_NAME}
     src/tutorial14.cpp
     src/material.cpp
     src/controls.cpp
+    src/camera.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} SDL2 GL dl)

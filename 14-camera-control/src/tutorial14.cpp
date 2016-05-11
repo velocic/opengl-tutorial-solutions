@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 
+#include <camera.h>
 #include <controls.h>
 #include <material.h>
 
@@ -121,13 +122,24 @@ int main()
         0.1f,
         100.0f
     );
-    glm::mat4 viewMatrix = glm::lookAt(
-        glm::vec3(0, 0, 0), //position
-        glm::vec3(0, 0, -1), //looking towards this direction
-        glm::vec3(0, 1, 0) //up vector
+
+    Controls playerControls;
+    Camera playerCamera(
+        glm::lookAt(
+            glm::vec3(0, 0, 0), //position
+            glm::vec3(0, 0, -1), //looking towards this direction
+            glm::vec3(0, 1, 0) //up vector
+        )
     );
-    glm::mat4 viewRotationMatrix;
-    glm::mat4 viewTranslationMatrix = glm::translate(glm::mat4(), glm::vec3(0, 0, 17));
+    glm::mat4 viewMatrix = playerCamera.getViewMatrix();
+    // glm::mat4 viewMatrix = glm::lookAt(
+    //     glm::vec3(0, 0, 0), //position
+    //     glm::vec3(0, 0, -1), //looking towards this direction
+    //     glm::vec3(0, 1, 0) //up vector
+    // );
+    // glm::mat4 viewRotationMatrix;
+    // glm::mat4 viewTranslationMatrix = glm::translate(glm::mat4(), glm::vec3(0, 0, 17));
+    
     glm::mat4 WVPMatrix;
 
     //Get handle to WVP uniform in the shader program
@@ -140,7 +152,6 @@ int main()
     basicPassthroughMaterial.addAttribute("position");
     basicPassthroughMaterial.setGLVertexAttribPointer("position", 3, GL_FLOAT, GL_FALSE, 0, 0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    auto debug = basicPassthroughMaterial.isMaterialValid();
 
     while (userRequestedExit == false)
     {
@@ -154,28 +165,31 @@ int main()
 
         scale += 0.002f;
 
+        playerControls.update();
+        playerCamera.update(playerControls);
         rotationMatrix = glm::rotate(rotationMatrix, (float)(2 * PI * (2.0/360)), glm::vec3(0, 1, 0));
         translationMatrix = glm::translate(glm::mat4(), glm::vec3(sinf(scale * 2), 0, -3));
 
         worldMatrix = translationMatrix * rotationMatrix * scaleMatrix;
 
         //Play around with rotating the camera
-        viewRotationMatrix = glm::rotate(viewRotationMatrix, (float)(2 * PI * (.5/360)), glm::vec3(-1, 0, 0));
-        glm::vec4 viewDirectionVec4 = (viewRotationMatrix * glm::vec4(0, 0, -1, 0));
-        glm::vec3 viewDirection;
-        viewDirection.x = viewDirectionVec4.x;
-        viewDirection.y = viewDirectionVec4.y;
-        viewDirection.z = viewDirectionVec4.z;
-
-        viewMatrix = glm::lookAt(
-            glm::vec3(0, 0, 0),
-            viewDirection,
-            glm::vec3(0, 1, 0)
-        );
+        // viewRotationMatrix = glm::rotate(viewRotationMatrix, (float)(2 * PI * (.5/360)), glm::vec3(-1, 0, 0));
+        // glm::vec4 viewDirectionVec4 = (viewRotationMatrix * glm::vec4(0, 0, -1, 0));
+        // glm::vec3 viewDirection;
+        // viewDirection.x = viewDirectionVec4.x;
+        // viewDirection.y = viewDirectionVec4.y;
+        // viewDirection.z = viewDirectionVec4.z;
+        //
+        // viewMatrix = glm::lookAt(
+        //     glm::vec3(0, 0, 0),
+        //     viewDirection,
+        //     glm::vec3(0, 1, 0)
+        // );
 
         //Translate the view after the rotation has happened, so we correctly rotate around the world origin
-        viewMatrix *= viewTranslationMatrix;
+        // viewMatrix *= viewTranslationMatrix;
 
+        viewMatrix = playerCamera.getViewMatrix();
         WVPMatrix = perspectiveProjection * viewMatrix * worldMatrix;
 
         basicPassthroughMaterial.bind();

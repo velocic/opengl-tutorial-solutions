@@ -4,7 +4,7 @@
 #include <SDL2/SDL.h>
 #include <vector>
 
-enum class ControlKeys
+enum class ControlKeys : int
 {
     Forward,
     Backward,
@@ -29,8 +29,9 @@ class Controls
             SDLKeyStates(SDL_GetKeyboardState(NULL))
         {}
 
-        bool isKeyPressed(ControlKeys key) const;
         const std::vector<bool> &getControlState() const;
+        bool isKeyPressed(ControlKeys key) const;
+        void update();
 };
 
 
