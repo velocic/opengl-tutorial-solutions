@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11 -g    CMakeFiles/Tutorial15.dir/src/gl3w.c.o CMakeFiles/Tutorial15.dir/src/tutorial15.cpp.o CMakeFiles/Tutorial15.dir/src/material.cpp.o CMakeFiles/Tutorial15.dir/src/controls.cpp.o CMakeFiles/Tutorial15.dir/src/camera.cpp.o  -o Tutorial15 -rdynamic -lSDL2 -lGL -ldl 
