@@ -1,1 +1,0 @@
-/home/chris/Projects/opengl-sandbox/ogldev-atspace-tutorial-implementations/15-camera-control-part-2/build/CMakeFiles/Tutorial15.dir

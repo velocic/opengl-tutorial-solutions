@@ -12,15 +12,11 @@
 #include <camera.h>
 #include <controls.h>
 #include <material.h>
+#include <utilities.h>
 
-const double PI = 3.1415926535897;
 const unsigned int screenWidth = 800;
 const unsigned int screenHeight = 600;
 
-double degreesToRadians(double angle)
-{
-    return (angle * PI) / 180;
-}
 
 std::vector<char> loadShaderSourceFromFile(std::string filePath)
 {
@@ -115,10 +111,10 @@ int main()
 
     glm::mat4 worldMatrix;
     glm::mat4 scaleMatrix = glm::scale(glm::mat4(), glm::vec3(.5, .5, .5));
-    glm::mat4 rotationMatrix = glm::rotate(glm::mat4(), (float)(2 * PI * (60.0 / 360)), glm::vec3(-1, 0, 0));
+    glm::mat4 rotationMatrix = glm::rotate(glm::mat4(), (float)(2 * Utilities::Math::PI * (60.0 / 360)), glm::vec3(-1, 0, 0));
     glm::mat4 translationMatrix;
     glm::mat4 perspectiveProjection = glm::perspective(
-        (GLfloat)degreesToRadians(60.0),
+        (GLfloat)Utilities::Math::degreesToRadians(60.0),
         ((GLfloat)screenWidth / (GLfloat)screenHeight),
         0.1f,
         100.0f
@@ -130,9 +126,7 @@ int main()
             glm::vec3(0, 0, 0), //position
             glm::vec3(0, 0, -1), //looking towards this direction
             glm::vec3(0, 1, 0) //up vector
-        ),
-        screenWidth,
-        screenHeight
+        )
     );
     glm::mat4 viewMatrix = playerCamera.getViewMatrix();
     
@@ -163,7 +157,7 @@ int main()
 
         playerControls.update();
         playerCamera.update(playerControls);
-        rotationMatrix = glm::rotate(rotationMatrix, (float)(2 * PI * (2.0/360)), glm::vec3(0, 1, 0));
+        rotationMatrix = glm::rotate(rotationMatrix, (float)(2 * Utilities::Math::PI * (2.0/360)), glm::vec3(0, 1, 0));
         translationMatrix = glm::translate(glm::mat4(), glm::vec3(sinf(scale * 2), 0, -3));
 
         worldMatrix = translationMatrix * rotationMatrix * scaleMatrix;

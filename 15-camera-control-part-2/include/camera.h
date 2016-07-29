@@ -6,6 +6,7 @@
 #include <glm/gtc/quaternion.hpp>
 
 #include <controls.h>
+#include <utilities.h>
 
 #include <cmath>
 
@@ -14,18 +15,18 @@ class Camera
     private:
         glm::mat4 viewMatrix;
         glm::vec3 cameraWorldPosition = glm::vec3(0, 0, 0);
-        glm::vec3 cameraForward = glm::vec3(0, 0, -1);
+        glm::vec3 cameraDirection = glm::vec3(0, 0, -1);
         glm::quat cameraRotation;
         double movementSpeed = .1;
-        unsigned int windowWidth;
-        unsigned int windowHeight;
         unsigned int mousePositionX;
         unsigned int mousePositionY;
+        float horizontalAngle;
+        float verticalAngle;
 
         void calculateRotation();
 
     public:
-        Camera(glm::mat4 defaultViewMatrix, unsigned int windowWidth, unsigned int windowHeight);
+        Camera(glm::mat4 defaultViewMatrix);
 
         void update(const Controls& input);
         inline glm::mat4 getViewMatrix() {return viewMatrix;}
