@@ -19,7 +19,7 @@ class Camera
         glm::vec3 forwardVector = glm::vec3(0, 0, -1);
         // glm::quat cameraRotation;
         float keyboardMovementSpeed = .1;
-        float mouseMovementSpeedDampingFactor = .05;
+        float mouseMovementSpeedDampingFactor = .005;
         unsigned int mousePositionX;
         unsigned int mousePositionY;
         float horizontalAngle;

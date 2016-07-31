@@ -72,7 +72,7 @@ void Camera::update(const Controls& input)
 
     auto target = glm::normalize(glm::rotateY(forwardVector, horizontalAngle));
     auto horizontalAxis = glm::normalize(glm::cross(glm::vec3(0.0f, 1.0f, 0.0f), target));
-    target = glm::normalize(glm::rotateX(forwardVector, verticalAngle));
+    target = glm::normalize(glm::rotateX(target, verticalAngle));
     auto verticalAxis = glm::normalize(glm::cross(horizontalAxis, target));
 
     viewMatrix = glm::lookAt(
