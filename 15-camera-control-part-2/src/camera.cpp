@@ -44,30 +44,6 @@ void Camera::updateCameraRotationAngles(const std::pair<int, int>& mouseDelta)
 
 void Camera::update(const Controls& input)
 {
-    if (input.isKeyPressed(ControlKeys::Forward)) {
-        cameraWorldPosition.z -= keyboardMovementSpeed;
-    }
-
-    if (input.isKeyPressed(ControlKeys::Backward)) {
-        cameraWorldPosition.z += keyboardMovementSpeed;
-    }
-
-    if (input.isKeyPressed(ControlKeys::Left)) {
-        cameraWorldPosition.x -= keyboardMovementSpeed;
-    }
-
-    if (input.isKeyPressed(ControlKeys::Right)) {
-        cameraWorldPosition.x += keyboardMovementSpeed;
-    }
-
-    if (input.isKeyPressed(ControlKeys::Up)) {
-        cameraWorldPosition.y += keyboardMovementSpeed;
-    }
-
-    if (input.isKeyPressed(ControlKeys::Down)) {
-        cameraWorldPosition.y -= keyboardMovementSpeed;
-    }
-
     updateCameraRotationAngles(input.getMouseState());
 
     auto target = glm::normalize(glm::rotateY(forwardVector, horizontalAngle));
@@ -75,11 +51,42 @@ void Camera::update(const Controls& input)
     target = glm::normalize(glm::rotateX(target, verticalAngle));
     auto verticalAxis = glm::normalize(glm::cross(horizontalAxis, target));
 
+    if (input.isKeyPressed(ControlKeys::Forward)) {
+        cameraWorldPosition += target * keyboardMovementSpeed;
+    }
+
+    if (input.isKeyPressed(ControlKeys::Backward)) {
+        cameraWorldPosition -= target * keyboardMovementSpeed;
+    }
+
+    if (input.isKeyPressed(ControlKeys::Left)) {
+        auto left = glm::normalize(glm::cross(verticalAxis, target));
+        left *= keyboardMovementSpeed;
+        cameraWorldPosition += left;
+    }
+
+    if (input.isKeyPressed(ControlKeys::Right)) {
+        auto right = glm::normalize(glm::cross(target, verticalAxis));
+        right *= keyboardMovementSpeed;
+        cameraWorldPosition += right;
+    }
+
+    if (input.isKeyPressed(ControlKeys::Up)) {
+        auto up = glm::normalize(glm::cross(horizontalAxis, target));
+        up *= keyboardMovementSpeed;
+        cameraWorldPosition += up;
+    }
+
+    if (input.isKeyPressed(ControlKeys::Down)) {
+        auto down = glm::normalize(glm::cross(target, horizontalAxis));
+        down *= keyboardMovementSpeed;
+        cameraWorldPosition += down;
+    }
+
+
     viewMatrix = glm::lookAt(
         cameraWorldPosition,
-        // (cameraDirection + cameraWorldPosition) * cameraRotation,
         (target + cameraWorldPosition),
-        // glm::vec3(0, 1, 0)
         verticalAxis
     );
 }
