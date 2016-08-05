@@ -38,8 +38,8 @@ void Camera::initCameraRotationAngles()
 
 void Camera::updateCameraRotationAngles(const std::pair<int, int>& mouseDelta)
 {
-    horizontalAngle += mouseDelta.first * mouseMovementSpeedDampingFactor;
-    verticalAngle += mouseDelta.second * mouseMovementSpeedDampingFactor;
+    horizontalAngle -= mouseDelta.first * mouseMovementSpeedDampingFactor;
+    verticalAngle -= mouseDelta.second * mouseMovementSpeedDampingFactor;
 }
 
 void Camera::update(const Controls& input)
@@ -60,33 +60,32 @@ void Camera::update(const Controls& input)
     }
 
     if (input.isKeyPressed(ControlKeys::Left)) {
-        auto left = glm::normalize(glm::cross(verticalAxis, target));
+        auto left = glm::normalize(glm::cross(target, verticalAxis));
         left *= keyboardMovementSpeed;
         cameraWorldPosition += left;
     }
 
     if (input.isKeyPressed(ControlKeys::Right)) {
-        auto right = glm::normalize(glm::cross(target, verticalAxis));
+        auto right = glm::normalize(glm::cross(verticalAxis, target));
         right *= keyboardMovementSpeed;
         cameraWorldPosition += right;
     }
 
     if (input.isKeyPressed(ControlKeys::Up)) {
-        auto up = glm::normalize(glm::cross(horizontalAxis, target));
+        auto up = glm::normalize(glm::cross(target, horizontalAxis));
         up *= keyboardMovementSpeed;
         cameraWorldPosition += up;
     }
 
     if (input.isKeyPressed(ControlKeys::Down)) {
-        auto down = glm::normalize(glm::cross(target, horizontalAxis));
+        auto down = glm::normalize(glm::cross(horizontalAxis, target));
         down *= keyboardMovementSpeed;
         cameraWorldPosition += down;
     }
 
-
     viewMatrix = glm::lookAt(
         cameraWorldPosition,
         (target + cameraWorldPosition),
-        verticalAxis
+        glm::vec3(0.0, 1.0, 0.0)
     );
 }
