@@ -1,4 +1,5 @@
 #include <camera.h>
+#include <iostream>
 
 Camera::Camera(glm::mat4 defaultViewMatrix) :
     viewMatrix(defaultViewMatrix)
@@ -38,17 +39,37 @@ void Camera::initCameraRotationAngles()
 
 void Camera::updateCameraRotationAngles(const std::pair<int, int>& mouseDelta)
 {
-    horizontalAngle -= mouseDelta.first * mouseMovementSpeedDampingFactor;
-    verticalAngle -= mouseDelta.second * mouseMovementSpeedDampingFactor;
+    // horizontalAngle -= mouseDelta.first * mouseMovementSpeedDampingFactor;
+    // verticalAngle -= mouseDelta.second * mouseMovementSpeedDampingFactor;
+
+    horizontalAngle -= mouseDelta.first;
+    verticalAngle -= mouseDelta.second;
+
+    if (verticalAngle > 90.0f) {
+        verticalAngle = 90.0f;
+    }
+
+    if (verticalAngle < -90.0f) {
+        verticalAngle = -90.0f;
+    }
+
+    std::cout << horizontalAngle << std::endl;
+    std::cout << verticalAngle << std::endl;
+    std::cout << std::endl;
 }
 
 void Camera::update(const Controls& input)
 {
     updateCameraRotationAngles(input.getMouseState());
 
-    auto target = glm::normalize(glm::rotateY(forwardVector, horizontalAngle));
+    auto dampenedHorizontalMovement = horizontalAngle * mouseMovementSpeedDampingFactor;
+    auto dampenedVerticalMovement = verticalAngle * mouseMovementSpeedDampingFactor;
+
+    // auto target = glm::normalize(glm::rotateY(forwardVector, horizontalAngle));
+    auto target = glm::normalize(glm::rotateY(forwardVector, dampenedHorizontalMovement));
     auto horizontalAxis = glm::normalize(glm::cross(glm::vec3(0.0f, 1.0f, 0.0f), target));
-    target = glm::normalize(glm::rotateX(target, verticalAngle));
+    // target = glm::normalize(glm::rotateX(target, verticalAngle));
+    target = glm::normalize(glm::rotateX(target, dampenedVerticalMovement));
     auto verticalAxis = glm::normalize(glm::cross(horizontalAxis, target));
 
     if (input.isKeyPressed(ControlKeys::Forward)) {
