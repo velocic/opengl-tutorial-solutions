@@ -16,7 +16,7 @@ class Camera
     private:
         glm::mat4 viewMatrix;
         glm::vec3 cameraWorldPosition = glm::vec3(0, 0, 5);
-        glm::vec3 forwardVector = glm::vec3(0, 0, -1);
+        glm::vec3 forwardVector = glm::vec3(0, 0, 1);
         float keyboardMovementSpeed = .1;
         float mouseMovementSpeedDampingFactor = .01;
         unsigned int mousePositionX;

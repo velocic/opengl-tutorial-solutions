@@ -1,5 +1,4 @@
 #include <camera.h>
-#include <iostream>
 
 Camera::Camera(glm::mat4 defaultViewMatrix) :
     viewMatrix(defaultViewMatrix)
@@ -39,7 +38,7 @@ void Camera::initCameraRotationAngles()
 
 void Camera::updateCameraRotationAngles(const std::pair<int, int>& mouseDelta)
 {
-    // horizontalAngle -= mouseDelta.first * mouseMovementSpeedDampingFactor;
+    horizontalAngle -= mouseDelta.first * mouseMovementSpeedDampingFactor;
     // verticalAngle -= mouseDelta.second * mouseMovementSpeedDampingFactor;
 
     horizontalAngle -= mouseDelta.first;
@@ -52,10 +51,6 @@ void Camera::updateCameraRotationAngles(const std::pair<int, int>& mouseDelta)
     if (verticalAngle < -90.0f) {
         verticalAngle = -90.0f;
     }
-
-    std::cout << horizontalAngle << std::endl;
-    std::cout << verticalAngle << std::endl;
-    std::cout << std::endl;
 }
 
 void Camera::update(const Controls& input)
