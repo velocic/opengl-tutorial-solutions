@@ -12,10 +12,17 @@
 #include <camera.h>
 #include <controls.h>
 #include <material.h>
+#include <texture.h>
 #include <utilities.h>
 
 const unsigned int screenWidth = 800;
 const unsigned int screenHeight = 600;
+
+struct Vertex
+{
+    glm::vec3 position;
+    glm::vec2 uvCoords;
+};
 
 int main()
 {
@@ -45,11 +52,11 @@ int main()
         return EXIT_FAILURE;
     }
 
-    glm::vec3 vertices[] = {
-        glm::vec3(-1.0f, -1.0f, 0.0f),
-        glm::vec3(0.0f, -1.0f, 1.0f),
-        glm::vec3(1.0f, -1.0f, 0.0f),
-        glm::vec3(0.0f, 1.0f, 0.0f)
+    Vertex vertices[] = {
+        {glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec2(0.0f, 0.0f)},
+        {glm::vec3(0.0f, -1.0f, 1.0f), glm::vec2(0.5f, 0.0f)},
+        {glm::vec3(1.0f, -1.0f, 0.0f), glm::vec2(1.0f, 0.0f)},
+        {glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0.5f, 1.0f)}
     };
 
     //Allocate a buffer for our vertices
@@ -59,11 +66,14 @@ int main()
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+    //Note: the order of indices for each vertex matters. They are used to determine the "facing" of the traingle.
+    //These are specified properly in clockwise order, but mix it up and you'll get faces culled
+    //because of the backface culling operation
     std::vector<GLuint> indices = {
-        0, 1, 2,
-        0, 3, 2,
         0, 3, 1,
-        1, 3, 2
+        1, 3, 2,
+        2, 3, 0,
+        0, 1, 2
     };
 
     //Create an index buffer to share vertices among triangles
@@ -95,6 +105,9 @@ int main()
 
     glEnable(GL_DEPTH_TEST);
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+    glFrontFace(GL_CW);
+    glCullFace(GL_BACK);
+    glEnable(GL_CULL_FACE);
 
     float scale = 0.0f;
 
@@ -129,8 +142,30 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
     basicPassthroughMaterial.addAttribute("position");
-    basicPassthroughMaterial.setGLVertexAttribPointer("position", 3, GL_FLOAT, GL_FALSE, 0, 0);
+    basicPassthroughMaterial.setGLVertexAttribPointer("position", 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+    basicPassthroughMaterial.addAttribute("texCoord");
+    basicPassthroughMaterial.setGLVertexAttribPointer("texCoord", 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)sizeof(glm::vec3));
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+    //Load the texture for our basic pyramid object
+    std::vector<uint8_t> rawImageData;
+    bool loadedImageFile = Utilities::File::getFileContents(rawImageData, "../test.png");
+
+    if (!loadedImageFile) {
+        std::cout << "Failed to load the texture image";
+        return EXIT_FAILURE;
+    }
+
+    Texture pyramidTexture;
+    pyramidTexture.load(GL_TEXTURE_2D, rawImageData, TextureFormat::PNG);
+    pyramidTexture.setTextureParams(
+        GL_REPEAT,
+        GL_REPEAT,
+        GL_LINEAR,
+        GL_LINEAR,
+        false
+    );
+    pyramidTexture.bind(GL_TEXTURE0);
 
     while (userRequestedExit == false)
     {

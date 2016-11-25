@@ -33,6 +33,8 @@ namespace Utilities
 
             fileBuffer.resize(fileLength);
             inFileStream.read(reinterpret_cast<char *>(fileBuffer.data()), fileLength);
+
+            return true;
         }
     }
 }
