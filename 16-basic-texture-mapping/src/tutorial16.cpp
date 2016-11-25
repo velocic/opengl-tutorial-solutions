@@ -147,6 +147,12 @@ int main()
     basicPassthroughMaterial.setGLVertexAttribPointer("texCoord", 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)sizeof(glm::vec3));
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+    //Set the sampler uniform for the fragment shader that we're going to use.
+    //Note: technically unnecessary since we're only using 1 texture unit,
+    //but good to be explicitly correct when possible
+    basicPassthroughMaterial.addUniformAttribute("sampler");
+    glUniform1i(basicPassthroughMaterial.getUniformAttribute("sampler"), 0);
+
     //Load the texture for our basic pyramid object
     std::vector<uint8_t> rawImageData;
     bool loadedImageFile = Utilities::File::getFileContents(rawImageData, "../test.png");
