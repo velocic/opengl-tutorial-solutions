@@ -1,9 +1,12 @@
 #include <lights/directional.h>
 
-unsigned int DirectionalLightList::addDirectionalLight(glm::vec3 color, float ambientIntensity)
+size_t DirectionalLightList::addDirectionalLight(glm::vec3 color, float ambientIntensity)
 {
-    DirectionalLight newLight = {color, ambientIntensity};
+    DirectionalLight newLight = {assignedIDCount, color, ambientIntensity};
     directionalLights.push_back(newLight);
+    ++assignedIDCount;
+
+    return assignedIDCount - 1;
 }
 
 void DirectionalLightList::clear()
@@ -11,9 +14,27 @@ void DirectionalLightList::clear()
     directionalLights.clear();
 }
 
-void DirectionalLightList::removeLightByIndex(unsigned int lightIndex)
+DirectionalLight *DirectionalLightList::getLightByID(unsigned int lightID)
 {
-    directionalLights.erase(directionalLights.begin() + lightIndex);
+    for (auto it = directionalLights.begin(); it != directionalLights.end(); ++it) {
+        if (it->id == lightID) {
+            return &(*it);
+        }
+    }
+
+    return nullptr;
+}
+
+void DirectionalLightList::removeLightByID(unsigned int lightID)
+{
+    unsigned int positionCount = 0;
+    for (auto directionalLight : directionalLights) {
+        if (directionalLight.id == lightID) {
+            directionalLights.erase(directionalLights.begin() + positionCount);
+            return;
+        }
+        ++positionCount;
+    }
 }
 
 void DirectionalLightList::setLights(const std::unordered_map<std::string, PhongLightAttributes> &lightUniforms)

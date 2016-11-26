@@ -139,7 +139,7 @@ int main()
     //Add a directional light into the scene
     basicPassthroughMaterial.addLightUniformAttribute("directionalLight");
     DirectionalLightList directionalLights;
-    directionalLights.addDirectionalLight(glm::vec3(1.0f, 1.0f, 1.0f), 0.5f);
+    auto lightHandle = directionalLights.addDirectionalLight(glm::vec3(1.0f, 1.0f, 1.0f), 0.5f);
     directionalLights.setLights(basicPassthroughMaterial.getLightUniforms());
     basicPassthroughMaterial.unbind();
 
@@ -173,10 +173,20 @@ int main()
 
         }
 
-        scale += 0.002f;
-
         playerControls.update();
         playerCamera.update(playerControls);
+
+        //Quick hack for ambient light controls
+        if (playerControls.isKeyPressed(ControlKeys::AmbientLightUp)) {
+            directionalLights.getLightByID(lightHandle)->ambientIntensity += 0.05f;
+        }
+
+        if (playerControls.isKeyPressed(ControlKeys::AmbientLightDown)) {
+            directionalLights.getLightByID(lightHandle)->ambientIntensity -= 0.05f;
+        }
+
+        scale += 0.002f;
+
         rotationMatrix = glm::rotate(rotationMatrix, (float)(2 * Utilities::Math::PI * (2.0/360)), glm::vec3(0, 1, 0));
         translationMatrix = glm::translate(glm::mat4(), glm::vec3(sinf(scale * 2), 0, -3));
 
@@ -187,6 +197,7 @@ int main()
 
         basicPassthroughMaterial.bind();
 
+        directionalLights.setLights(basicPassthroughMaterial.getLightUniforms());
         glUniformMatrix4fv(WVPMatrixHandle, 1, GL_FALSE, &WVPMatrix[0][0]);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);

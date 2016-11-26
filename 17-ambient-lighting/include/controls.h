@@ -12,6 +12,8 @@ enum class ControlKeys : int
     Right,
     Up,
     Down,
+    AmbientLightUp,
+    AmbientLightDown,
     AssignedKeyCount
 };
 

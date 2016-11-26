@@ -24,8 +24,8 @@ void Controls::update()
     controlState[static_cast<int>(ControlKeys::Right)] = SDLKeyStates[SDL_SCANCODE_D];
     controlState[static_cast<int>(ControlKeys::Up)] = SDLKeyStates[SDL_SCANCODE_SPACE];
     controlState[static_cast<int>(ControlKeys::Down)] = SDLKeyStates[SDL_SCANCODE_LSHIFT];
+    controlState[static_cast<int>(ControlKeys::AmbientLightUp)] = SDLKeyStates[SDL_SCANCODE_I];
+    controlState[static_cast<int>(ControlKeys::AmbientLightDown)] = SDLKeyStates[SDL_SCANCODE_K];
 
     SDL_GetRelativeMouseState(&mousePositionX, &mousePositionY);
-
-    // std::cout << "(" << mousePositionX << "," << mousePositionY << ")" << std::endl;
 }

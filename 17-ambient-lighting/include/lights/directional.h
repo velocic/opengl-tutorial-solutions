@@ -12,6 +12,7 @@
 
 struct DirectionalLight
 {
+    size_t id;
     glm::vec3 color;
     float ambientIntensity;
 };
@@ -20,10 +21,14 @@ class DirectionalLightList
 {
     private:
         std::vector<DirectionalLight> directionalLights;
+        size_t assignedIDCount = 0;
     public:
-        unsigned int addDirectionalLight(glm::vec3 color, float ambientIntensity);
+        size_t addDirectionalLight(glm::vec3 color, float ambientIntensity);
         void clear();
-        void removeLightByIndex(unsigned int lightIndex);
+        //Note: don't keep these pointers around for long after retrieval
+        //They are potentially invalidated after every vector insert/delete
+        DirectionalLight *getLightByID(unsigned int lightID);
+        void removeLightByID(unsigned int lightID);
         void setLights(const std::unordered_map<std::string, PhongLightAttributes> &lightUniforms);
 };
 
