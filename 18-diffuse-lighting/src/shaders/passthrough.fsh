@@ -22,7 +22,7 @@ void main()
 
     //Reverse the direction of the light vector, so it points from fragment->light source
     float diffuseFactor = dot(normalize(normal0), -directionalLight.direction);
-    vec4 diffuseColor = vec4(0, 0, 0, 0);
+    vec4 diffuseColor = vec4(0.0f, 0.0f, 0.0f, 0.0f);
 
     //If the surface was struck at an angle [0, 90)
     if (diffuseFactor > 0) {

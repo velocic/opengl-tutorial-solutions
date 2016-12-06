@@ -63,6 +63,8 @@ bool Material::addAttribute(std::string attributeName)
     );
     glEnableVertexAttribArray(attributeLocation);
     glBindVertexArray(0);
+
+    return true;
 }
 
 bool Material::addUniformAttribute(std::string uniformName)
@@ -82,6 +84,8 @@ bool Material::addUniformAttribute(std::string uniformName)
     uniformAttributes.insert(
         std::pair<std::string, GLint>(uniformName, uniformLocation)
     );
+
+    return true;
 }
 
 void Material::bind()

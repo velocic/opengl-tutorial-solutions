@@ -12,7 +12,7 @@ out vec3 normal0;
 
 void main()
 {
-    gl_Position = WVPMatrix * vec4(position, 1);
     texCoord0 = texCoord;
-    normal0 = (worldMatrix * vec4(normal, 0.0)).xyz;
+    normal0 = (worldMatrix * vec4(normal, 0.0f)).xyz;
+    gl_Position = WVPMatrix * vec4(position, 1.0f);
 }

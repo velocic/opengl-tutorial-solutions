@@ -22,20 +22,20 @@ const unsigned int screenHeight = 600;
 struct Vertex
 {
     glm::vec3 position;
-    glm::vec2 uvCoords;
     glm::vec3 normal;
+    glm::vec2 uvCoords;
 };
 
 void calculateNormals(
     const std::vector<GLuint> &indices,
-    Vertex* vertices,
-    unsigned int vertexCount
+    std::vector<Vertex> &vertices
 )
 {
     for (unsigned int i = 0; i < indices.size(); i += 3) {
         auto index0 = indices[i];
         auto index1 = indices[i + 1];
         auto index2 = indices[i + 2];
+
         glm::vec3 v1 = vertices[index1].position - vertices[index0].position;
         glm::vec3 v2 = vertices[index2].position - vertices[index0].position;
         glm::vec3 normal = glm::cross(v1, v2);
@@ -46,7 +46,7 @@ void calculateNormals(
         vertices[index2].normal += normal;
     }
 
-    for (unsigned int i = 0; i < vertexCount; ++i) {
+    for (unsigned int i = 0; i < vertices.size(); ++i) {
         vertices[i].normal = glm::normalize(vertices[i].normal);
     }
 }
@@ -58,19 +58,12 @@ int main()
     RenderWindow renderWindow("ogldev.atspace.co.uk Tutorial 18 -- Diffuse Lighting", screenWidth, screenHeight);
 
     //Vector, UV, normal
-    Vertex vertices[] = {
-        {glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec2(0.0f, 0.0f)},
-        {glm::vec3(0.0f, -1.0f, 1.0f), glm::vec2(0.5f, 0.0f)},
-        {glm::vec3(1.0f, -1.0f, 0.0f), glm::vec2(1.0f, 0.0f)},
-        {glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0.5f, 1.0f)}
+    std::vector<Vertex> vertices = {
+        {glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)},
+        {glm::vec3(0.0f, -1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.5f, 0.0f)},
+        {glm::vec3(1.0f, -1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(1.0f, 0.0f)},
+        {glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.5f, 1.0f)}
     };
-
-    //Allocate a buffer for our vertices
-    GLuint VBO;
-    glGenBuffers(1, &VBO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     //Note: the order of indices for each vertex matters. They are used to determine the "facing" of the traingle.
     //These are specified properly in clockwise order, but mix it up and you'll get faces culled
@@ -82,14 +75,22 @@ int main()
         0, 1, 2
     };
 
-    calculateNormals(indices, vertices, 4);
-
     //Create an index buffer to share vertices among triangles
     GLuint IBO;
     glGenBuffers(1, &IBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices[0]) * indices.size(), indices.data(), GL_STATIC_DRAW);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+
+    calculateNormals(indices, vertices);
+
+    //Allocate a buffer for our vertices
+    GLuint VBO;
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), vertices.data(), GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     std::string vertexShaderPath = "../src/shaders/passthrough.vsh";
     std::string fragmentShaderPath = "../src/shaders/passthrough.fsh";
@@ -154,10 +155,10 @@ int main()
 
     basicPassthroughMaterial.addAttribute("position");
     basicPassthroughMaterial.setGLVertexAttribPointer("position", 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-    basicPassthroughMaterial.addAttribute("texCoord");
-    basicPassthroughMaterial.setGLVertexAttribPointer("texCoord", 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)sizeof(glm::vec3));
     basicPassthroughMaterial.addAttribute("normal");
-    basicPassthroughMaterial.setGLVertexAttribPointer("normal", 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)(sizeof(glm::vec3) + sizeof(glm::vec2)));
+    basicPassthroughMaterial.setGLVertexAttribPointer("normal", 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)sizeof(glm::vec3));
+    basicPassthroughMaterial.addAttribute("texCoord");
+    basicPassthroughMaterial.setGLVertexAttribPointer("texCoord", 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(sizeof(glm::vec3) * 2));
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     //Set the sampler uniform for the fragment shader that we're going to use.
@@ -175,7 +176,7 @@ int main()
     DirectionalLightList directionalLights;
     auto lightHandle = directionalLights.addDirectionalLight(
         glm::vec3(1.0f, 1.0f, 1.0f), //light color
-        glm::vec3(1.0f, 0.0f, 0.0f), //light direction
+        glm::vec3(0.0f, 1.0f, 0.0f), //light direction
         0.0f, //ambient intensity
         0.8f //diffuse intensity
     );

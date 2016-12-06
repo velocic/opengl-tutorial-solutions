@@ -6,6 +6,10 @@
 !_TAG_PROGRAM_VERSION	0.0.0	/585aa63/
 $(VERBOSE).SILENT	build/Makefile	/^$(VERBOSE).SILENT:$/;"	t
 A	include/glm/gtx/simd_vec4.hpp	/^		A = 3,$/;"	e	enum:glm::comp
+ADAM7_DX	src/lodepng.cpp	/^static const unsigned ADAM7_DX[7] = { 8, 8, 4, 4, 2, 2, 1 }; \/*x delta values*\/$/;"	v	typeref:typename:const unsigned[7]	file:
+ADAM7_DY	src/lodepng.cpp	/^static const unsigned ADAM7_DY[7] = { 8, 8, 8, 4, 4, 2, 2 }; \/*y delta values*\/$/;"	v	typeref:typename:const unsigned[7]	file:
+ADAM7_IX	src/lodepng.cpp	/^static const unsigned ADAM7_IX[7] = { 0, 4, 0, 2, 0, 1, 0 }; \/*x start values*\/$/;"	v	typeref:typename:const unsigned[7]	file:
+ADAM7_IY	src/lodepng.cpp	/^static const unsigned ADAM7_IY[7] = { 0, 0, 4, 0, 2, 0, 1 }; \/*y start values*\/$/;"	v	typeref:typename:const unsigned[7]	file:
 APIENTRY	include/GL/glcorearb.h	/^#define APIENTRY$/;"	d
 APIENTRY	include/GL/glcorearb.h	/^typedef void (APIENTRY  *GLDEBUGPROC)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsize/;"	t	typeref:typename:void (* GLDEBUGPROC)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar * message,const void * userParam)
 APIENTRY	include/GL/glcorearb.h	/^typedef void (APIENTRY  *GLDEBUGPROCARB)(GLenum source,GLenum type,GLuint id,GLenum severity,GLs/;"	t	typeref:typename:void (* GLDEBUGPROCARB)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar * message,const void * userParam)
@@ -714,13 +718,27 @@ ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^#   defi
 ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^#  define ARCHITECTURE_ID /;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define ARCHITECTURE_ID /;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define ARCHITECTURE_ID /;"	d	file:
+Adam7_deinterlace	src/lodepng.cpp	/^static void Adam7_deinterlace(unsigned char* out, const unsigned char* in, unsigned w, unsigned /;"	f	typeref:typename:void	file:
+Adam7_getpassvalues	src/lodepng.cpp	/^static void Adam7_getpassvalues(unsigned passw[7], unsigned passh[7], size_t filter_passstart[8]/;"	f	typeref:typename:void	file:
+Adam7_interlace	src/lodepng.cpp	/^static void Adam7_interlace(unsigned char* out, const unsigned char* in, unsigned w, unsigned h,/;"	f	typeref:typename:void	file:
+AmbientLightDown	include/controls.h	/^    AmbientLightDown,$/;"	e	enum:ControlKeys
+AmbientLightUp	include/controls.h	/^    AmbientLightUp,$/;"	e	enum:ControlKeys
 AssignedKeyCount	include/controls.h	/^    AssignedKeyCount$/;"	e	enum:ControlKeys
 B	include/glm/gtx/simd_vec4.hpp	/^		B = 2,$/;"	e	enum:glm::comp
+BPMLists	src/lodepng.cpp	/^typedef struct BPMLists$/;"	s	file:
+BPMLists	src/lodepng.cpp	/^} BPMLists;$/;"	t	typeref:struct:BPMLists	file:
+BPMNode	src/lodepng.cpp	/^typedef struct BPMNode$/;"	s	file:
+BPMNode	src/lodepng.cpp	/^} BPMNode;$/;"	t	typeref:struct:BPMNode	file:
 Backward	include/controls.h	/^    Backward,$/;"	e	enum:ControlKeys
 CAMERA_H	include/camera.h	/^#define CAMERA_H$/;"	d
-CMAKE_BINARY_DIR	build/Makefile	/^CMAKE_BINARY_DIR = \/home\/chris\/Projects\/opengl-tutorial-solutions\/16-basic-texture-mapping\//;"	m
+CERROR_BREAK	src/lodepng.cpp	/^#define CERROR_BREAK(/;"	d	file:
+CERROR_RETURN	src/lodepng.cpp	/^#define CERROR_RETURN(/;"	d	file:
+CERROR_RETURN_ERROR	src/lodepng.cpp	/^#define CERROR_RETURN_ERROR(/;"	d	file:
+CERROR_TRY_RETURN	src/lodepng.cpp	/^#define CERROR_TRY_RETURN(/;"	d	file:
+CLCL_ORDER	src/lodepng.cpp	/^static const unsigned CLCL_ORDER[NUM_CODE_LENGTH_CODES]$/;"	v	typeref:typename:const unsigned[]	file:
+CMAKE_BINARY_DIR	build/Makefile	/^CMAKE_BINARY_DIR = \/home\/chris\/Projects\/opengl-tutorial-solutions\/18-diffuse-lighting\/buil/;"	m
 CMAKE_COMMAND	build/Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake$/;"	m
-CMAKE_SOURCE_DIR	build/Makefile	/^CMAKE_SOURCE_DIR = \/home\/chris\/Projects\/opengl-tutorial-solutions\/16-basic-texture-mapping$/;"	m
+CMAKE_SOURCE_DIR	build/Makefile	/^CMAKE_SOURCE_DIR = \/home\/chris\/Projects\/opengl-tutorial-solutions\/18-diffuse-lighting$/;"	m
 COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_ID /;"	d	file:
 COMPILER_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_ID /;"	d	file:
 COMPILER_VERSION_MAJOR	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_MAJOR /;"	d	file:
@@ -750,18 +768,30 @@ COMPILER_VERSION_TWEAK	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.c
 CONTROLS_H	include/controls.h	/^#define CONTROLS_H$/;"	d
 Camera	include/camera.h	/^class Camera$/;"	c
 Camera	src/camera.cpp	/^Camera::Camera(glm::mat4 defaultViewMatrix) :$/;"	f	class:Camera
+ColorTree	src/lodepng.cpp	/^struct ColorTree$/;"	s	file:
+ColorTree	src/lodepng.cpp	/^typedef struct ColorTree ColorTree;$/;"	t	typeref:struct:ColorTree	file:
 ControlKeys	include/controls.h	/^enum class ControlKeys : int$/;"	g
 Controls	include/controls.h	/^        Controls() :$/;"	f	class:Controls
 Controls	include/controls.h	/^class Controls$/;"	c
 DEC	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(/;"	d	file:
 DEC	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define DEC(/;"	d	file:
+DEFAULT_WINDOWSIZE	src/lodepng.cpp	/^#define DEFAULT_WINDOWSIZE /;"	d	file:
+DIRECTIONAL_H	include/lights/directional.h	/^#define DIRECTIONAL_H$/;"	d
+DISTANCEBASE	src/lodepng.cpp	/^static const unsigned DISTANCEBASE[30]$/;"	v	typeref:typename:const unsigned[30]	file:
+DISTANCEEXTRA	src/lodepng.cpp	/^static const unsigned DISTANCEEXTRA[30]$/;"	v	typeref:typename:const unsigned[30]	file:
 Data	include/glm/gtx/simd_mat4.hpp	/^		fvec4SIMD Data[4];$/;"	v	namespace:glm::detail	typeref:typename:fvec4SIMD[4]
 Data	include/glm/gtx/simd_quat.hpp	/^			__m128 Data;$/;"	m	union:glm::detail::__anonf0ac7c26010a	typeref:typename:__m128
 Data	include/glm/gtx/simd_quat.hpp	/^		__m128 Data;$/;"	v	namespace:glm::detail	typeref:typename:__m128
 Data	include/glm/gtx/simd_vec4.hpp	/^			__m128 Data;$/;"	m	union:glm::detail::__anonbe76097d010a	typeref:typename:__m128
 Data	include/glm/gtx/simd_vec4.hpp	/^		__m128 Data;$/;"	v	namespace:glm::detail	typeref:typename:__m128
+DirectionalLight	include/lights/directional.h	/^struct DirectionalLight$/;"	s
+DirectionalLightList	include/lights/directional.h	/^class DirectionalLightList$/;"	c
 Down	include/controls.h	/^    Down,$/;"	e	enum:ControlKeys
 EQUALS	build/Makefile	/^EQUALS = =$/;"	m
+ERROR_BREAK	src/lodepng.cpp	/^#define ERROR_BREAK(/;"	d	file:
+FIRST_LENGTH_CODE_INDEX	src/lodepng.cpp	/^#define FIRST_LENGTH_CODE_INDEX /;"	d	file:
+File	include/utilities.h	/^    namespace File$/;"	n	namespace:Utilities
+File	src/utilities.cpp	/^    namespace File$/;"	n	namespace:Utilities	file:
 Forward	include/controls.h	/^    Forward,$/;"	e	enum:ControlKeys
 G	include/glm/gtx/simd_vec4.hpp	/^		G = 1,$/;"	e	enum:glm::comp
 GL3WglProc	include/GL/gl3w.h	/^typedef void (*GL3WglProc)(void);$/;"	t	typeref:typename:void (*)(void)
@@ -2613,23 +2643,101 @@ GLuint64	include/GL/glcorearb.h	/^typedef uint64_t GLuint64;$/;"	t	typeref:typen
 GLuint64EXT	include/GL/glcorearb.h	/^typedef uint64_t GLuint64EXT;$/;"	t	typeref:typename:uint64_t
 GLushort	include/GL/glcorearb.h	/^typedef unsigned short GLushort;$/;"	t	typeref:typename:unsigned short
 GLvoid	include/GL/glcorearb.h	/^typedef void GLvoid;$/;"	t	typeref:typename:void
+HASH_BIT_MASK	src/lodepng.cpp	/^static const unsigned HASH_BIT_MASK = 65535; \/*HASH_NUM_VALUES - 1, but C90 does not like that /;"	v	typeref:typename:const unsigned	file:
+HASH_NUM_VALUES	src/lodepng.cpp	/^static const unsigned HASH_NUM_VALUES = 65536;$/;"	v	typeref:typename:const unsigned	file:
 HEX	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^#define HEX(/;"	d	file:
 HEX	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define HEX(/;"	d	file:
+Hash	src/lodepng.cpp	/^typedef struct Hash$/;"	s	file:
+Hash	src/lodepng.cpp	/^} Hash;$/;"	t	typeref:struct:Hash	file:
+HuffmanTree	src/lodepng.cpp	/^typedef struct HuffmanTree$/;"	s	file:
+HuffmanTree	src/lodepng.cpp	/^} HuffmanTree;$/;"	t	typeref:struct:HuffmanTree	file:
+HuffmanTree_cleanup	src/lodepng.cpp	/^static void HuffmanTree_cleanup(HuffmanTree* tree)$/;"	f	typeref:typename:void	file:
+HuffmanTree_getCode	src/lodepng.cpp	/^static unsigned HuffmanTree_getCode(const HuffmanTree* tree, unsigned index)$/;"	f	typeref:typename:unsigned	file:
+HuffmanTree_getLength	src/lodepng.cpp	/^static unsigned HuffmanTree_getLength(const HuffmanTree* tree, unsigned index)$/;"	f	typeref:typename:unsigned	file:
+HuffmanTree_init	src/lodepng.cpp	/^static void HuffmanTree_init(HuffmanTree* tree)$/;"	f	typeref:typename:void	file:
+HuffmanTree_make2DTree	src/lodepng.cpp	/^static unsigned HuffmanTree_make2DTree(HuffmanTree* tree)$/;"	f	typeref:typename:unsigned	file:
+HuffmanTree_makeFromFrequencies	src/lodepng.cpp	/^static unsigned HuffmanTree_makeFromFrequencies(HuffmanTree* tree, const unsigned* frequencies,$/;"	f	typeref:typename:unsigned	file:
+HuffmanTree_makeFromLengths	src/lodepng.cpp	/^static unsigned HuffmanTree_makeFromLengths(HuffmanTree* tree, const unsigned* bitlen,$/;"	f	typeref:typename:unsigned	file:
+HuffmanTree_makeFromLengths2	src/lodepng.cpp	/^static unsigned HuffmanTree_makeFromLengths2(HuffmanTree* tree)$/;"	f	typeref:typename:unsigned	file:
 ID_VOID_MAIN	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^# define ID_VOID_MAIN$/;"	d	file:
+LAST_LENGTH_CODE_INDEX	src/lodepng.cpp	/^#define LAST_LENGTH_CODE_INDEX /;"	d	file:
+LCT_GREY	include/lodepng.h	/^  LCT_GREY = 0, \/*greyscale: 1,2,4,8,16 bit*\/$/;"	e	enum:LodePNGColorType
+LCT_GREY_ALPHA	include/lodepng.h	/^  LCT_GREY_ALPHA = 4, \/*greyscale with alpha: 8,16 bit*\/$/;"	e	enum:LodePNGColorType
+LCT_PALETTE	include/lodepng.h	/^  LCT_PALETTE = 3, \/*palette: 1,2,4,8 bit*\/$/;"	e	enum:LodePNGColorType
+LCT_RGB	include/lodepng.h	/^  LCT_RGB = 2, \/*RGB: 8,16 bit*\/$/;"	e	enum:LodePNGColorType
+LCT_RGBA	include/lodepng.h	/^  LCT_RGBA = 6 \/*RGB with alpha: 8,16 bit*\/$/;"	e	enum:LodePNGColorType
+LENGTHBASE	src/lodepng.cpp	/^static const unsigned LENGTHBASE[29]$/;"	v	typeref:typename:const unsigned[29]	file:
+LENGTHEXTRA	src/lodepng.cpp	/^static const unsigned LENGTHEXTRA[29]$/;"	v	typeref:typename:const unsigned[29]	file:
+LFS_BRUTE_FORCE	include/lodepng.h	/^  LFS_BRUTE_FORCE,$/;"	e	enum:LodePNGFilterStrategy
+LFS_ENTROPY	include/lodepng.h	/^  LFS_ENTROPY,$/;"	e	enum:LodePNGFilterStrategy
+LFS_MINSUM	include/lodepng.h	/^  LFS_MINSUM,$/;"	e	enum:LodePNGFilterStrategy
+LFS_PREDEFINED	include/lodepng.h	/^  LFS_PREDEFINED$/;"	e	enum:LodePNGFilterStrategy
+LFS_ZERO	include/lodepng.h	/^  LFS_ZERO,$/;"	e	enum:LodePNGFilterStrategy
+LODEPNG_COMPILE_ALLOCATORS	include/lodepng.h	/^#define LODEPNG_COMPILE_ALLOCATORS$/;"	d
+LODEPNG_COMPILE_ANCILLARY_CHUNKS	include/lodepng.h	/^#define LODEPNG_COMPILE_ANCILLARY_CHUNKS$/;"	d
+LODEPNG_COMPILE_CPP	include/lodepng.h	/^#define LODEPNG_COMPILE_CPP$/;"	d
+LODEPNG_COMPILE_DECODER	include/lodepng.h	/^#define LODEPNG_COMPILE_DECODER$/;"	d
+LODEPNG_COMPILE_DISK	include/lodepng.h	/^#define LODEPNG_COMPILE_DISK$/;"	d
+LODEPNG_COMPILE_ENCODER	include/lodepng.h	/^#define LODEPNG_COMPILE_ENCODER$/;"	d
+LODEPNG_COMPILE_ERROR_TEXT	include/lodepng.h	/^#define LODEPNG_COMPILE_ERROR_TEXT$/;"	d
+LODEPNG_COMPILE_PNG	include/lodepng.h	/^#define LODEPNG_COMPILE_PNG$/;"	d
+LODEPNG_COMPILE_ZLIB	include/lodepng.h	/^#define LODEPNG_COMPILE_ZLIB$/;"	d
+LODEPNG_H	include/lodepng.h	/^#define LODEPNG_H$/;"	d
+LODEPNG_VERSION_STRING	src/lodepng.cpp	/^const char* LODEPNG_VERSION_STRING = "20160501";$/;"	v	typeref:typename:const char *
 LabelFalse	include/glm/gtx/string_cast.inl	/^	static const char* LabelFalse = "false";$/;"	v	namespace:glm::detail	typeref:typename:const char *	file:
 LabelTrue	include/glm/gtx/string_cast.inl	/^	static const char* LabelTrue = "true";$/;"	v	namespace:glm::detail	typeref:typename:const char *	file:
 Left	include/controls.h	/^    Left,$/;"	e	enum:ControlKeys
-MATERIAL_H	include/material.h	/^#define MATERIAL_H$/;"	d
-Material	include/material.h	/^class Material$/;"	c
-Material	src/material.cpp	/^Material::Material($/;"	f	class:Material
+LodePNGColorMode	include/lodepng.h	/^typedef struct LodePNGColorMode$/;"	s
+LodePNGColorMode	include/lodepng.h	/^} LodePNGColorMode;$/;"	t	typeref:struct:LodePNGColorMode
+LodePNGColorProfile	include/lodepng.h	/^typedef struct LodePNGColorProfile$/;"	s
+LodePNGColorProfile	include/lodepng.h	/^} LodePNGColorProfile;$/;"	t	typeref:struct:LodePNGColorProfile
+LodePNGColorType	include/lodepng.h	/^typedef enum LodePNGColorType$/;"	g
+LodePNGColorType	include/lodepng.h	/^} LodePNGColorType;$/;"	t	typeref:enum:LodePNGColorType
+LodePNGCompressSettings	include/lodepng.h	/^struct LodePNGCompressSettings \/*deflate = compress*\/$/;"	s
+LodePNGCompressSettings	include/lodepng.h	/^typedef struct LodePNGCompressSettings LodePNGCompressSettings;$/;"	t	typeref:struct:LodePNGCompressSettings
+LodePNGDecoderSettings	include/lodepng.h	/^typedef struct LodePNGDecoderSettings$/;"	s
+LodePNGDecoderSettings	include/lodepng.h	/^} LodePNGDecoderSettings;$/;"	t	typeref:struct:LodePNGDecoderSettings
+LodePNGDecompressSettings	include/lodepng.h	/^struct LodePNGDecompressSettings$/;"	s
+LodePNGDecompressSettings	include/lodepng.h	/^typedef struct LodePNGDecompressSettings LodePNGDecompressSettings;$/;"	t	typeref:struct:LodePNGDecompressSettings
+LodePNGEncoderSettings	include/lodepng.h	/^typedef struct LodePNGEncoderSettings$/;"	s
+LodePNGEncoderSettings	include/lodepng.h	/^} LodePNGEncoderSettings;$/;"	t	typeref:struct:LodePNGEncoderSettings
+LodePNGFilterStrategy	include/lodepng.h	/^typedef enum LodePNGFilterStrategy$/;"	g
+LodePNGFilterStrategy	include/lodepng.h	/^} LodePNGFilterStrategy;$/;"	t	typeref:enum:LodePNGFilterStrategy
+LodePNGIText_cleanup	src/lodepng.cpp	/^static void LodePNGIText_cleanup(LodePNGInfo* info)$/;"	f	typeref:typename:void	file:
+LodePNGIText_copy	src/lodepng.cpp	/^static unsigned LodePNGIText_copy(LodePNGInfo* dest, const LodePNGInfo* source)$/;"	f	typeref:typename:unsigned	file:
+LodePNGIText_init	src/lodepng.cpp	/^static void LodePNGIText_init(LodePNGInfo* info)$/;"	f	typeref:typename:void	file:
+LodePNGInfo	include/lodepng.h	/^typedef struct LodePNGInfo$/;"	s
+LodePNGInfo	include/lodepng.h	/^} LodePNGInfo;$/;"	t	typeref:struct:LodePNGInfo
+LodePNGState	include/lodepng.h	/^typedef struct LodePNGState$/;"	s
+LodePNGState	include/lodepng.h	/^} LodePNGState;$/;"	t	typeref:struct:LodePNGState
+LodePNGText_cleanup	src/lodepng.cpp	/^static void LodePNGText_cleanup(LodePNGInfo* info)$/;"	f	typeref:typename:void	file:
+LodePNGText_copy	src/lodepng.cpp	/^static unsigned LodePNGText_copy(LodePNGInfo* dest, const LodePNGInfo* source)$/;"	f	typeref:typename:unsigned	file:
+LodePNGText_init	src/lodepng.cpp	/^static void LodePNGText_init(LodePNGInfo* info)$/;"	f	typeref:typename:void	file:
+LodePNGTime	include/lodepng.h	/^typedef struct LodePNGTime$/;"	s
+LodePNGTime	include/lodepng.h	/^} LodePNGTime;$/;"	t	typeref:struct:LodePNGTime
+LodePNGUnknownChunks_cleanup	src/lodepng.cpp	/^static void LodePNGUnknownChunks_cleanup(LodePNGInfo* info)$/;"	f	typeref:typename:void	file:
+LodePNGUnknownChunks_copy	src/lodepng.cpp	/^static unsigned LodePNGUnknownChunks_copy(LodePNGInfo* dest, const LodePNGInfo* src)$/;"	f	typeref:typename:unsigned	file:
+LodePNGUnknownChunks_init	src/lodepng.cpp	/^static void LodePNGUnknownChunks_init(LodePNGInfo* info)$/;"	f	typeref:typename:void	file:
+MATERIAL_H	include/materials/material.h	/^#define MATERIAL_H$/;"	d
+MAX_SUPPORTED_DEFLATE_LENGTH	src/lodepng.cpp	/^static const size_t MAX_SUPPORTED_DEFLATE_LENGTH = 258;$/;"	v	typeref:typename:const size_t	file:
+Material	include/materials/material.h	/^class Material$/;"	c
+Material	src/materials/material.cpp	/^Material::Material($/;"	f	class:Material
 Math	include/utilities.h	/^    namespace Math$/;"	n	namespace:Utilities
 Math	src/utilities.cpp	/^    namespace Math$/;"	n	namespace:Utilities	file:
+NUM_CODE_LENGTH_CODES	src/lodepng.cpp	/^#define NUM_CODE_LENGTH_CODES /;"	d	file:
+NUM_DEFLATE_CODE_SYMBOLS	src/lodepng.cpp	/^#define NUM_DEFLATE_CODE_SYMBOLS /;"	d	file:
+NUM_DISTANCE_SYMBOLS	src/lodepng.cpp	/^#define NUM_DISTANCE_SYMBOLS /;"	d	file:
 P	include/glm/gtx/simd_vec4.hpp	/^		P = 2,$/;"	e	enum:glm::comp
+PHONGMATERIAL_H	include/materials/phongmaterial.h	/^#define PHONGMATERIAL_H$/;"	d
 PI	include/utilities.h	/^        const double PI = 3.1415926535897;$/;"	v	namespace:Utilities::Math	typeref:typename:const double
 PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^#  define PLATFORM_ID /;"	d	file:
 PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^# define PLATFORM_ID /;"	d	file:
 PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define PLATFORM_ID /;"	d	file:
 PLATFORM_ID	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define PLATFORM_ID /;"	d	file:
+PNG	include/texture.h	/^    PNG$/;"	e	enum:TextureFormat
+PhongLightAttributes	include/materials/phongmaterial.h	/^struct PhongLightAttributes$/;"	s
+PhongMaterial	include/materials/phongmaterial.h	/^class PhongMaterial : public Material$/;"	c
+PhongMaterial	src/materials/phongmaterial.cpp	/^PhongMaterial::PhongMaterial($/;"	f	class:PhongMaterial
 PositionDataF16	include/glm/detail/dummy.cpp	/^glm::uint const PositionDataF16[VertexCount] =$/;"	v	typeref:typename:glm::uint const[]
 PositionDataF32	include/glm/detail/dummy.cpp	/^glm::vec2 const PositionDataF32[VertexCount] =$/;"	v	typeref:typename:glm::vec2 const[]
 PositionDataI32	include/glm/detail/dummy.cpp	/^glm::i32vec2 const PositionDataI32[VertexCount] =$/;"	v	typeref:typename:glm::i32vec2 const[]
@@ -2640,7 +2748,11 @@ PositionSizeI32	include/glm/detail/dummy.cpp	/^std::size_t const PositionSizeI32
 PositionSizeI8	include/glm/detail/dummy.cpp	/^std::size_t const PositionSizeI8 = VertexCount * sizeof(glm::i8vec2);$/;"	v	typeref:typename:std::size_t const
 Q	include/glm/gtx/simd_vec4.hpp	/^		Q = 3$/;"	e	enum:glm::comp
 R	include/glm/gtx/simd_vec4.hpp	/^		R = 0,$/;"	e	enum:glm::comp
+READBIT	src/lodepng.cpp	/^#define READBIT(/;"	d	file:
+RENDERWINDOW_H	include/renderwindow.h	/^#define RENDERWINDOW_H$/;"	d
 RM	build/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
+RenderWindow	include/renderwindow.h	/^class RenderWindow$/;"	c
+RenderWindow	src/renderwindow.cpp	/^RenderWindow::RenderWindow(const std::string &windowTitle, unsigned int screenWidth, unsigned in/;"	f	class:RenderWindow
 Right	include/controls.h	/^    Right,$/;"	e	enum:ControlKeys
 S	include/glm/gtx/simd_vec4.hpp	/^		S = 0,$/;"	e	enum:glm::comp
 SDLKeyStates	include/controls.h	/^        const uint8_t *SDLKeyStates;$/;"	m	class:Controls	typeref:typename:const uint8_t *
@@ -2656,16 +2768,23 @@ STRINGIFY	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define 
 STRINGIFY_HELPER	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY_HELPER(/;"	d	file:
 STRINGIFY_HELPER	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define STRINGIFY_HELPER(/;"	d	file:
 SUFFIXES	build/Makefile	/^SUFFIXES =$/;"	m
-ShaderProgramStages	include/material.h	/^struct ShaderProgramStages$/;"	s
+ShaderProgramStages	include/materials/material.h	/^struct ShaderProgramStages$/;"	s
+State	include/lodepng.h	/^class State : public LodePNGState$/;"	c	namespace:lodepng
+State	src/lodepng.cpp	/^State::State()$/;"	f	class:lodepng::State
+State	src/lodepng.cpp	/^State::State(const State& other)$/;"	f	class:lodepng::State
 Stub	include/glm/detail/_swizzle.hpp	/^		struct Stub {};$/;"	s	struct:glm::detail::_swizzle_base2
 T	include/glm/gtx/simd_vec4.hpp	/^		T = 1,$/;"	e	enum:glm::comp
-Tutorial16	build/Makefile	/^Tutorial16: cmake_check_build_system$/;"	t
-Tutorial16/fast	build/Makefile	/^Tutorial16\/fast:$/;"	t
+TEXTURE_H	include/texture.h	/^#define TEXTURE_H$/;"	d
+Texture	include/texture.h	/^class Texture$/;"	c
+TextureFormat	include/texture.h	/^enum class TextureFormat$/;"	g
+Tutorial18	build/Makefile	/^Tutorial18: cmake_check_build_system$/;"	t
+Tutorial18/fast	build/Makefile	/^Tutorial18\/fast:$/;"	t
 UTILITIES_H	include/utilities.h	/^#define UTILITIES_H$/;"	d
 Up	include/controls.h	/^    Up,$/;"	e	enum:ControlKeys
 Utilities	include/utilities.h	/^namespace Utilities$/;"	n
 Utilities	src/utilities.cpp	/^namespace Utilities$/;"	n	file:
-VAO	include/material.h	/^        GLuint VAO = 0;$/;"	m	class:Material	typeref:typename:GLuint
+VAO	include/materials/material.h	/^        GLuint VAO = 0;$/;"	m	class:Material	typeref:typename:GLuint
+Vertex	src/tutorial18.cpp	/^struct Vertex$/;"	s	file:
 VertexCount	include/glm/detail/dummy.cpp	/^std::size_t const VertexCount = 4;$/;"	v	typeref:typename:std::size_t const
 W	include/glm/gtx/simd_vec4.hpp	/^		W = 3,$/;"	e	enum:glm::comp
 WIN32_LEAN_AND_MEAN	include/GL/glcorearb.h	/^#define WIN32_LEAN_AND_MEAN /;"	d
@@ -2850,15 +2969,44 @@ acsc	include/glm/gtc/reciprocal.inl	/^	GLM_FUNC_QUALIFIER genType acsc(genType x
 acsc	include/glm/gtc/reciprocal.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> acsc(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 acsch	include/glm/gtc/reciprocal.inl	/^	GLM_FUNC_QUALIFIER genType acsch(genType x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 acsch	include/glm/gtc/reciprocal.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> acsch(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
-addAttribute	src/material.cpp	/^bool Material::addAttribute(std::string attributeName)$/;"	f	class:Material	typeref:typename:bool
-addUniformAttribute	src/material.cpp	/^bool Material::addUniformAttribute(std::string uniformName)$/;"	f	class:Material	typeref:typename:bool
+addAttribute	src/materials/material.cpp	/^bool Material::addAttribute(std::string attributeName)$/;"	f	class:Material	typeref:typename:bool
+addBitToStream	src/lodepng.cpp	/^#define addBitToStream(/;"	d	file:
+addBitsToStream	src/lodepng.cpp	/^static void addBitsToStream(size_t* bitpointer, ucvector* bitstream, unsigned value, size_t nbit/;"	f	typeref:typename:void	file:
+addBitsToStreamReversed	src/lodepng.cpp	/^static void addBitsToStreamReversed(size_t* bitpointer, ucvector* bitstream, unsigned value, siz/;"	f	typeref:typename:void	file:
+addChunk	src/lodepng.cpp	/^static unsigned addChunk(ucvector* out, const char* chunkName, const unsigned char* data, size_t/;"	f	typeref:typename:unsigned	file:
+addChunk_IDAT	src/lodepng.cpp	/^static unsigned addChunk_IDAT(ucvector* out, const unsigned char* data, size_t datasize,$/;"	f	typeref:typename:unsigned	file:
+addChunk_IEND	src/lodepng.cpp	/^static unsigned addChunk_IEND(ucvector* out)$/;"	f	typeref:typename:unsigned	file:
+addChunk_IHDR	src/lodepng.cpp	/^static unsigned addChunk_IHDR(ucvector* out, unsigned w, unsigned h,$/;"	f	typeref:typename:unsigned	file:
+addChunk_PLTE	src/lodepng.cpp	/^static unsigned addChunk_PLTE(ucvector* out, const LodePNGColorMode* info)$/;"	f	typeref:typename:unsigned	file:
+addChunk_bKGD	src/lodepng.cpp	/^static unsigned addChunk_bKGD(ucvector* out, const LodePNGInfo* info)$/;"	f	typeref:typename:unsigned	file:
+addChunk_iTXt	src/lodepng.cpp	/^static unsigned addChunk_iTXt(ucvector* out, unsigned compressed, const char* keyword, const cha/;"	f	typeref:typename:unsigned	file:
+addChunk_pHYs	src/lodepng.cpp	/^static unsigned addChunk_pHYs(ucvector* out, const LodePNGInfo* info)$/;"	f	typeref:typename:unsigned	file:
+addChunk_tEXt	src/lodepng.cpp	/^static unsigned addChunk_tEXt(ucvector* out, const char* keyword, const char* textstring)$/;"	f	typeref:typename:unsigned	file:
+addChunk_tIME	src/lodepng.cpp	/^static unsigned addChunk_tIME(ucvector* out, const LodePNGTime* time)$/;"	f	typeref:typename:unsigned	file:
+addChunk_tRNS	src/lodepng.cpp	/^static unsigned addChunk_tRNS(ucvector* out, const LodePNGColorMode* info)$/;"	f	typeref:typename:unsigned	file:
+addChunk_zTXt	src/lodepng.cpp	/^static unsigned addChunk_zTXt(ucvector* out, const char* keyword, const char* textstring,$/;"	f	typeref:typename:unsigned	file:
+addColorBits	src/lodepng.cpp	/^static void addColorBits(unsigned char* out, size_t index, unsigned bits, unsigned in)$/;"	f	typeref:typename:void	file:
+addDirectionalLight	src/lights/directional.cpp	/^size_t DirectionalLightList::addDirectionalLight(glm::vec3 color, glm::vec3 direction, float amb/;"	f	class:DirectionalLightList	typeref:typename:size_t
+addHuffmanSymbol	src/lodepng.cpp	/^static void addHuffmanSymbol(size_t* bp, ucvector* compressed, unsigned code, unsigned bitlen)$/;"	f	typeref:typename:void	file:
+addLengthDistance	src/lodepng.cpp	/^static void addLengthDistance(uivector* values, size_t length, size_t distance)$/;"	f	typeref:typename:void	file:
+addLightUniformAttribute	src/materials/phongmaterial.cpp	/^bool PhongMaterial::addLightUniformAttribute(std::string uniformName)$/;"	f	class:PhongMaterial	typeref:typename:bool
+addPaddingBits	src/lodepng.cpp	/^static void addPaddingBits(unsigned char* out, const unsigned char* in,$/;"	f	typeref:typename:void	file:
+addUniformAttribute	src/materials/material.cpp	/^bool Material::addUniformAttribute(std::string uniformName)$/;"	f	class:Material	typeref:typename:bool
+addUnknownChunks	src/lodepng.cpp	/^static unsigned addUnknownChunks(ucvector* out, unsigned char* data, size_t datasize)$/;"	f	typeref:typename:unsigned	file:
+add_id	include/lodepng.h	/^  unsigned add_id;$/;"	m	struct:LodePNGEncoderSettings	typeref:typename:unsigned
+adler32	src/lodepng.cpp	/^static unsigned adler32(const unsigned char* data, unsigned len)$/;"	f	typeref:typename:unsigned	file:
 affineInverse	include/glm/gtc/matrix_inverse.inl	/^	GLM_FUNC_QUALIFIER tmat3x3<T, P> affineInverse(tmat3x3<T, P> const & m)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat3x3<T,P>
 affineInverse	include/glm/gtc/matrix_inverse.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, P> affineInverse(tmat4x4<T, P> const & m)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,P>
 all	build/Makefile	/^all: cmake_check_build_system$/;"	t
 all	include/glm/detail/func_vector_relational.inl	/^	GLM_FUNC_QUALIFIER bool all(vecType<bool, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER bool
 all	include/glm/gtx/scalar_relational.inl	/^	GLM_FUNC_QUALIFIER bool all$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER bool
+allocsize	src/lodepng.cpp	/^  size_t allocsize; \/*allocated size in bytes*\/$/;"	m	struct:uivector	typeref:typename:size_t	file:
+allocsize	src/lodepng.cpp	/^  size_t allocsize; \/*allocated size*\/$/;"	m	struct:ucvector	typeref:typename:size_t	file:
+alpha	include/lodepng.h	/^  unsigned alpha; \/*alpha channel or alpha palette required*\/$/;"	m	struct:LodePNGColorProfile	typeref:typename:unsigned
 ambient	include/glm/detail/dummy.cpp	/^	glm::vec4 ambient; \/\/ Acli$/;"	m	struct:light	typeref:typename:glm::vec4	file:
 ambient	include/glm/detail/dummy.cpp	/^	glm::vec4 ambient; \/\/ Acm$/;"	m	struct:material	typeref:typename:glm::vec4	file:
+ambientIntensity	include/lights/directional.h	/^    float ambientIntensity;$/;"	m	struct:DirectionalLight	typeref:typename:float
+ambientIntensityUniformLocation	include/materials/phongmaterial.h	/^    GLint ambientIntensityUniformLocation;$/;"	m	struct:PhongLightAttributes	typeref:typename:GLint
 angle	include/glm/gtc/quaternion.inl	/^	GLM_FUNC_QUALIFIER T angle(tquat<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 angle	include/glm/gtx/vector_angle.inl	/^	GLM_FUNC_QUALIFIER T angle$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 angle	include/glm/gtx/vector_angle.inl	/^	GLM_FUNC_QUALIFIER genType angle$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
@@ -2876,6 +3024,7 @@ asech	include/glm/gtc/reciprocal.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> asech(v
 asin	include/glm/detail/func_trigonometric.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> asin(vecType<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 asinh	include/glm/detail/func_trigonometric.inl	/^		GLM_FUNC_QUALIFIER genType asinh(genType const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 asinh	include/glm/detail/func_trigonometric.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> asinh(vecType<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
+assignedIDCount	include/lights/directional.h	/^        size_t assignedIDCount = 0;$/;"	m	class:DirectionalLightList	typeref:typename:size_t
 associatedMax	include/glm/gtx/associated_min_max.inl	/^GLM_FUNC_QUALIFIER U associatedMax$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER U
 associatedMax	include/glm/gtx/associated_min_max.inl	/^GLM_FUNC_QUALIFIER U associatedMax(T x, U a, T y, U b)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER U
 associatedMax	include/glm/gtx/associated_min_max.inl	/^GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec2<U,P>
@@ -2894,6 +3043,7 @@ atan2	include/glm/gtx/compatibility.hpp	/^	template <typename T, precision P> GL
 atan2	include/glm/gtx/compatibility.hpp	/^	template <typename T, precision P> GLM_FUNC_QUALIFIER tvec4<T, P> atan2(const tvec4<T, P>& x, c/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec4<T,P>
 atanh	include/glm/detail/func_trigonometric.inl	/^		GLM_FUNC_QUALIFIER genType atanh(genType const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 atanh	include/glm/detail/func_trigonometric.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> atanh(vecType<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
+auto_convert	include/lodepng.h	/^  unsigned auto_convert; \/*automatically choose output PNG color type. Default: true*\/$/;"	m	struct:LodePNGEncoderSettings	typeref:typename:unsigned
 axis	include/glm/gtc/quaternion.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> axis(tquat<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
 axisAngle	include/glm/gtx/matrix_interpolation.inl	/^	GLM_FUNC_QUALIFIER void axisAngle$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER void
 axisAngleMatrix	include/glm/gtx/matrix_interpolation.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, P> axisAngleMatrix$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,P>
@@ -2901,6 +3051,10 @@ b	include/glm/detail/type_vec3.hpp	/^				struct{ T r, g, b; };$/;"	m	struct:glm:
 b	include/glm/detail/type_vec3.hpp	/^			union { T z, b, p; };$/;"	m	union:glm::tvec3::__anon623cd6d1070a	typeref:typename:T
 b	include/glm/detail/type_vec4.hpp	/^				struct { T r, g, b, a; };$/;"	m	struct:glm::tvec4::__anon624eef52010a::__anon624eef520308	typeref:typename:T
 b	include/glm/detail/type_vec4.hpp	/^			union { T z, b, p; };$/;"	m	union:glm::tvec4::__anon624eef52070a	typeref:typename:T
+background_b	include/lodepng.h	/^  unsigned background_b;       \/*blue component of suggested background color*\/$/;"	m	struct:LodePNGInfo	typeref:typename:unsigned
+background_defined	include/lodepng.h	/^  unsigned background_defined; \/*is a suggested background color given?*\/$/;"	m	struct:LodePNGInfo	typeref:typename:unsigned
+background_g	include/lodepng.h	/^  unsigned background_g;       \/*green component of suggested background color*\/$/;"	m	struct:LodePNGInfo	typeref:typename:unsigned
+background_r	include/lodepng.h	/^  unsigned background_r;       \/*red component of suggested background color*\/$/;"	m	struct:LodePNGInfo	typeref:typename:unsigned
 ballRand	include/glm/gtc/random.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, defaultp> ballRand(T Radius)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,defaultp>
 base	include/glm/detail/type_gentype.inl	/^base<vT, cT, rT, pT>::base$/;"	f	class:glm::detail::base
 base	include/glm/detail/type_gentype.inl	/^base<vT, cT, rT, pT>::base()$/;"	f	class:glm::detail::base
@@ -2911,9 +3065,11 @@ basic_state_saver	include/glm/gtx/io.hpp	/^		class basic_state_saver {$/;"	c	nam
 basic_state_saver	include/glm/gtx/io.inl	/^	\/* explicit *\/ GLM_FUNC_QUALIFIER basic_state_saver<CTy,CTr>::basic_state_saver(std::basic_io/;"	f	class:glm::io::basic_state_saver	typeref:typename:GLM_FUNC_QUALIFIER
 begin	include/glm/gtx/range.hpp	/^	const typename genType::value_type * begin(genType const & v){$/;"	f	namespace:glm	typeref:typename:const typename genType::value_type *
 begin	include/glm/gtx/range.hpp	/^	typename genType::value_type * begin(genType& v){$/;"	f	namespace:glm	typeref:typename:genType::value_type *
-bind	src/material.cpp	/^void Material::bind()$/;"	f	class:Material	typeref:typename:void
+bind	src/materials/material.cpp	/^void Material::bind()$/;"	f	class:Material	typeref:typename:void
+bind	src/texture.cpp	/^void Texture::bind(GLenum textureUnit)$/;"	f	class:Texture	typeref:typename:void
 bitCount	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER int bitCount(genType x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER int
 bitCount	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER vecType<int, P> bitCount(vecType<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<int,P>
+bitdepth	include/lodepng.h	/^  unsigned bitdepth;  \/*bits per sample, see PNG standard or documentation further in this head/;"	m	struct:LodePNGColorMode	typeref:typename:unsigned
 bitfieldExtract	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER genIUType bitfieldExtract(genIUType Value, int Offset, int Bits)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genIUType
 bitfieldExtract	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> bitfieldExtract(vecType<T, P> const & Value, int Offset, int B/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 bitfieldFillOne	include/glm/gtc/bitfield.inl	/^	GLM_FUNC_QUALIFIER genIUType bitfieldFillOne(genIUType Value, int FirstBit, int BitCount)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genIUType
@@ -2952,6 +3108,7 @@ bitfieldRotateLeft	include/glm/gtc/bitfield.inl	/^	GLM_FUNC_QUALIFIER genIType b
 bitfieldRotateLeft	include/glm/gtc/bitfield.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> bitfieldRotateLeft(vecType<T, P> const & In, int Shift)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 bitfieldRotateRight	include/glm/gtc/bitfield.inl	/^	GLM_FUNC_QUALIFIER genIType bitfieldRotateRight(genIType In, int Shift)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genIType
 bitfieldRotateRight	include/glm/gtc/bitfield.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> bitfieldRotateRight(vecType<T, P> const & In, int Shift)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
+bits	include/lodepng.h	/^  unsigned bits; \/*bits per channel (not for palette). 1,2 or 4 for greyscale only. 16 if 16-bi/;"	m	struct:LodePNGColorProfile	typeref:typename:unsigned
 bool1	include/glm/gtx/compatibility.hpp	/^	typedef bool						bool1;			\/\/!< \\brief boolean type with 1 component. (From GLM_GTX_compatib/;"	t	namespace:glm	typeref:typename:bool
 bool1x1	include/glm/gtx/compatibility.hpp	/^	typedef bool						bool1x1;		\/\/!< \\brief boolean matrix with 1 x 1 component. (From GLM_GTX_c/;"	t	namespace:glm	typeref:typename:bool
 bool2	include/glm/gtx/compatibility.hpp	/^	typedef tvec2<bool, highp>			bool2;			\/\/!< \\brief boolean type with 2 components. (From GLM_/;"	t	namespace:glm	typeref:typename:tvec2<bool,highp>
@@ -2973,7 +3130,11 @@ bool_type	include/glm/detail/type_vec3.hpp	/^		typedef tvec3<bool, P> bool_type;
 bool_type	include/glm/detail/type_vec4.hpp	/^		typedef tvec4<bool, P> bool_type;$/;"	t	struct:glm::tvec4	typeref:typename:tvec4<bool,P>
 bool_type	include/glm/gtx/simd_quat.hpp	/^		typedef tquat<bool, defaultp> bool_type;$/;"	t	namespace:glm::detail	typeref:typename:tquat<bool,defaultp>
 bool_type	include/glm/gtx/simd_vec4.hpp	/^		typedef tvec4<bool, highp> bool_type;$/;"	t	namespace:glm::detail	typeref:typename:tvec4<bool,highp>
+boundaryPM	src/lodepng.cpp	/^static void boundaryPM(BPMLists* lists, BPMNode* leaves, size_t numpresent, int c, int num)$/;"	f	typeref:typename:void	file:
+bpmnode_create	src/lodepng.cpp	/^static BPMNode* bpmnode_create(BPMLists* lists, int weight, unsigned index, BPMNode* tail)$/;"	f	typeref:typename:BPMNode *	file:
+bpmnode_sort	src/lodepng.cpp	/^static void bpmnode_sort(BPMNode* leaves, size_t num)$/;"	f	typeref:typename:void	file:
 bss_	include/glm/gtx/io.hpp	/^			basic_state_saver<CTy> const bss_;$/;"	m	class:glm::io::basic_format_saver	typeref:typename:basic_state_saver<CTy> const
+btype	include/lodepng.h	/^  unsigned btype; \/*the block type for LZ (0, 1, 2 or 3, see zlib standard). Should be 2 for pr/;"	m	struct:LodePNGCompressSettings	typeref:typename:unsigned
 bundle	src/gl3w.c	/^CFBundleRef bundle;$/;"	v	typeref:typename:CFBundleRef
 bundleURL	src/gl3w.c	/^CFURLRef bundleURL;$/;"	v	typeref:typename:CFURLRef
 bvec1	include/glm/gtc/vec1.hpp	/^	typedef highp_bvec1				bvec1;$/;"	t	namespace:glm	typeref:typename:highp_bvec1
@@ -2989,6 +3150,7 @@ bvec4	include/glm/detail/type_vec.hpp	/^	typedef highp_bvec4			bvec4;$/;"	t	name
 bvec4	include/glm/detail/type_vec.hpp	/^	typedef lowp_bvec4			bvec4;$/;"	t	namespace:glm	typeref:typename:lowp_bvec4
 bvec4	include/glm/detail/type_vec.hpp	/^	typedef mediump_bvec4		bvec4;$/;"	t	namespace:glm	typeref:typename:mediump_bvec4
 byte	include/glm/gtx/raw_data.hpp	/^	typedef detail::uint8		byte;$/;"	t	namespace:glm	typeref:typename:detail::uint8
+calculateNormals	src/tutorial18.cpp	/^void calculateNormals($/;"	f	typeref:typename:void
 call	include/glm/detail/_vectorize.hpp	/^		GLM_FUNC_QUALIFIER static tvec1<R, P> call(R (*Func) (T x), tvec1<T, P> const & v)$/;"	f	struct:glm::detail::functor1	typeref:typename:GLM_FUNC_QUALIFIER tvec1<R,P>
 call	include/glm/detail/_vectorize.hpp	/^		GLM_FUNC_QUALIFIER static tvec1<T, P> call(T (*Func) (T x, T y), tvec1<T, P> const & a, T b)$/;"	f	struct:glm::detail::functor2_vec_sca	typeref:typename:GLM_FUNC_QUALIFIER tvec1<T,P>
 call	include/glm/detail/_vectorize.hpp	/^		GLM_FUNC_QUALIFIER static tvec1<T, P> call(T (*Func) (T x, T y), tvec1<T, P> const & a, tvec1</;"	f	struct:glm::detail::functor2	typeref:typename:GLM_FUNC_QUALIFIER tvec1<T,P>
@@ -3102,8 +3264,14 @@ ceilMultiple	include/glm/gtc/round.inl	/^	GLM_FUNC_QUALIFIER genType ceilMultipl
 ceilMultiple	include/glm/gtc/round.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> ceilMultiple(vecType<T, P> const & Source, vecType<T, P> const/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 ceilPowerOfTwo	include/glm/gtc/round.inl	/^	GLM_FUNC_QUALIFIER genType ceilPowerOfTwo(genType value)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 ceilPowerOfTwo	include/glm/gtc/round.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> ceilPowerOfTwo(vecType<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
+chain	src/lodepng.cpp	/^  unsigned short* chain;$/;"	m	struct:Hash	typeref:typename:unsigned short *	file:
+chains0	src/lodepng.cpp	/^  BPMNode** chains0;$/;"	m	struct:BPMLists	typeref:typename:BPMNode **	file:
+chains1	src/lodepng.cpp	/^  BPMNode** chains1;$/;"	m	struct:BPMLists	typeref:typename:BPMNode **	file:
+chainz	src/lodepng.cpp	/^  unsigned short* chainz; \/*those with same amount of zeros*\/$/;"	m	struct:Hash	typeref:typename:unsigned short *	file:
 char_type	include/glm/gtx/io.hpp	/^			typedef CTy char_type;$/;"	t	class:glm::io::format_punct	typeref:typename:CTy
 char_type	include/glm/gtx/io.hpp	/^			typedef typename state_type::char_type char_type;$/;"	t	class:glm::io::basic_state_saver	typeref:typename:state_type::char_type
+checkColorValidity	src/lodepng.cpp	/^static unsigned checkColorValidity(LodePNGColorType colortype, unsigned bd) \/*bd = bitdepth*\/$/;"	f	typeref:typename:unsigned	file:
+children	src/lodepng.cpp	/^  ColorTree* children[16]; \/*up to 16 pointers to ColorTree of next level*\/$/;"	m	struct:ColorTree	typeref:typename:ColorTree * [16]	file:
 circularRand	include/glm/gtc/random.inl	/^	GLM_FUNC_QUALIFIER tvec2<T, defaultp> circularRand(T Radius)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec2<T,defaultp>
 clamp	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER genType clamp(genType x, genType minVal, genType maxVal)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 clamp	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> clamp(vecType<T, P> const & x, T minVal, T maxVal)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
@@ -3115,6 +3283,7 @@ clamp	include/glm/gtx/wrap.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> clamp$/;"	f	nam
 clamp	include/glm/gtx/wrap.inl	/^	GLM_FUNC_QUALIFIER tvec4<T, P> clamp$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec4<T,P>
 clean	build/Makefile	/^clean:$/;"	t
 clean/fast	build/Makefile	/^clean\/fast: clean$/;"	t
+clear	src/lights/directional.cpp	/^void DirectionalLightList::clear()$/;"	f	class:DirectionalLightList	typeref:typename:void
 close_libgl	src/gl3w.c	/^static void close_libgl(void)$/;"	f	typeref:typename:void	file:
 closestPointOnLine	include/glm/gtx/closest_point.inl	/^	GLM_FUNC_QUALIFIER tvec2<T, P> closestPointOnLine$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec2<T,P>
 closestPointOnLine	include/glm/gtx/closest_point.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> closestPointOnLine$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
@@ -3134,6 +3303,17 @@ col_type	include/glm/detail/type_mat4x2.hpp	/^		typedef tvec2<T, P> col_type;$/;
 col_type	include/glm/detail/type_mat4x3.hpp	/^		typedef tvec3<T, P> col_type;$/;"	t	struct:glm::tmat4x3	typeref:typename:tvec3<T,P>
 col_type	include/glm/detail/type_mat4x4.hpp	/^		typedef tvec4<T, P> col_type;$/;"	t	struct:glm::tmat4x4	typeref:typename:tvec4<T,P>
 col_type	include/glm/gtx/simd_mat4.hpp	/^		typedef fvec4SIMD col_type;$/;"	t	namespace:glm::detail	typeref:typename:fvec4SIMD
+color	include/lights/directional.h	/^    glm::vec3 color;$/;"	m	struct:DirectionalLight	typeref:typename:glm::vec3
+color	include/lodepng.h	/^  LodePNGColorMode color;     \/*color type and bits, palette and transparency of the PNG file*\/$/;"	m	struct:LodePNGInfo	typeref:typename:LodePNGColorMode
+colorUniformLocation	include/materials/phongmaterial.h	/^    GLint colorUniformLocation;$/;"	m	struct:PhongLightAttributes	typeref:typename:GLint
+color_convert	include/lodepng.h	/^  unsigned color_convert; \/*whether to convert the PNG to the color type you want. Default: yes/;"	m	struct:LodePNGDecoderSettings	typeref:typename:unsigned
+color_tree_add	src/lodepng.cpp	/^static void color_tree_add(ColorTree* tree,$/;"	f	typeref:typename:void	file:
+color_tree_cleanup	src/lodepng.cpp	/^static void color_tree_cleanup(ColorTree* tree)$/;"	f	typeref:typename:void	file:
+color_tree_get	src/lodepng.cpp	/^static int color_tree_get(ColorTree* tree, unsigned char r, unsigned char g, unsigned char b, un/;"	f	typeref:typename:int	file:
+color_tree_has	src/lodepng.cpp	/^static int color_tree_has(ColorTree* tree, unsigned char r, unsigned char g, unsigned char b, un/;"	f	typeref:typename:int	file:
+color_tree_init	src/lodepng.cpp	/^static void color_tree_init(ColorTree* tree)$/;"	f	typeref:typename:void	file:
+colored	include/lodepng.h	/^  unsigned colored; \/*not greyscale*\/$/;"	m	struct:LodePNGColorProfile	typeref:typename:unsigned
+colortype	include/lodepng.h	/^  LodePNGColorType colortype; \/*color type, see PNG standard or documentation further in this h/;"	m	struct:LodePNGColorMode	typeref:typename:LodePNGColorType
 column	include/glm/gtc/matrix_access.inl	/^	GLM_FUNC_QUALIFIER genType column$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 column	include/glm/gtc/matrix_access.inl	/^	GLM_FUNC_QUALIFIER typename genType::col_type column$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER typename genType::col_type
 column_major	include/glm/gtx/io.hpp	/^		enum order_type { column_major, row_major};$/;"	e	enum:glm::io::order_type
@@ -3143,9 +3323,12 @@ compAdd	include/glm/gtx/component_wise.inl	/^	GLM_FUNC_QUALIFIER T compAdd(vecTy
 compMax	include/glm/gtx/component_wise.inl	/^	GLM_FUNC_QUALIFIER T compMax(vecType<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 compMin	include/glm/gtx/component_wise.inl	/^	GLM_FUNC_QUALIFIER T compMin(vecType<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 compMul	include/glm/gtx/component_wise.inl	/^	GLM_FUNC_QUALIFIER T compMul(vecType<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
-compileShaderProgramFromSource	src/material.cpp	/^GLuint Material::compileShaderProgramFromSource(const std::vector<char> &shaderSource, GLenum sh/;"	f	class:Material	typeref:typename:GLuint
+compileShaderProgramFromSource	src/materials/material.cpp	/^GLuint Material::compileShaderProgramFromSource(const std::vector<uint8_t> &shaderSource, GLenum/;"	f	class:Material	typeref:typename:GLuint
 component_count	include/glm/detail/setup.hpp	/^	GLM_FUNC_QUALIFIER GLM_CONSTEXPR component_count_t component_count(genType const & m)$/;"	f	namespace:glm::detail	typeref:typename:GLM_FUNC_QUALIFIER GLM_CONSTEXPR component_count_t
 component_count_t	include/glm/detail/setup.hpp	/^		typedef size_t component_count_t;$/;"	t	namespace:glm::detail	typeref:typename:size_t
+compress	src/lodepng.cpp	/^unsigned compress(std::vector<unsigned char>& out, const std::vector<unsigned char>& in,$/;"	f	namespace:lodepng	typeref:typename:unsigned
+compress	src/lodepng.cpp	/^unsigned compress(std::vector<unsigned char>& out, const unsigned char* in, size_t insize,$/;"	f	namespace:lodepng	typeref:typename:unsigned
+compression_method	include/lodepng.h	/^  unsigned compression_method;\/*compression method of the original file. Always 0.*\/$/;"	m	struct:LodePNGInfo	typeref:typename:unsigned
 computeNormal	include/glm/detail/dummy.cpp	/^glm::vec3 computeNormal$/;"	f	typeref:typename:glm::vec3
 compute_abs	include/glm/detail/func_common.inl	/^	struct compute_abs$/;"	s	namespace:glm::detail	file:
 compute_abs	include/glm/detail/func_common.inl	/^	struct compute_abs<genFIType, false>$/;"	s	namespace:glm::detail	file:
@@ -3286,6 +3469,7 @@ cot	include/glm/gtc/reciprocal.inl	/^	GLM_FUNC_QUALIFIER genType cot(genType ang
 cot	include/glm/gtc/reciprocal.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> cot(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 coth	include/glm/gtc/reciprocal.inl	/^	GLM_FUNC_QUALIFIER genType coth(genType angle)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 coth	include/glm/gtc/reciprocal.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> coth(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
+countZeros	src/lodepng.cpp	/^static unsigned countZeros(const unsigned char* data, size_t size, size_t pos)$/;"	f	typeref:typename:unsigned	file:
 countof	include/glm/detail/setup.hpp	/^		constexpr std::size_t countof(T const (&)[N])$/;"	f	namespace:glm	typeref:typename:std::size_t
 cross	include/glm/detail/func_geometric.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> cross(tvec3<T, P> const & x, tvec3<T, P> const & y)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
 cross	include/glm/gtc/quaternion.inl	/^	GLM_FUNC_QUALIFIER tquat<T, P> cross(tquat<T, P> const & q1, tquat<T, P> const & q2)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tquat<T,P>
@@ -3298,15 +3482,35 @@ csch	include/glm/gtc/reciprocal.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> csch(vec
 ctor	include/glm/detail/setup.hpp	/^	enum ctor{uninitialize};$/;"	g	namespace:glm
 ctor	include/glm/detail/type_gentype.hpp	/^		enum ctor{null};$/;"	g	struct:glm::detail::genType
 cubic	include/glm/gtx/spline.inl	/^	GLM_FUNC_QUALIFIER genType cubic$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
+custom_context	include/lodepng.h	/^  const void* custom_context; \/*optional custom settings for custom functions*\/$/;"	m	struct:LodePNGCompressSettings	typeref:typename:const void *
+custom_context	include/lodepng.h	/^  const void* custom_context; \/*optional custom settings for custom functions*\/$/;"	m	struct:LodePNGDecompressSettings	typeref:typename:const void *
+custom_deflate	include/lodepng.h	/^  unsigned (*custom_deflate)(unsigned char**, size_t*,$/;"	m	struct:LodePNGCompressSettings	typeref:typename:unsigned (*)(unsigned char **,size_t *,const unsigned char *,size_t,const LodePNGCompressSettings *)
+custom_inflate	include/lodepng.h	/^  unsigned (*custom_inflate)(unsigned char**, size_t*,$/;"	m	struct:LodePNGDecompressSettings	typeref:typename:unsigned (*)(unsigned char **,size_t *,const unsigned char *,size_t,const LodePNGDecompressSettings *)
+custom_zlib	include/lodepng.h	/^  unsigned (*custom_zlib)(unsigned char**, size_t*,$/;"	m	struct:LodePNGCompressSettings	typeref:typename:unsigned (*)(unsigned char **,size_t *,const unsigned char *,size_t,const LodePNGCompressSettings *)
+custom_zlib	include/lodepng.h	/^  unsigned (*custom_zlib)(unsigned char**, size_t*,$/;"	m	struct:LodePNGDecompressSettings	typeref:typename:unsigned (*)(unsigned char **,size_t *,const unsigned char *,size_t,const LodePNGDecompressSettings *)
 data	include/glm/detail/type_vec4.hpp	/^				typename detail::simd<T>::type data;$/;"	m	union:glm::tvec4::__anon624eef52010a	typeref:typename:detail::simd<T>::type
 data	include/glm/gtc/packing.inl	/^		} data;$/;"	m	union:glm::detail::i10i10i10i2	typeref:struct:glm::detail::i10i10i10i2::__anon0d6bcc420208	file:
 data	include/glm/gtc/packing.inl	/^		} data;$/;"	m	union:glm::detail::u10u10u10u2	typeref:struct:glm::detail::u10u10u10u2::__anon0d6bcc420108	file:
+data	src/lodepng.cpp	/^  unsigned char* data;$/;"	m	struct:ucvector	typeref:typename:unsigned char *	file:
+data	src/lodepng.cpp	/^  unsigned* data;$/;"	m	struct:uivector	typeref:typename:unsigned *	file:
+day	include/lodepng.h	/^  unsigned day;     \/*1-31*\/$/;"	m	struct:LodePNGTime	typeref:typename:unsigned
 ddualquat	include/glm/gtx/dual_quaternion.hpp	/^	typedef highp_ddualquat			ddualquat;$/;"	t	namespace:glm	typeref:typename:highp_ddualquat
 ddualquat	include/glm/gtx/dual_quaternion.hpp	/^	typedef lowp_ddualquat			ddualquat;$/;"	t	namespace:glm	typeref:typename:lowp_ddualquat
 ddualquat	include/glm/gtx/dual_quaternion.hpp	/^	typedef mediump_ddualquat		ddualquat;$/;"	t	namespace:glm	typeref:typename:mediump_ddualquat
+decode	src/lodepng.cpp	/^unsigned decode(std::vector<unsigned char>& out, unsigned& w, unsigned& h, const std::string& fi/;"	f	namespace:lodepng	typeref:typename:unsigned
+decode	src/lodepng.cpp	/^unsigned decode(std::vector<unsigned char>& out, unsigned& w, unsigned& h, const unsigned char* /;"	f	namespace:lodepng	typeref:typename:unsigned
+decode	src/lodepng.cpp	/^unsigned decode(std::vector<unsigned char>& out, unsigned& w, unsigned& h,$/;"	f	namespace:lodepng	typeref:typename:unsigned
+decodeGeneric	src/lodepng.cpp	/^static void decodeGeneric(unsigned char** out, unsigned* w, unsigned* h,$/;"	f	typeref:typename:void	file:
+decoder	include/lodepng.h	/^  LodePNGDecoderSettings decoder; \/*the decoding settings*\/$/;"	m	struct:LodePNGState	typeref:typename:LodePNGDecoderSettings
 decompose	include/glm/gtx/matrix_decompose.inl	/^	GLM_FUNC_QUALIFIER bool decompose(tmat4x4<T, P> const & ModelMatrix, tvec3<T, P> & Scale, tquat/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER bool
+decompress	src/lodepng.cpp	/^unsigned decompress(std::vector<unsigned char>& out, const std::vector<unsigned char>& in,$/;"	f	namespace:lodepng	typeref:typename:unsigned
+decompress	src/lodepng.cpp	/^unsigned decompress(std::vector<unsigned char>& out, const unsigned char* in, size_t insize,$/;"	f	namespace:lodepng	typeref:typename:unsigned
 default_target	build/Makefile	/^default_target: all$/;"	t
 defaultp	include/glm/detail/precision.hpp	/^		defaultp = highp$/;"	e	enum:glm::precision
+deflate	src/lodepng.cpp	/^static unsigned deflate(unsigned char** out, size_t* outsize,$/;"	f	typeref:typename:unsigned	file:
+deflateDynamic	src/lodepng.cpp	/^static unsigned deflateDynamic(ucvector* out, size_t* bp, Hash* hash,$/;"	f	typeref:typename:unsigned	file:
+deflateFixed	src/lodepng.cpp	/^static unsigned deflateFixed(ucvector* out, size_t* bp, Hash* hash,$/;"	f	typeref:typename:unsigned	file:
+deflateNoCompression	src/lodepng.cpp	/^static unsigned deflateNoCompression(ucvector* out, const unsigned char* data, size_t datasize)$/;"	f	typeref:typename:unsigned	file:
 degrees	include/glm/detail/func_trigonometric.inl	/^	GLM_FUNC_QUALIFIER genType degrees(genType radians)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 degrees	include/glm/detail/func_trigonometric.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> degrees(vecType<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 degreesToRadians	src/utilities.cpp	/^        double degreesToRadians(double angle)$/;"	f	namespace:Utilities::Math	typeref:typename:double
@@ -3383,6 +3587,11 @@ diagonal4x3	include/glm/gtx/matrix_operation.inl	/^	GLM_FUNC_QUALIFIER tmat4x3<T
 diagonal4x4	include/glm/gtx/matrix_operation.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, P> diagonal4x4$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,P>
 diffuse	include/glm/detail/dummy.cpp	/^	glm::vec4 diffuse; \/\/ Dcli$/;"	m	struct:light	typeref:typename:glm::vec4	file:
 diffuse	include/glm/detail/dummy.cpp	/^	glm::vec4 diffuse; \/\/ Dcm$/;"	m	struct:material	typeref:typename:glm::vec4	file:
+diffuseIntensity	include/lights/directional.h	/^    float diffuseIntensity;$/;"	m	struct:DirectionalLight	typeref:typename:float
+diffuseIntensityUniformLocation	include/materials/phongmaterial.h	/^    GLint diffuseIntensityUniformLocation;$/;"	m	struct:PhongLightAttributes	typeref:typename:GLint
+direction	include/lights/directional.h	/^    glm::vec3 direction;$/;"	m	struct:DirectionalLight	typeref:typename:glm::vec3
+directionUniformLocation	include/materials/phongmaterial.h	/^    GLint directionUniformLocation;$/;"	m	struct:PhongLightAttributes	typeref:typename:GLint
+directionalLights	include/lights/directional.h	/^        std::vector<DirectionalLight> directionalLights;$/;"	m	class:DirectionalLightList	typeref:typename:std::vector<DirectionalLight>
 diskRand	include/glm/gtc/random.inl	/^	GLM_FUNC_QUALIFIER tvec2<T, defaultp> diskRand(T Radius)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec2<T,defaultp>
 distance	include/glm/detail/func_geometric.inl	/^	GLM_FUNC_QUALIFIER T distance(vecType<T, P> const & p0, vecType<T, P> const & p1)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 distance	include/glm/detail/func_geometric.inl	/^	GLM_FUNC_QUALIFIER genType distance(genType const & p0, genType const & p1)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
@@ -3466,6 +3675,11 @@ edit_cache/fast	build/Makefile	/^edit_cache\/fast: edit_cache$/;"	t
 elem	include/glm/detail/_swizzle.hpp	/^		GLM_FUNC_QUALIFIER const value_type&   elem   (size_t i) const { return (reinterpret_cast<cons/;"	f	struct:glm::detail::_swizzle_base0	typeref:typename:GLM_FUNC_QUALIFIER const value_type &
 elem	include/glm/detail/_swizzle.hpp	/^		GLM_FUNC_QUALIFIER value_type&         elem   (size_t i)       { return (reinterpret_cast<valu/;"	f	struct:glm::detail::_swizzle_base0	typeref:typename:GLM_FUNC_QUALIFIER value_type &
 emission	include/glm/detail/dummy.cpp	/^	glm::vec4 emission; \/\/ Ecm$/;"	m	struct:material	typeref:typename:glm::vec4	file:
+encode	src/lodepng.cpp	/^unsigned encode(const std::string& filename,$/;"	f	namespace:lodepng	typeref:typename:unsigned
+encode	src/lodepng.cpp	/^unsigned encode(std::vector<unsigned char>& out, const unsigned char* in, unsigned w, unsigned h/;"	f	namespace:lodepng	typeref:typename:unsigned
+encode	src/lodepng.cpp	/^unsigned encode(std::vector<unsigned char>& out,$/;"	f	namespace:lodepng	typeref:typename:unsigned
+encodeLZ77	src/lodepng.cpp	/^static unsigned encodeLZ77(uivector* out, Hash* hash,$/;"	f	typeref:typename:unsigned	file:
+encoder	include/lodepng.h	/^  LodePNGEncoderSettings encoder; \/*the encoding settings*\/$/;"	m	struct:LodePNGState	typeref:typename:LodePNGEncoderSettings
 end	include/glm/gtx/range.hpp	/^	const typename genType::value_type * end(genType const & v){$/;"	f	namespace:glm	typeref:typename:const typename genType::value_type *
 end	include/glm/gtx/range.hpp	/^	typename genType::value_type * end(genType& v){$/;"	f	namespace:glm	typeref:typename:genType::value_type *
 epsilon	include/glm/gtc/constants.inl	/^	GLM_FUNC_QUALIFIER genType epsilon()$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
@@ -3478,6 +3692,7 @@ epsilonNotEqual	include/glm/gtc/epsilon.inl	/^	GLM_FUNC_QUALIFIER vecType<bool, 
 equal	include/glm/detail/func_vector_relational.inl	/^	GLM_FUNC_QUALIFIER vecType<bool, P> equal(vecType<T, P> const & x, vecType<T, P> const & y)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<bool,P>
 equal	include/glm/gtc/quaternion.inl	/^	GLM_FUNC_QUALIFIER tvec4<bool, P> equal(tquat<T, P> const & x, tquat<T, P> const & y)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec4<bool,P>
 equal	include/glm/gtx/scalar_relational.inl	/^	GLM_FUNC_QUALIFIER bool equal$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER bool
+error	include/lodepng.h	/^  unsigned error;$/;"	m	struct:LodePNGState	typeref:typename:unsigned
 euclidean	include/glm/gtx/polar_coordinates.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> euclidean$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
 euler	include/glm/gtc/constants.inl	/^	GLM_FUNC_QUALIFIER genType euler()$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 eulerAngleX	include/glm/gtx/euler_angles.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> eulerAngleX$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,defaultp>
@@ -3717,6 +3932,11 @@ fdualquat	include/glm/gtx/dual_quaternion.hpp	/^	typedef mediump_fdualquat		fdua
 features	build/CMakeFiles/feature_tests.c	/^  const char features[] = {"\\n"$/;"	v	typeref:typename:const char[]
 features	build/CMakeFiles/feature_tests.cxx	/^  const char features[] = {"\\n"$/;"	v	typeref:typename:const char[]
 fill_	include/glm/gtx/io.hpp	/^			char_type       fill_;$/;"	m	class:glm::io::basic_state_saver	typeref:typename:char_type
+filter	src/lodepng.cpp	/^static unsigned filter(unsigned char* out, const unsigned char* in, unsigned w, unsigned h,$/;"	f	typeref:typename:unsigned	file:
+filterScanline	src/lodepng.cpp	/^static void filterScanline(unsigned char* out, const unsigned char* scanline, const unsigned cha/;"	f	typeref:typename:void	file:
+filter_method	include/lodepng.h	/^  unsigned filter_method;     \/*filter method of the original file*\/$/;"	m	struct:LodePNGInfo	typeref:typename:unsigned
+filter_palette_zero	include/lodepng.h	/^  unsigned filter_palette_zero;$/;"	m	struct:LodePNGEncoderSettings	typeref:typename:unsigned
+filter_strategy	include/lodepng.h	/^  LodePNGFilterStrategy filter_strategy;$/;"	m	struct:LodePNGEncoderSettings	typeref:typename:LodePNGFilterStrategy
 findLSB	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER int findLSB(genIUType Value)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER int
 findLSB	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER vecType<int, P> findLSB(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<int,P>
 findMSB	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER int findMSB(genIUType x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER int
@@ -3771,6 +3991,7 @@ float_distance	include/glm/gtc/ulp.inl	/^	GLM_FUNC_QUALIFIER vecType<uint, P> fl
 float_t	include/glm/detail/type_float.hpp	/^	typedef highp_float			float_t;$/;"	t	namespace:glm	typeref:typename:highp_float
 float_t	include/glm/detail/type_float.hpp	/^	typedef lowp_float			float_t;$/;"	t	namespace:glm	typeref:typename:lowp_float
 float_t	include/glm/detail/type_float.hpp	/^	typedef mediump_float		float_t;$/;"	t	namespace:glm	typeref:typename:mediump_float
+flog2	src/lodepng.cpp	/^static float flog2(float f)$/;"	f	typeref:typename:float	file:
 floor	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> floor(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 floor	include/glm/gtx/simd_vec4.inl	/^GLM_FUNC_QUALIFIER detail::fvec4SIMD floor$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER detail::fvec4SIMD
 floorMultiple	include/glm/gtc/round.inl	/^	GLM_FUNC_QUALIFIER genType floorMultiple(genType Source, genType Multiple)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
@@ -3830,6 +4051,7 @@ fmat4x4	include/glm/gtc/type_precision.hpp	/^	typedef tmat4x4<f32, defaultp> fma
 fmat4x4SIMD	include/glm/gtx/simd_mat4.inl	/^GLM_FUNC_QUALIFIER fmat4x4SIMD::fmat4x4SIMD$/;"	f	class:glm::detail::fmat4x4SIMD	typeref:typename:GLM_FUNC_QUALIFIER
 fmat4x4SIMD	include/glm/gtx/simd_mat4.inl	/^GLM_FUNC_QUALIFIER fmat4x4SIMD::fmat4x4SIMD()$/;"	f	class:glm::detail::fmat4x4SIMD	typeref:typename:GLM_FUNC_QUALIFIER
 fmat4x4SIMD	include/glm/gtx/simd_mat4.inl	/^GLM_FUNC_QUALIFIER fmat4x4SIMD::fmat4x4SIMD(float const & s)$/;"	f	class:glm::detail::fmat4x4SIMD	typeref:typename:GLM_FUNC_QUALIFIER
+force_palette	include/lodepng.h	/^  unsigned force_palette;$/;"	m	struct:LodePNGEncoderSettings	typeref:typename:unsigned
 format	include/glm/gtx/string_cast.inl	/^	GLM_FUNC_QUALIFIER std::string format(const char* msg, ...)$/;"	f	namespace:glm::detail	typeref:typename:GLM_FUNC_QUALIFIER std::string
 format_punct	include/glm/gtx/io.hpp	/^		class format_punct : public std::locale::facet$/;"	c	namespace:glm::io
 format_punct	include/glm/gtx/io.inl	/^	format_punct<CTy>::format_punct(format_punct const& a)$/;"	f	class:glm::io::format_punct	typeref:typename:GLM_FUNC_QUALIFIER
@@ -3852,7 +4074,10 @@ fquatSIMD	include/glm/gtx/simd_quat.inl	/^GLM_FUNC_QUALIFIER fquatSIMD::fquatSIM
 fract	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER genType fract(genType x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 fract	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> fract(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 fract	include/glm/gtx/simd_vec4.inl	/^GLM_FUNC_QUALIFIER detail::fvec4SIMD fract$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER detail::fvec4SIMD
-fragmentShader	include/material.h	/^    GLuint fragmentShader = 0;$/;"	m	struct:ShaderProgramStages	typeref:typename:GLuint
+fragmentShader	include/materials/material.h	/^    GLuint fragmentShader = 0;$/;"	m	struct:ShaderProgramStages	typeref:typename:GLuint
+freeResources	src/renderwindow.cpp	/^void RenderWindow::freeResources()$/;"	f	class:RenderWindow	typeref:typename:void
+freeResources	src/texture.cpp	/^void Texture::freeResources()$/;"	f	class:Texture	typeref:typename:void
+freelist	src/lodepng.cpp	/^  BPMNode** freelist;$/;"	m	struct:BPMLists	typeref:typename:BPMNode **	file:
 frexp	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER genType frexp(genType x, int & exp)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 frexp	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER tvec1<T, P> frexp(tvec1<T, P> const & x, tvec1<int, P> & exp)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec1<T,P>
 frexp	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER tvec2<T, P> frexp(tvec2<T, P> const & x, tvec2<int, P> & exp)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec2<T,P>
@@ -3912,11 +4137,28 @@ g	include/glm/detail/type_vec4.hpp	/^			union { T y, g, t; };$/;"	m	union:glm::t
 gaussRand	include/glm/gtc/random.inl	/^	GLM_FUNC_QUALIFIER genType gaussRand(genType Mean, genType Deviation)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 gaussRand	include/glm/gtc/random.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> gaussRand(vecType<T, P> const & Mean, vecType<T, P> const & De/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 genType	include/glm/detail/type_gentype.hpp	/^	struct genType$/;"	s	namespace:glm::detail
-geometryShader	include/material.h	/^    GLuint geometryShader = 0;$/;"	m	struct:ShaderProgramStages	typeref:typename:GLuint
-getAttribute	src/material.cpp	/^GLint Material::getAttribute(std::string attributeName)$/;"	f	class:Material	typeref:typename:GLint
+generateFixedDistanceTree	src/lodepng.cpp	/^static unsigned generateFixedDistanceTree(HuffmanTree* tree)$/;"	f	typeref:typename:unsigned	file:
+generateFixedLitLenTree	src/lodepng.cpp	/^static unsigned generateFixedLitLenTree(HuffmanTree* tree)$/;"	f	typeref:typename:unsigned	file:
+geometryShader	include/materials/material.h	/^    GLuint geometryShader = 0;$/;"	m	struct:ShaderProgramStages	typeref:typename:GLuint
+getAttribute	src/materials/material.cpp	/^GLint Material::getAttribute(std::string attributeName)$/;"	f	class:Material	typeref:typename:GLint
 getControlState	src/controls.cpp	/^const std::vector<bool> &Controls::getControlState() const$/;"	f	class:Controls	typeref:typename:const std::vector<bool> &
+getFileContents	src/utilities.cpp	/^        bool getFileContents(std::vector<uint8_t> &fileBuffer, const std::string &filePath)$/;"	f	namespace:Utilities::File	typeref:typename:bool
+getHash	src/lodepng.cpp	/^static unsigned getHash(const unsigned char* data, size_t size, size_t pos)$/;"	f	typeref:typename:unsigned	file:
+getLightByID	src/lights/directional.cpp	/^DirectionalLight *DirectionalLightList::getLightByID(unsigned int lightID)$/;"	f	class:DirectionalLightList	typeref:typename:DirectionalLight *
+getLightUniformAttribute	src/materials/phongmaterial.cpp	/^PhongLightAttributes PhongMaterial::getLightUniformAttribute(std::string uniformName)$/;"	f	class:PhongMaterial	typeref:typename:PhongLightAttributes
+getLightUniforms	src/materials/phongmaterial.cpp	/^const std::unordered_map<std::string, PhongLightAttributes> &PhongMaterial::getLightUniforms()$/;"	f	class:PhongMaterial	typeref:typename:const std::unordered_map<std::string,PhongLightAttributes> &
 getMouseState	src/controls.cpp	/^std::pair<int, int> Controls::getMouseState() const$/;"	f	class:Controls	typeref:typename:std::pair<int,int>
-getUniformAttribute	src/material.cpp	/^GLint Material::getUniformAttribute(std::string uniformName)$/;"	f	class:Material	typeref:typename:GLint
+getNumColorChannels	src/lodepng.cpp	/^static unsigned getNumColorChannels(LodePNGColorType colortype)$/;"	f	typeref:typename:unsigned	file:
+getPaletteTranslucency	src/lodepng.cpp	/^static unsigned getPaletteTranslucency(const unsigned char* palette, size_t palettesize)$/;"	f	typeref:typename:unsigned	file:
+getPixelColorRGBA16	src/lodepng.cpp	/^static void getPixelColorRGBA16(unsigned short* r, unsigned short* g, unsigned short* b, unsigne/;"	f	typeref:typename:void	file:
+getPixelColorRGBA8	src/lodepng.cpp	/^static void getPixelColorRGBA8(unsigned char* r, unsigned char* g,$/;"	f	typeref:typename:void	file:
+getPixelColorsRGBA8	src/lodepng.cpp	/^static void getPixelColorsRGBA8(unsigned char* buffer, size_t numpixels,$/;"	f	typeref:typename:void	file:
+getRenderWindowHandle	src/renderwindow.cpp	/^SDL_Window* RenderWindow::getRenderWindowHandle()$/;"	f	class:RenderWindow	typeref:typename:SDL_Window *
+getShaderProgram	src/materials/material.cpp	/^GLuint Material::getShaderProgram()$/;"	f	class:Material	typeref:typename:GLuint
+getTreeInflateDynamic	src/lodepng.cpp	/^static unsigned getTreeInflateDynamic(HuffmanTree* tree_ll, HuffmanTree* tree_d,$/;"	f	typeref:typename:unsigned	file:
+getTreeInflateFixed	src/lodepng.cpp	/^static void getTreeInflateFixed(HuffmanTree* tree_ll, HuffmanTree* tree_d)$/;"	f	typeref:typename:void	file:
+getUniformAttribute	src/materials/material.cpp	/^GLint Material::getUniformAttribute(std::string uniformName)$/;"	f	class:Material	typeref:typename:GLint
+getValueRequiredBits	src/lodepng.cpp	/^static unsigned getValueRequiredBits(unsigned char value)$/;"	f	typeref:typename:unsigned	file:
 getViewMatrix	include/camera.h	/^        inline glm::mat4 getViewMatrix() const {return viewMatrix;}$/;"	f	class:Camera	typeref:typename:glm::mat4
 get_facet	include/glm/gtx/io.inl	/^	GLM_FUNC_QUALIFIER FTy const& get_facet(std::basic_ios<CTy,CTr>& ios)$/;"	f	namespace:glm::io	typeref:typename:GLM_FUNC_QUALIFIER FTy const &
 get_proc	src/gl3w.c	/^static GL3WglProc get_proc(const char *proc)$/;"	f	typeref:typename:GL3WglProc	file:
@@ -5573,7 +5815,11 @@ gtx	include/glm/gtx/optimum_pow.hpp	/^namespace gtx$/;"	n	namespace:glm
 half2float	include/glm/gtc/packing.inl	/^	GLM_FUNC_QUALIFIER glm::uint half2float(glm::uint h)$/;"	f	namespace:glm::detail	typeref:typename:GLM_FUNC_QUALIFIER glm::uint
 halfVector	include/glm/detail/dummy.cpp	/^	glm::vec4 halfVector; \/\/ Derived: Hi$/;"	m	struct:light	typeref:typename:glm::vec4	file:
 half_pi	include/glm/gtc/constants.inl	/^	GLM_FUNC_QUALIFIER genType half_pi()$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
+hash_cleanup	src/lodepng.cpp	/^static void hash_cleanup(Hash* hash)$/;"	f	typeref:typename:void	file:
+hash_init	src/lodepng.cpp	/^static unsigned hash_init(Hash* hash, unsigned windowsize)$/;"	f	typeref:typename:unsigned	file:
 hdata	include/glm/detail/type_half.hpp	/^	typedef short hdata;$/;"	t	namespace:glm::detail	typeref:typename:short
+head	src/lodepng.cpp	/^  int* head; \/*hash value to head circular pos - can be outdated if went around window*\/$/;"	m	struct:Hash	typeref:typename:int *	file:
+headz	src/lodepng.cpp	/^  int* headz; \/*similar to head, but for chainz*\/$/;"	m	struct:Hash	typeref:typename:int *	file:
 help	build/Makefile	/^help:$/;"	t
 hermite	include/glm/gtx/spline.inl	/^	GLM_FUNC_QUALIFIER genType hermite$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 higherMultiple	include/glm/gtx/multiple.inl	/^	GLM_FUNC_QUALIFIER genType higherMultiple(genType Source, genType Multiple)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
@@ -5819,7 +6065,9 @@ highp_vec3	include/glm/fwd.hpp	/^	typedef tvec3<float, highp> highp_vec3;$/;"	t	
 highp_vec4	include/glm/detail/type_vec.hpp	/^	typedef tvec4<float, highp>		highp_vec4;$/;"	t	namespace:glm	typeref:typename:tvec4<float,highp>
 highp_vec4	include/glm/fwd.hpp	/^	typedef tvec4<float, highp> highp_vec4;$/;"	t	namespace:glm	typeref:typename:tvec4<float,highp>
 horizontalAngle	include/camera.h	/^        float horizontalAngle;$/;"	m	class:Camera	typeref:typename:float
+hour	include/lodepng.h	/^  unsigned hour;    \/*0-23*\/$/;"	m	struct:LodePNGTime	typeref:typename:unsigned
 hsvColor	include/glm/gtx/color_space.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> hsvColor(const tvec3<T, P>& rgbColor)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
+huffmanDecodeSymbol	src/lodepng.cpp	/^static unsigned huffmanDecodeSymbol(const unsigned char* in, size_t* bp,$/;"	f	typeref:typename:unsigned	file:
 hundred_eighty	include/glm/detail/intrinsic_common.inl	/^	static const __m128 GLM_VAR_USED hundred_eighty = _mm_set_ps1(180.f);$/;"	v	namespace:glm::detail	typeref:typename:const __m128 GLM_VAR_USED	file:
 hundred_eighty_over_pi	include/glm/detail/intrinsic_common.inl	/^	static const __m128 GLM_VAR_USED hundred_eighty_over_pi = _mm_set_ps1(57.2957795130823208767981/;"	v	namespace:glm::detail	typeref:typename:const __m128 GLM_VAR_USED	file:
 i	include/glm/detail/intrinsic_common.inl	/^		struct i$/;"	s	union:glm::detail::ieee754_QNAN	file:
@@ -5904,10 +6152,13 @@ i8vec4	include/glm/fwd.hpp	/^	typedef mediump_i8vec4			i8vec4;	$/;"	t	namespace:
 i8vec4	include/glm/gtc/type_precision.hpp	/^	typedef tvec4<i8, defaultp> i8vec4;$/;"	t	namespace:glm	typeref:typename:tvec4<i8,defaultp>
 id	include/glm/gtx/io.hpp	/^			static std::locale::id id;$/;"	m	class:glm::io::format_punct	typeref:typename:std::locale::id
 id	include/glm/gtx/io.inl	/^	template <typename CTy> std::locale::id format_punct<CTy>::id;$/;"	m	class:glm::io::format_punct<CTy>	typeref:typename:std::locale::id
+id	include/lights/directional.h	/^    size_t id;$/;"	m	struct:DirectionalLight	typeref:typename:size_t
 ieee754_QNAN	include/glm/detail/intrinsic_common.inl	/^		ieee754_QNAN() : f(0.0)\/*, mantissa(0x7FFFFF), exp(0xFF), sign(0x0)*\/ {}$/;"	f	union:glm::detail::ieee754_QNAN	file:
 ieee754_QNAN	include/glm/detail/intrinsic_common.inl	/^	union ieee754_QNAN$/;"	u	namespace:glm::detail	file:
 ieee_double_shape_type	include/glm/gtc/ulp.inl	/^} ieee_double_shape_type;$/;"	t	typeref:union:__anona4a85f36020a	file:
 ieee_float_shape_type	include/glm/gtc/ulp.inl	/^} ieee_float_shape_type;$/;"	t	typeref:union:__anona4a85f36010a	file:
+ignore_adler32	include/lodepng.h	/^  unsigned ignore_adler32; \/*if 1, continue and don't give an error message if the Adler32 chec/;"	m	struct:LodePNGDecompressSettings	typeref:typename:unsigned
+ignore_crc	include/lodepng.h	/^  unsigned ignore_crc; \/*ignore CRC checksums*\/$/;"	m	struct:LodePNGDecoderSettings	typeref:typename:unsigned
 imat2	include/glm/gtc/matrix_integer.hpp	/^	typedef highp_imat2								imat2;$/;"	t	namespace:glm	typeref:typename:highp_imat2
 imat2	include/glm/gtc/matrix_integer.hpp	/^	typedef lowp_imat2								imat2;$/;"	t	namespace:glm	typeref:typename:lowp_imat2
 imat2	include/glm/gtc/matrix_integer.hpp	/^	typedef mediump_imat2							imat2;$/;"	t	namespace:glm	typeref:typename:mediump_imat2
@@ -5946,7 +6197,13 @@ imat4x4	include/glm/gtc/matrix_integer.hpp	/^	typedef lowp_imat4x4							imat4x4
 imat4x4	include/glm/gtc/matrix_integer.hpp	/^	typedef mediump_imat4x4							imat4x4;$/;"	t	namespace:glm	typeref:typename:mediump_imat4x4
 imulExtended	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER void imulExtended(int x, int y, int & msb, int & lsb)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER void
 imulExtended	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER void imulExtended(vecType<int, P> const & x, vecType<int, P> const & y, vecT/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER void
+in_use	src/lodepng.cpp	/^  int in_use;$/;"	m	struct:BPMNode	typeref:typename:int	file:
+index	src/lodepng.cpp	/^  int index; \/*the payload. Only has a meaningful value if this is in the last level*\/$/;"	m	struct:ColorTree	typeref:typename:int	file:
+index	src/lodepng.cpp	/^  unsigned index; \/*index of this leaf node (called "count" in the paper)*\/$/;"	m	struct:BPMNode	typeref:typename:unsigned	file:
 infinitePerspective	include/glm/gtc/matrix_transform.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> infinitePerspective$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,defaultp>
+inflate	src/lodepng.cpp	/^static unsigned inflate(unsigned char** out, size_t* outsize,$/;"	f	typeref:typename:unsigned	file:
+inflateHuffmanBlock	src/lodepng.cpp	/^static unsigned inflateHuffmanBlock(ucvector* out, const unsigned char* in, size_t* bp,$/;"	f	typeref:typename:unsigned	file:
+inflateNoCompression	src/lodepng.cpp	/^static unsigned inflateNoCompression(ucvector* out, const unsigned char* in, size_t* bp, size_t*/;"	f	typeref:typename:unsigned	file:
 info_arch	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v	typeref:typename:char const *
 info_arch	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v	typeref:typename:char const *
 info_compiler	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v	typeref:typename:char const *
@@ -5957,6 +6214,8 @@ info_language_dialect_default	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerI
 info_language_dialect_default	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^const char* info_language_dialect_default = "INFO" ":" "dialect_default["$/;"	v	typeref:typename:const char *
 info_platform	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v	typeref:typename:char const *
 info_platform	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v	typeref:typename:char const *
+info_png	include/lodepng.h	/^  LodePNGInfo info_png; \/*info of the PNG image obtained after decoding*\/$/;"	m	struct:LodePNGState	typeref:typename:LodePNGInfo
+info_raw	include/lodepng.h	/^  LodePNGColorMode info_raw; \/*specifies the format in which you would like to get the raw pixe/;"	m	struct:LodePNGState	typeref:typename:LodePNGColorMode
 info_simulate	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_simulate = "INFO" ":" "simulate[" SIMULATE_ID "]";$/;"	v	typeref:typename:char const *
 info_simulate	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_simulate = "INFO" ":" "simulate[" SIMULATE_ID "]";$/;"	v	typeref:typename:char const *
 info_simulate_version	build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c	/^char const info_simulate_version[] = {$/;"	v	typeref:typename:char const[]
@@ -6018,6 +6277,7 @@ intBitsToFloat	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER vecType<
 int_t	include/glm/detail/type_int.hpp	/^	typedef highp_int					int_t;$/;"	t	namespace:glm	typeref:typename:highp_int
 int_t	include/glm/detail/type_int.hpp	/^	typedef lowp_int					int_t;$/;"	t	namespace:glm	typeref:typename:lowp_int
 int_t	include/glm/detail/type_int.hpp	/^	typedef mediump_int					int_t;$/;"	t	namespace:glm	typeref:typename:mediump_int
+interlace_method	include/lodepng.h	/^  unsigned interlace_method;  \/*interlace method of the original file*\/$/;"	m	struct:LodePNGInfo	typeref:typename:unsigned
 intermediate	include/glm/gtx/quaternion.inl	/^	GLM_FUNC_QUALIFIER tquat<T, P> intermediate$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tquat<T,P>
 interpolate	include/glm/gtx/matrix_interpolation.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, P> interpolate$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,P>
 intersectLineSphere	include/glm/gtx/intersect.inl	/^	GLM_FUNC_QUALIFIER bool intersectLineSphere$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER bool
@@ -6045,7 +6305,7 @@ isCompNull	include/glm/gtx/vector_query.inl	/^	GLM_FUNC_QUALIFIER tvec4<bool, P>
 isCompNull	include/glm/gtx/vector_query.inl	/^	GLM_FUNC_QUALIFIER vecType<bool, P> isCompNull$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<bool,P>
 isIdentity	include/glm/gtx/matrix_query.inl	/^	GLM_FUNC_QUALIFIER bool isIdentity(matType<T, P> const & m, T const & epsilon)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER bool
 isKeyPressed	src/controls.cpp	/^bool Controls::isKeyPressed(ControlKeys key) const$/;"	f	class:Controls	typeref:typename:bool
-isMaterialValid	include/material.h	/^        inline bool isMaterialValid() {return isValid;}$/;"	f	class:Material	typeref:typename:bool
+isMaterialValid	include/materials/material.h	/^        inline bool isMaterialValid() {return isValid;}$/;"	f	class:Material	typeref:typename:bool
 isMultiple	include/glm/gtc/round.inl	/^	GLM_FUNC_QUALIFIER bool isMultiple(genType Value, genType Multiple)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER bool
 isMultiple	include/glm/gtc/round.inl	/^	GLM_FUNC_QUALIFIER vecType<bool, P> isMultiple(vecType<T, P> const & Value, T Multiple)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<bool,P>
 isMultiple	include/glm/gtc/round.inl	/^	GLM_FUNC_QUALIFIER vecType<bool, P> isMultiple(vecType<T, P> const & Value, vecType<T, P> const/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<bool,P>
@@ -6060,7 +6320,7 @@ isNull	include/glm/gtx/vector_query.inl	/^	GLM_FUNC_QUALIFIER bool isNull$/;"	f	
 isOrthogonal	include/glm/gtx/matrix_query.inl	/^	GLM_FUNC_QUALIFIER bool isOrthogonal(matType<T, P> const & m, T const & epsilon)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER bool
 isPowerOfTwo	include/glm/gtc/round.inl	/^	GLM_FUNC_QUALIFIER bool isPowerOfTwo(genType Value)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER bool
 isPowerOfTwo	include/glm/gtc/round.inl	/^	GLM_FUNC_QUALIFIER vecType<bool, P> isPowerOfTwo(vecType<T, P> const & Value)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<bool,P>
-isValid	include/material.h	/^        bool isValid = false;$/;"	m	class:Material	typeref:typename:bool
+isValid	include/materials/material.h	/^        bool isValid = false;$/;"	m	class:Material	typeref:typename:bool
 is_matrix	include/glm/detail/type_gentype.inl	/^bool base<vT, cT, rT, pT>::is_matrix()$/;"	f	class:glm::detail::base	typeref:typename:bool
 is_scalar	include/glm/detail/type_gentype.inl	/^bool base<vT, cT, rT, pT>::is_scalar()$/;"	f	class:glm::detail::base	typeref:typename:bool
 is_vector	include/glm/detail/type_gentype.hpp	/^	bool genType<VALTYPE, TYPE>::is_vector()$/;"	f	class:glm::detail::genType	typeref:typename:bool
@@ -6078,6 +6338,11 @@ isinf	include/glm/detail/func_common.inl	/^		GLM_FUNC_QUALIFIER bool isinf(genTy
 isinf	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER vecType<bool, P> isinf(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<bool,P>
 isnan	include/glm/detail/func_common.inl	/^		GLM_FUNC_QUALIFIER bool isnan(genType x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER bool
 isnan	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER vecType<bool, P> isnan(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<bool,P>
+itext_keys	include/lodepng.h	/^  char** itext_keys; \/*the English keyword of the text chunk (e.g. "Comment")*\/$/;"	m	struct:LodePNGInfo	typeref:typename:char **
+itext_langtags	include/lodepng.h	/^  char** itext_langtags; \/*language tag for this text's language, ISO\/IEC 646 string, e.g. ISO/;"	m	struct:LodePNGInfo	typeref:typename:char **
+itext_num	include/lodepng.h	/^  size_t itext_num; \/*the amount of international texts in this PNG*\/$/;"	m	struct:LodePNGInfo	typeref:typename:size_t
+itext_strings	include/lodepng.h	/^  char** itext_strings; \/*the actual international text - UTF-8 string*\/$/;"	m	struct:LodePNGInfo	typeref:typename:char **
+itext_transkeys	include/lodepng.h	/^  char** itext_transkeys; \/*keyword translated to the international language - UTF-8 string*\/$/;"	m	struct:LodePNGInfo	typeref:typename:char **
 ivec1	include/glm/gtc/vec1.hpp	/^	typedef highp_ivec1			ivec1;$/;"	t	namespace:glm	typeref:typename:highp_ivec1
 ivec1	include/glm/gtc/vec1.hpp	/^	typedef lowp_ivec1			ivec1;$/;"	t	namespace:glm	typeref:typename:lowp_ivec1
 ivec1	include/glm/gtc/vec1.hpp	/^	typedef mediump_ivec1		ivec1;$/;"	t	namespace:glm	typeref:typename:mediump_ivec1
@@ -6090,9 +6355,18 @@ ivec3	include/glm/detail/type_vec.hpp	/^	typedef mediump_ivec3		ivec3;$/;"	t	nam
 ivec4	include/glm/detail/type_vec.hpp	/^	typedef highp_ivec4			ivec4;$/;"	t	namespace:glm	typeref:typename:highp_ivec4
 ivec4	include/glm/detail/type_vec.hpp	/^	typedef lowp_ivec4			ivec4;$/;"	t	namespace:glm	typeref:typename:lowp_ivec4
 ivec4	include/glm/detail/type_vec.hpp	/^	typedef mediump_ivec4		ivec4;$/;"	t	namespace:glm	typeref:typename:mediump_ivec4
+key	include/lodepng.h	/^  unsigned key; \/*if true, image is not opaque. Only if true and alpha is false, color key is p/;"	m	struct:LodePNGColorProfile	typeref:typename:unsigned
+key_b	include/lodepng.h	/^  unsigned key_b;       \/*blue component of color key*\/$/;"	m	struct:LodePNGColorMode	typeref:typename:unsigned
+key_b	include/lodepng.h	/^  unsigned short key_b;$/;"	m	struct:LodePNGColorProfile	typeref:typename:unsigned short
+key_defined	include/lodepng.h	/^  unsigned key_defined; \/*is a transparent color key given? 0 = false, 1 = true*\/$/;"	m	struct:LodePNGColorMode	typeref:typename:unsigned
+key_g	include/lodepng.h	/^  unsigned key_g;       \/*green component of color key*\/$/;"	m	struct:LodePNGColorMode	typeref:typename:unsigned
+key_g	include/lodepng.h	/^  unsigned short key_g;$/;"	m	struct:LodePNGColorProfile	typeref:typename:unsigned short
+key_r	include/lodepng.h	/^  unsigned key_r;       \/*red\/greyscale component of color key*\/$/;"	m	struct:LodePNGColorMode	typeref:typename:unsigned
+key_r	include/lodepng.h	/^  unsigned short key_r; \/*these values are always in 16-bit bitdepth in the profile*\/$/;"	m	struct:LodePNGColorProfile	typeref:typename:unsigned short
 keyboardMovementSpeed	include/camera.h	/^        float keyboardMovementSpeed = .1;$/;"	m	class:Camera	typeref:typename:float
 l1Norm	include/glm/gtx/norm.inl	/^	GLM_FUNC_QUALIFIER T l1Norm$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 l2Norm	include/glm/gtx/norm.inl	/^	GLM_FUNC_QUALIFIER T l2Norm$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
+lazymatching	include/lodepng.h	/^  unsigned lazymatching; \/*use lazy matching: better compression but a bit slower. Default: tru/;"	m	struct:LodePNGCompressSettings	typeref:typename:unsigned
 ldexp	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER genType ldexp(genType const & x, int const & exp)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 ldexp	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER tvec1<T, P> ldexp(tvec1<T, P> const & x, tvec1<int, P> const & exp)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec1<T,P>
 ldexp	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER tvec2<T, P> ldexp(tvec2<T, P> const & x, tvec2<int, P> const & exp)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec2<T,P>
@@ -6135,6 +6409,7 @@ length_type	include/glm/detail/type_mat4x4.hpp	/^			typedef length_t length_type
 length_type	include/glm/detail/type_vec1.hpp	/^			typedef length_t length_type;$/;"	t	struct:glm::tvec1	typeref:typename:length_t
 length_type	include/glm/gtc/quaternion.hpp	/^			typedef length_t length_type;$/;"	t	struct:glm::tquat	typeref:typename:length_t
 length_type	include/glm/gtx/dual_quaternion.hpp	/^			typedef length_t length_type;$/;"	t	struct:glm::tdualquat	typeref:typename:length_t
+lengths	src/lodepng.cpp	/^  unsigned* lengths; \/*the lengths of the codes of the 1d-tree*\/$/;"	m	struct:HuffmanTree	typeref:typename:unsigned *	file:
 lerp	include/glm/gtc/quaternion.inl	/^	GLM_FUNC_QUALIFIER tquat<T, P> lerp(tquat<T, P> const & x, tquat<T, P> const & y, T a)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tquat<T,P>
 lerp	include/glm/gtx/compatibility.hpp	/^	template <typename T, precision P> GLM_FUNC_QUALIFIER tvec2<T, P> lerp(const tvec2<T, P>& x, co/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec2<T,P>
 lerp	include/glm/gtx/compatibility.hpp	/^	template <typename T, precision P> GLM_FUNC_QUALIFIER tvec3<T, P> lerp(const tvec3<T, P>& x, co/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
@@ -6151,13 +6426,15 @@ lessThanEqual	include/glm/gtx/scalar_relational.inl	/^	GLM_FUNC_QUALIFIER bool l
 libgl	src/gl3w.c	/^static HMODULE libgl;$/;"	v	typeref:typename:HMODULE	file:
 libgl	src/gl3w.c	/^static void *libgl;$/;"	v	typeref:typename:void *	file:
 light	include/glm/detail/dummy.cpp	/^struct light$/;"	s	file:
+lightUniformAttributes	include/materials/phongmaterial.h	/^        std::unordered_map<std::string, PhongLightAttributes> lightUniformAttributes;$/;"	m	class:PhongMaterial	typeref:typename:std::unordered_map<std::string,PhongLightAttributes>
 linearAttenuation	include/glm/detail/dummy.cpp	/^	float linearAttenuation; \/\/ K1$/;"	m	struct:light	typeref:typename:float	file:
 linearGradient	include/glm/gtx/gradient_paint.inl	/^	GLM_FUNC_QUALIFIER T linearGradient$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 linearRand	include/glm/gtc/random.inl	/^	GLM_FUNC_QUALIFIER genType linearRand(genType Min, genType Max)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 linearRand	include/glm/gtc/random.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> linearRand(vecType<T, P> const & Min, vecType<T, P> const & Ma/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
-linkShaderProgram	src/material.cpp	/^GLuint Material::linkShaderProgram(const ShaderProgramStages& shaderStages)$/;"	f	class:Material	typeref:typename:GLuint
+linkShaderProgram	src/materials/material.cpp	/^GLuint Material::linkShaderProgram(const ShaderProgramStages& shaderStages)$/;"	f	class:Material	typeref:typename:GLuint
 list_install_components	build/Makefile	/^list_install_components:$/;"	t
 list_install_components/fast	build/Makefile	/^list_install_components\/fast: list_install_components$/;"	t
+listsize	src/lodepng.cpp	/^  unsigned listsize;$/;"	m	struct:BPMLists	typeref:typename:unsigned	file:
 literal	include/glm/gtx/string_cast.inl	/^	struct literal$/;"	s	namespace:glm::detail	file:
 literal	include/glm/gtx/string_cast.inl	/^	struct literal<T, true>$/;"	s	namespace:glm::detail	file:
 literal	include/glm/gtx/string_cast.inl	/^	struct literal<int64_t, false>$/;"	s	namespace:glm::detail	file:
@@ -6165,10 +6442,100 @@ literal	include/glm/gtx/string_cast.inl	/^	struct literal<uint64_t, false>$/;"	s
 ln_ln_two	include/glm/gtc/constants.inl	/^	GLM_FUNC_QUALIFIER genType ln_ln_two()$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 ln_ten	include/glm/gtc/constants.inl	/^	GLM_FUNC_QUALIFIER genType ln_ten()$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 ln_two	include/glm/gtc/constants.inl	/^	GLM_FUNC_QUALIFIER genType ln_two()$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
-loadShaderSourceFromFile	src/tutorial16.cpp	/^std::vector<char> loadShaderSourceFromFile(std::string filePath)$/;"	f	typeref:typename:std::vector<char>
+load	src/texture.cpp	/^bool Texture::load(GLenum textureTarget, const std::vector<uint8_t>& imageData, TextureFormat te/;"	f	class:Texture	typeref:typename:bool
+load_file	src/lodepng.cpp	/^unsigned load_file(std::vector<unsigned char>& buffer, const std::string& filename)$/;"	f	namespace:lodepng	typeref:typename:unsigned
 load_procs	src/gl3w.c	/^static void load_procs(void)$/;"	f	typeref:typename:void	file:
 locale_	include/glm/gtx/io.hpp	/^			locale_type     locale_;$/;"	m	class:glm::io::basic_state_saver	typeref:typename:locale_type
 locale_type	include/glm/gtx/io.hpp	/^			typedef ::std::locale const            locale_type;$/;"	t	class:glm::io::basic_state_saver	typeref:typename:::std::locale const
+lodepng	include/lodepng.h	/^namespace lodepng$/;"	n
+lodepng	src/lodepng.cpp	/^namespace lodepng$/;"	n	file:
+lodepng_add32bitInt	src/lodepng.cpp	/^static void lodepng_add32bitInt(ucvector* buffer, unsigned value)$/;"	f	typeref:typename:void	file:
+lodepng_add_itext	src/lodepng.cpp	/^unsigned lodepng_add_itext(LodePNGInfo* info, const char* key, const char* langtag,$/;"	f	typeref:typename:unsigned
+lodepng_add_text	src/lodepng.cpp	/^unsigned lodepng_add_text(LodePNGInfo* info, const char* key, const char* str)$/;"	f	typeref:typename:unsigned
+lodepng_auto_choose_color	src/lodepng.cpp	/^unsigned lodepng_auto_choose_color(LodePNGColorMode* mode_out,$/;"	f	typeref:typename:unsigned
+lodepng_buffer_file	src/lodepng.cpp	/^static unsigned lodepng_buffer_file(unsigned char* out, size_t size, const char* filename)$/;"	f	typeref:typename:unsigned	file:
+lodepng_can_have_alpha	src/lodepng.cpp	/^unsigned lodepng_can_have_alpha(const LodePNGColorMode* info)$/;"	f	typeref:typename:unsigned
+lodepng_chunk_ancillary	src/lodepng.cpp	/^unsigned char lodepng_chunk_ancillary(const unsigned char* chunk)$/;"	f	typeref:typename:unsigned char
+lodepng_chunk_append	src/lodepng.cpp	/^unsigned lodepng_chunk_append(unsigned char** out, size_t* outlength, const unsigned char* chunk/;"	f	typeref:typename:unsigned
+lodepng_chunk_check_crc	src/lodepng.cpp	/^unsigned lodepng_chunk_check_crc(const unsigned char* chunk)$/;"	f	typeref:typename:unsigned
+lodepng_chunk_create	src/lodepng.cpp	/^unsigned lodepng_chunk_create(unsigned char** out, size_t* outlength, unsigned length,$/;"	f	typeref:typename:unsigned
+lodepng_chunk_data	src/lodepng.cpp	/^unsigned char* lodepng_chunk_data(unsigned char* chunk)$/;"	f	typeref:typename:unsigned char *
+lodepng_chunk_data_const	src/lodepng.cpp	/^const unsigned char* lodepng_chunk_data_const(const unsigned char* chunk)$/;"	f	typeref:typename:const unsigned char *
+lodepng_chunk_generate_crc	src/lodepng.cpp	/^void lodepng_chunk_generate_crc(unsigned char* chunk)$/;"	f	typeref:typename:void
+lodepng_chunk_length	src/lodepng.cpp	/^unsigned lodepng_chunk_length(const unsigned char* chunk)$/;"	f	typeref:typename:unsigned
+lodepng_chunk_next	src/lodepng.cpp	/^unsigned char* lodepng_chunk_next(unsigned char* chunk)$/;"	f	typeref:typename:unsigned char *
+lodepng_chunk_next_const	src/lodepng.cpp	/^const unsigned char* lodepng_chunk_next_const(const unsigned char* chunk)$/;"	f	typeref:typename:const unsigned char *
+lodepng_chunk_private	src/lodepng.cpp	/^unsigned char lodepng_chunk_private(const unsigned char* chunk)$/;"	f	typeref:typename:unsigned char
+lodepng_chunk_safetocopy	src/lodepng.cpp	/^unsigned char lodepng_chunk_safetocopy(const unsigned char* chunk)$/;"	f	typeref:typename:unsigned char
+lodepng_chunk_type	src/lodepng.cpp	/^void lodepng_chunk_type(char type[5], const unsigned char* chunk)$/;"	f	typeref:typename:void
+lodepng_chunk_type_equals	src/lodepng.cpp	/^unsigned char lodepng_chunk_type_equals(const unsigned char* chunk, const char* type)$/;"	f	typeref:typename:unsigned char
+lodepng_clear_itext	src/lodepng.cpp	/^void lodepng_clear_itext(LodePNGInfo* info)$/;"	f	typeref:typename:void
+lodepng_clear_text	src/lodepng.cpp	/^void lodepng_clear_text(LodePNGInfo* info)$/;"	f	typeref:typename:void
+lodepng_color_mode_cleanup	src/lodepng.cpp	/^void lodepng_color_mode_cleanup(LodePNGColorMode* info)$/;"	f	typeref:typename:void
+lodepng_color_mode_copy	src/lodepng.cpp	/^unsigned lodepng_color_mode_copy(LodePNGColorMode* dest, const LodePNGColorMode* source)$/;"	f	typeref:typename:unsigned
+lodepng_color_mode_equal	src/lodepng.cpp	/^static int lodepng_color_mode_equal(const LodePNGColorMode* a, const LodePNGColorMode* b)$/;"	f	typeref:typename:int	file:
+lodepng_color_mode_init	src/lodepng.cpp	/^void lodepng_color_mode_init(LodePNGColorMode* info)$/;"	f	typeref:typename:void
+lodepng_color_profile_init	src/lodepng.cpp	/^void lodepng_color_profile_init(LodePNGColorProfile* profile)$/;"	f	typeref:typename:void
+lodepng_compress_settings_init	src/lodepng.cpp	/^void lodepng_compress_settings_init(LodePNGCompressSettings* settings)$/;"	f	typeref:typename:void
+lodepng_convert	src/lodepng.cpp	/^unsigned lodepng_convert(unsigned char* out, const unsigned char* in,$/;"	f	typeref:typename:unsigned
+lodepng_crc32	src/lodepng.cpp	/^unsigned lodepng_crc32(const unsigned char* data, size_t length)$/;"	f	typeref:typename:unsigned
+lodepng_crc32_table	src/lodepng.cpp	/^static unsigned lodepng_crc32_table[256] = {$/;"	v	typeref:typename:unsigned[256]	file:
+lodepng_decode	src/lodepng.cpp	/^unsigned lodepng_decode(unsigned char** out, unsigned* w, unsigned* h,$/;"	f	typeref:typename:unsigned
+lodepng_decode24	src/lodepng.cpp	/^unsigned lodepng_decode24(unsigned char** out, unsigned* w, unsigned* h, const unsigned char* in/;"	f	typeref:typename:unsigned
+lodepng_decode24_file	src/lodepng.cpp	/^unsigned lodepng_decode24_file(unsigned char** out, unsigned* w, unsigned* h, const char* filena/;"	f	typeref:typename:unsigned
+lodepng_decode32	src/lodepng.cpp	/^unsigned lodepng_decode32(unsigned char** out, unsigned* w, unsigned* h, const unsigned char* in/;"	f	typeref:typename:unsigned
+lodepng_decode32_file	src/lodepng.cpp	/^unsigned lodepng_decode32_file(unsigned char** out, unsigned* w, unsigned* h, const char* filena/;"	f	typeref:typename:unsigned
+lodepng_decode_file	src/lodepng.cpp	/^unsigned lodepng_decode_file(unsigned char** out, unsigned* w, unsigned* h, const char* filename/;"	f	typeref:typename:unsigned
+lodepng_decode_memory	src/lodepng.cpp	/^unsigned lodepng_decode_memory(unsigned char** out, unsigned* w, unsigned* h, const unsigned cha/;"	f	typeref:typename:unsigned
+lodepng_decoder_settings_init	src/lodepng.cpp	/^void lodepng_decoder_settings_init(LodePNGDecoderSettings* settings)$/;"	f	typeref:typename:void
+lodepng_decompress_settings_init	src/lodepng.cpp	/^void lodepng_decompress_settings_init(LodePNGDecompressSettings* settings)$/;"	f	typeref:typename:void
+lodepng_default_compress_settings	src/lodepng.cpp	/^const LodePNGCompressSettings lodepng_default_compress_settings = {2, 1, DEFAULT_WINDOWSIZE, 3, /;"	v	typeref:typename:const LodePNGCompressSettings
+lodepng_default_decompress_settings	src/lodepng.cpp	/^const LodePNGDecompressSettings lodepng_default_decompress_settings = {0, 0, 0, 0};$/;"	v	typeref:typename:const LodePNGDecompressSettings
+lodepng_deflate	src/lodepng.cpp	/^unsigned lodepng_deflate(unsigned char** out, size_t* outsize,$/;"	f	typeref:typename:unsigned
+lodepng_deflatev	src/lodepng.cpp	/^static unsigned lodepng_deflatev(ucvector* out, const unsigned char* in, size_t insize,$/;"	f	typeref:typename:unsigned	file:
+lodepng_encode	src/lodepng.cpp	/^unsigned lodepng_encode(unsigned char** out, size_t* outsize,$/;"	f	typeref:typename:unsigned
+lodepng_encode24	src/lodepng.cpp	/^unsigned lodepng_encode24(unsigned char** out, size_t* outsize, const unsigned char* image, unsi/;"	f	typeref:typename:unsigned
+lodepng_encode24_file	src/lodepng.cpp	/^unsigned lodepng_encode24_file(const char* filename, const unsigned char* image, unsigned w, uns/;"	f	typeref:typename:unsigned
+lodepng_encode32	src/lodepng.cpp	/^unsigned lodepng_encode32(unsigned char** out, size_t* outsize, const unsigned char* image, unsi/;"	f	typeref:typename:unsigned
+lodepng_encode32_file	src/lodepng.cpp	/^unsigned lodepng_encode32_file(const char* filename, const unsigned char* image, unsigned w, uns/;"	f	typeref:typename:unsigned
+lodepng_encode_file	src/lodepng.cpp	/^unsigned lodepng_encode_file(const char* filename, const unsigned char* image, unsigned w, unsig/;"	f	typeref:typename:unsigned
+lodepng_encode_memory	src/lodepng.cpp	/^unsigned lodepng_encode_memory(unsigned char** out, size_t* outsize, const unsigned char* image,$/;"	f	typeref:typename:unsigned
+lodepng_encoder_settings_init	src/lodepng.cpp	/^void lodepng_encoder_settings_init(LodePNGEncoderSettings* settings)$/;"	f	typeref:typename:void
+lodepng_error_text	src/lodepng.cpp	/^const char* lodepng_error_text(unsigned code)$/;"	f	typeref:typename:const char *
+lodepng_filesize	src/lodepng.cpp	/^static long lodepng_filesize(const char* filename)$/;"	f	typeref:typename:long	file:
+lodepng_free	src/lodepng.cpp	/^static void lodepng_free(void* ptr)$/;"	f	typeref:typename:void	file:
+lodepng_get_bpp	src/lodepng.cpp	/^unsigned lodepng_get_bpp(const LodePNGColorMode* info)$/;"	f	typeref:typename:unsigned
+lodepng_get_bpp_lct	src/lodepng.cpp	/^static unsigned lodepng_get_bpp_lct(LodePNGColorType colortype, unsigned bitdepth)$/;"	f	typeref:typename:unsigned	file:
+lodepng_get_channels	src/lodepng.cpp	/^unsigned lodepng_get_channels(const LodePNGColorMode* info)$/;"	f	typeref:typename:unsigned
+lodepng_get_color_profile	src/lodepng.cpp	/^unsigned lodepng_get_color_profile(LodePNGColorProfile* profile,$/;"	f	typeref:typename:unsigned
+lodepng_get_raw_size	src/lodepng.cpp	/^size_t lodepng_get_raw_size(unsigned w, unsigned h, const LodePNGColorMode* color)$/;"	f	typeref:typename:size_t
+lodepng_get_raw_size_idat	src/lodepng.cpp	/^static size_t lodepng_get_raw_size_idat(unsigned w, unsigned h, const LodePNGColorMode* color)$/;"	f	typeref:typename:size_t	file:
+lodepng_get_raw_size_lct	src/lodepng.cpp	/^size_t lodepng_get_raw_size_lct(unsigned w, unsigned h, LodePNGColorType colortype, unsigned bit/;"	f	typeref:typename:size_t
+lodepng_has_palette_alpha	src/lodepng.cpp	/^unsigned lodepng_has_palette_alpha(const LodePNGColorMode* info)$/;"	f	typeref:typename:unsigned
+lodepng_huffman_code_lengths	src/lodepng.cpp	/^unsigned lodepng_huffman_code_lengths(unsigned* lengths, const unsigned* frequencies,$/;"	f	typeref:typename:unsigned
+lodepng_inflate	src/lodepng.cpp	/^unsigned lodepng_inflate(unsigned char** out, size_t* outsize,$/;"	f	typeref:typename:unsigned
+lodepng_inflatev	src/lodepng.cpp	/^static unsigned lodepng_inflatev(ucvector* out,$/;"	f	typeref:typename:unsigned	file:
+lodepng_info_cleanup	src/lodepng.cpp	/^void lodepng_info_cleanup(LodePNGInfo* info)$/;"	f	typeref:typename:void
+lodepng_info_copy	src/lodepng.cpp	/^unsigned lodepng_info_copy(LodePNGInfo* dest, const LodePNGInfo* source)$/;"	f	typeref:typename:unsigned
+lodepng_info_init	src/lodepng.cpp	/^void lodepng_info_init(LodePNGInfo* info)$/;"	f	typeref:typename:void
+lodepng_info_swap	src/lodepng.cpp	/^void lodepng_info_swap(LodePNGInfo* a, LodePNGInfo* b)$/;"	f	typeref:typename:void
+lodepng_inspect	src/lodepng.cpp	/^unsigned lodepng_inspect(unsigned* w, unsigned* h, LodePNGState* state,$/;"	f	typeref:typename:unsigned
+lodepng_is_alpha_type	src/lodepng.cpp	/^unsigned lodepng_is_alpha_type(const LodePNGColorMode* info)$/;"	f	typeref:typename:unsigned
+lodepng_is_greyscale_type	src/lodepng.cpp	/^unsigned lodepng_is_greyscale_type(const LodePNGColorMode* info)$/;"	f	typeref:typename:unsigned
+lodepng_is_palette_type	src/lodepng.cpp	/^unsigned lodepng_is_palette_type(const LodePNGColorMode* info)$/;"	f	typeref:typename:unsigned
+lodepng_load_file	src/lodepng.cpp	/^unsigned lodepng_load_file(unsigned char** out, size_t* outsize, const char* filename)$/;"	f	typeref:typename:unsigned
+lodepng_malloc	src/lodepng.cpp	/^static void* lodepng_malloc(size_t size)$/;"	f	typeref:typename:void *	file:
+lodepng_palette_add	src/lodepng.cpp	/^unsigned lodepng_palette_add(LodePNGColorMode* info,$/;"	f	typeref:typename:unsigned
+lodepng_palette_clear	src/lodepng.cpp	/^void lodepng_palette_clear(LodePNGColorMode* info)$/;"	f	typeref:typename:void
+lodepng_read32bitInt	src/lodepng.cpp	/^unsigned lodepng_read32bitInt(const unsigned char* buffer)$/;"	f	typeref:typename:unsigned
+lodepng_realloc	src/lodepng.cpp	/^static void* lodepng_realloc(void* ptr, size_t new_size)$/;"	f	typeref:typename:void *	file:
+lodepng_save_file	src/lodepng.cpp	/^unsigned lodepng_save_file(const unsigned char* buffer, size_t buffersize, const char* filename)$/;"	f	typeref:typename:unsigned
+lodepng_set32bitInt	src/lodepng.cpp	/^static void lodepng_set32bitInt(unsigned char* buffer, unsigned value)$/;"	f	typeref:typename:void	file:
+lodepng_state_cleanup	src/lodepng.cpp	/^void lodepng_state_cleanup(LodePNGState* state)$/;"	f	typeref:typename:void
+lodepng_state_copy	src/lodepng.cpp	/^void lodepng_state_copy(LodePNGState* dest, const LodePNGState* source)$/;"	f	typeref:typename:void
+lodepng_state_init	src/lodepng.cpp	/^void lodepng_state_init(LodePNGState* state)$/;"	f	typeref:typename:void
+lodepng_zlib_compress	src/lodepng.cpp	/^unsigned lodepng_zlib_compress(unsigned char** out, size_t* outsize, const unsigned char* in,$/;"	f	typeref:typename:unsigned
+lodepng_zlib_decompress	src/lodepng.cpp	/^unsigned lodepng_zlib_decompress(unsigned char** out, size_t* outsize, const unsigned char* in,$/;"	f	typeref:typename:unsigned
 log	include/glm/detail/func_exponential.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> log(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 log	include/glm/gtx/log_base.inl	/^	GLM_FUNC_QUALIFIER genType log(genType const & x, genType const & base)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 log	include/glm/gtx/log_base.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> log(vecType<T, P> const & x, vecType<T, P> const & base)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
@@ -6425,7 +6792,7 @@ main	build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^int main(int 
 main	build/CMakeFiles/feature_tests.c	/^int main(int argc, char** argv) { (void)argv; return features[argc]; }$/;"	f	typeref:typename:int
 main	build/CMakeFiles/feature_tests.cxx	/^int main(int argc, char** argv) { (void)argv; return features[argc]; }$/;"	f	typeref:typename:int
 main	include/glm/detail/dummy.cpp	/^int main()$/;"	f	typeref:typename:int
-main	src/tutorial16.cpp	/^int main()$/;"	f	typeref:typename:int
+main	src/tutorial18.cpp	/^int main()$/;"	f	typeref:typename:int
 major	src/gl3w.c	/^	int major, minor;$/;"	m	struct:__anon5d41850a0108	typeref:typename:int	file:
 make_mat2	include/glm/gtc/type_ptr.inl	/^	GLM_FUNC_QUALIFIER tmat2x2<T, defaultp> make_mat2(T const * const ptr)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat2x2<T,defaultp>
 make_mat2x2	include/glm/gtc/type_ptr.inl	/^	GLM_FUNC_QUALIFIER tmat2x2<T, defaultp> make_mat2x2(T const * const ptr)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat2x2<T,defaultp>
@@ -6518,6 +6885,7 @@ max	include/glm/gtx/extented_min_max.inl	/^	GLM_FUNC_QUALIFIER C<T> max$/;"	f	na
 max	include/glm/gtx/extented_min_max.inl	/^	GLM_FUNC_QUALIFIER T max$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 max	include/glm/gtx/extented_min_max.inl	/^	GLM_FUNC_QUALIFIER T max($/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 max	include/glm/gtx/simd_vec4.inl	/^GLM_FUNC_QUALIFIER detail::fvec4SIMD max$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER detail::fvec4SIMD
+maxbitlen	src/lodepng.cpp	/^  unsigned maxbitlen; \/*maximum number of bits a single code can get*\/$/;"	m	struct:HuffmanTree	typeref:typename:unsigned	file:
 mediump	include/glm/detail/precision.hpp	/^		mediump,$/;"	e	enum:glm::precision
 mediump_bvec1	include/glm/gtc/vec1.hpp	/^	typedef mediump_bvec1_t			mediump_bvec1;$/;"	t	namespace:glm	typeref:typename:mediump_bvec1_t
 mediump_bvec1_t	include/glm/detail/type_vec.hpp	/^	typedef tvec1<bool, mediump>	mediump_bvec1_t;$/;"	t	namespace:glm	typeref:typename:tvec1<bool,mediump>
@@ -6756,6 +7124,8 @@ mediump_vec3	include/glm/detail/type_vec.hpp	/^	typedef tvec3<float, mediump>	me
 mediump_vec3	include/glm/fwd.hpp	/^	typedef tvec3<float, mediump> mediump_vec3;$/;"	t	namespace:glm	typeref:typename:tvec3<float,mediump>
 mediump_vec4	include/glm/detail/type_vec.hpp	/^	typedef tvec4<float, mediump>	mediump_vec4;$/;"	t	namespace:glm	typeref:typename:tvec4<float,mediump>
 mediump_vec4	include/glm/fwd.hpp	/^	typedef tvec4<float, mediump> mediump_vec4;$/;"	t	namespace:glm	typeref:typename:tvec4<float,mediump>
+memory	src/lodepng.cpp	/^  BPMNode* memory;$/;"	m	struct:BPMLists	typeref:typename:BPMNode *	file:
+memsize	src/lodepng.cpp	/^  unsigned memsize;$/;"	m	struct:BPMLists	typeref:typename:unsigned	file:
 min	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER genType min(genType x, genType y)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 min	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> min(vecType<T, P> const & a, T b)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 min	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> min(vecType<T, P> const & a, vecType<T, P> const & b)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
@@ -6763,8 +7133,10 @@ min	include/glm/gtx/extented_min_max.inl	/^	GLM_FUNC_QUALIFIER C<T> min$/;"	f	na
 min	include/glm/gtx/extented_min_max.inl	/^	GLM_FUNC_QUALIFIER T min$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 min	include/glm/gtx/extented_min_max.inl	/^	GLM_FUNC_QUALIFIER T min($/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 min	include/glm/gtx/simd_vec4.inl	/^GLM_FUNC_QUALIFIER detail::fvec4SIMD min$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER detail::fvec4SIMD
+minmatch	include/lodepng.h	/^  unsigned minmatch; \/*mininum lz77 length. 3 is normally best, 6 can be better for some PNGs. /;"	m	struct:LodePNGCompressSettings	typeref:typename:unsigned
 minor	src/gl3w.c	/^	int major, minor;$/;"	m	struct:__anon5d41850a0108	typeref:typename:int	file:
 minus_one	include/glm/detail/intrinsic_common.inl	/^	static const __m128 GLM_VAR_USED minus_one = _mm_set_ps1(-1.0f);$/;"	v	namespace:glm::detail	typeref:typename:const __m128 GLM_VAR_USED	file:
+minute	include/lodepng.h	/^  unsigned minute;  \/*0-59*\/$/;"	m	struct:LodePNGTime	typeref:typename:unsigned
 mirrorRepeat	include/glm/gtx/wrap.inl	/^	GLM_FUNC_QUALIFIER genType mirrorRepeat$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 mirrorRepeat	include/glm/gtx/wrap.inl	/^	GLM_FUNC_QUALIFIER tvec2<T, P> mirrorRepeat$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec2<T,P>
 mirrorRepeat	include/glm/gtx/wrap.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> mirrorRepeat$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
@@ -6788,6 +7160,7 @@ modf	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER tvec1<T, P> modf(t
 modf	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER tvec2<T, P> modf(tvec2<T, P> const & x, tvec2<T, P> & i)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec2<T,P>
 modf	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> modf(tvec3<T, P> const & x, tvec3<T, P> & i)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
 modf	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER tvec4<T, P> modf(tvec4<T, P> const & x, tvec4<T, P> & i)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec4<T,P>
+month	include/lodepng.h	/^  unsigned month;   \/*1-12*\/$/;"	m	struct:LodePNGTime	typeref:typename:unsigned
 mouseMovementSpeedDampingFactor	include/camera.h	/^        float mouseMovementSpeedDampingFactor = .01;$/;"	m	class:Camera	typeref:typename:float
 mousePositionX	include/camera.h	/^        unsigned int mousePositionX;$/;"	m	class:Camera	typeref:typename:unsigned int
 mousePositionX	include/controls.h	/^        int mousePositionX = 0;$/;"	m	class:Controls	typeref:typename:int
@@ -6802,10 +7175,12 @@ next_float	include/glm/gtc/ulp.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> next_floa
 next_float	include/glm/gtc/ulp.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> next_float(vecType<T, P> const & x, vecType<uint, P> const & u/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 nextafter	include/glm/gtc/ulp.inl	/^	GLM_FUNC_QUALIFIER double nextafter(double x, double y)$/;"	f	namespace:glm::detail	typeref:typename:GLM_FUNC_QUALIFIER double
 nextafterf	include/glm/gtc/ulp.inl	/^	GLM_FUNC_QUALIFIER float nextafterf(float x, float y)$/;"	f	namespace:glm::detail	typeref:typename:GLM_FUNC_QUALIFIER float
+nextfree	src/lodepng.cpp	/^  unsigned nextfree;$/;"	m	struct:BPMLists	typeref:typename:unsigned	file:
 nice	include/glm/detail/type_gentype.hpp	/^		nice,$/;"	e	enum:glm::profile
 niceLength	include/glm/gtx/simd_vec4.inl	/^GLM_FUNC_QUALIFIER float niceLength$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER float
 niceLength4	include/glm/gtx/simd_vec4.inl	/^GLM_FUNC_QUALIFIER detail::fvec4SIMD niceLength4$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER detail::fvec4SIMD
 niceSqrt	include/glm/gtx/simd_vec4.inl	/^GLM_FUNC_QUALIFIER detail::fvec4SIMD niceSqrt(detail::fvec4SIMD const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER detail::fvec4SIMD
+nicematch	include/lodepng.h	/^  unsigned nicematch; \/*stop searching if >= this length found. Set to 258 for best compression/;"	m	struct:LodePNGCompressSettings	typeref:typename:unsigned
 nlz	include/glm/gtx/integer.inl	/^	GLM_FUNC_QUALIFIER unsigned int nlz(unsigned int x) $/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER unsigned int
 noise1	include/glm/detail/func_noise.inl	/^	GLM_FUNC_QUALIFIER T noise1(T const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 noise1	include/glm/detail/func_noise.inl	/^	GLM_FUNC_QUALIFIER T noise1(tvec2<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
@@ -6824,6 +7199,7 @@ noise4	include/glm/detail/func_noise.inl	/^	GLM_FUNC_QUALIFIER tvec4<T, P> noise
 noise4	include/glm/detail/func_noise.inl	/^	GLM_FUNC_QUALIFIER tvec4<T, P> noise4(tvec4<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec4<T,P>
 noise4	include/glm/detail/func_noise.inl	/^	GLM_FUNC_QUALIFIER tvec4<T, defaultp> noise4(T const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec4<T,defaultp>
 normal	include/glm/detail/dummy.cpp	/^	glm::vec3 normal;$/;"	m	struct:intersection	typeref:typename:glm::vec3	file:
+normal	src/tutorial18.cpp	/^    glm::vec3 normal;$/;"	m	struct:Vertex	typeref:typename:glm::vec3	file:
 normalize	include/glm/detail/func_geometric.inl	/^	GLM_FUNC_QUALIFIER genType normalize(genType const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 normalize	include/glm/detail/func_geometric.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> normalize(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 normalize	include/glm/gtc/quaternion.inl	/^	GLM_FUNC_QUALIFIER tquat<T, P> normalize(tquat<T, P> const & q)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tquat<T,P>
@@ -6844,6 +7220,9 @@ number_of_elements_	include/glm/gtx/range.hpp	/^	detail::component_count_t numbe
 number_of_elements_	include/glm/gtx/range.hpp	/^	detail::component_count_t number_of_elements_(tvec2<T, P> const & v){$/;"	f	namespace:glm::detail	typeref:typename:detail::component_count_t
 number_of_elements_	include/glm/gtx/range.hpp	/^	detail::component_count_t number_of_elements_(tvec3<T, P> const & v){$/;"	f	namespace:glm::detail	typeref:typename:detail::component_count_t
 number_of_elements_	include/glm/gtx/range.hpp	/^	detail::component_count_t number_of_elements_(tvec4<T, P> const & v){$/;"	f	namespace:glm::detail	typeref:typename:detail::component_count_t
+numcodes	src/lodepng.cpp	/^  unsigned numcodes; \/*number of symbols in the alphabet = number of codes*\/$/;"	m	struct:HuffmanTree	typeref:typename:unsigned	file:
+numcolors	include/lodepng.h	/^  unsigned numcolors; \/*amount of colors, up to 257. Not valid if bits == 16.*\/$/;"	m	struct:LodePNGColorProfile	typeref:typename:unsigned
+numfree	src/lodepng.cpp	/^  unsigned numfree;$/;"	m	struct:BPMLists	typeref:typename:unsigned	file:
 one	include/glm/detail/intrinsic_common.inl	/^	static const __m128 GLM_VAR_USED one = _mm_set_ps1(1.0f);$/;"	v	namespace:glm::detail	typeref:typename:const __m128 GLM_VAR_USED	file:
 one	include/glm/gtc/constants.inl	/^	GLM_FUNC_QUALIFIER genType one()$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 one_over_pi	include/glm/gtc/constants.inl	/^	GLM_FUNC_QUALIFIER genType one_over_pi()$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
@@ -7472,6 +7851,7 @@ operator =	include/glm/gtx/dual_quaternion.inl	/^	GLM_FUNC_QUALIFIER tdualquat<T
 operator =	include/glm/gtx/simd_mat4.inl	/^GLM_FUNC_QUALIFIER fmat4x4SIMD& fmat4x4SIMD::operator= $/;"	f	class:glm::detail::fmat4x4SIMD	typeref:typename:GLM_FUNC_QUALIFIER fmat4x4SIMD &
 operator =	include/glm/gtx/simd_quat.inl	/^GLM_FUNC_QUALIFIER fquatSIMD& fquatSIMD::operator=(fquatSIMD const & q)$/;"	f	class:glm::detail::fquatSIMD	typeref:typename:GLM_FUNC_QUALIFIER fquatSIMD &
 operator =	include/glm/gtx/simd_vec4.inl	/^GLM_FUNC_QUALIFIER fvec4SIMD& fvec4SIMD::operator=(fvec4SIMD const & v)$/;"	f	class:glm::detail::fvec4SIMD	typeref:typename:GLM_FUNC_QUALIFIER fvec4SIMD &
+operator =	src/lodepng.cpp	/^State& State::operator=(const State& other)$/;"	f	class:lodepng::State	typeref:typename:State &
 operator ==	include/glm/detail/type_mat2x2.inl	/^	GLM_FUNC_QUALIFIER bool operator==(tmat2x2<T, P> const & m1, tmat2x2<T, P> const & m2)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER bool
 operator ==	include/glm/detail/type_mat2x3.inl	/^	GLM_FUNC_QUALIFIER bool operator==(tmat2x3<T, P> const & m1, tmat2x3<T, P> const & m2)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER bool
 operator ==	include/glm/detail/type_mat2x4.inl	/^	GLM_FUNC_QUALIFIER bool operator==(tmat2x4<T, P> const & m1, tmat2x4<T, P> const & m2)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER bool
@@ -7679,6 +8059,10 @@ packed10ToFloat	include/glm/gtc/packing.inl	/^	GLM_FUNC_QUALIFIER glm::uint32 pa
 packed10bitToFloat	include/glm/gtc/packing.inl	/^	GLM_FUNC_QUALIFIER float packed10bitToFloat(glm::uint x)$/;"	f	namespace:glm::detail	typeref:typename:GLM_FUNC_QUALIFIER float
 packed11ToFloat	include/glm/gtc/packing.inl	/^	GLM_FUNC_QUALIFIER glm::uint32 packed11ToFloat(glm::uint32 p)$/;"	f	namespace:glm::detail	typeref:typename:GLM_FUNC_QUALIFIER glm::uint32
 packed11bitToFloat	include/glm/gtc/packing.inl	/^	GLM_FUNC_QUALIFIER float packed11bitToFloat(glm::uint x)$/;"	f	namespace:glm::detail	typeref:typename:GLM_FUNC_QUALIFIER float
+paethPredictor	src/lodepng.cpp	/^static unsigned char paethPredictor(short a, short b, short c)$/;"	f	typeref:typename:unsigned char	file:
+palette	include/lodepng.h	/^  unsigned char palette[1024]; \/*Remembers up to the first 256 RGBA colors, in no particular or/;"	m	struct:LodePNGColorProfile	typeref:typename:unsigned char[1024]
+palette	include/lodepng.h	/^  unsigned char* palette; \/*palette in RGBARGBA... order. When allocated, must be either 0, or /;"	m	struct:LodePNGColorMode	typeref:typename:unsigned char *
+palettesize	include/lodepng.h	/^  size_t palettesize; \/*palette size in number of colors (amount of bytes is 4 * palettesize)*\/$/;"	m	struct:LodePNGColorMode	typeref:typename:size_t
 param_type	include/glm/detail/type_gentype.hpp	/^		typedef TYPE<VALTYPE> const & param_type;$/;"	t	struct:glm::detail::genType	typeref:typename:TYPE<VALTYPE> const &
 parse_version	src/gl3w.c	/^static int parse_version(void)$/;"	f	typeref:typename:int	file:
 part_type	include/glm/gtx/dual_quaternion.hpp	/^		typedef glm::tquat<T, P> part_type;$/;"	t	struct:glm::tdualquat	typeref:typename:glm::tquat<T,P>
@@ -7698,6 +8082,10 @@ permute	include/glm/detail/_noise.hpp	/^	GLM_FUNC_QUALIFIER tvec4<T, P> permute(
 perp	include/glm/gtx/perpendicular.inl	/^	GLM_FUNC_QUALIFIER vecType perp$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType
 perspective	include/glm/gtc/matrix_transform.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> perspective$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,defaultp>
 perspectiveFov	include/glm/gtc/matrix_transform.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> perspectiveFov$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,defaultp>
+phys_defined	include/lodepng.h	/^  unsigned phys_defined; \/*if 0, there is no pHYs chunk and the values below are undefined, if /;"	m	struct:LodePNGInfo	typeref:typename:unsigned
+phys_unit	include/lodepng.h	/^  unsigned phys_unit; \/*may be 0 (unknown unit) or 1 (metre)*\/$/;"	m	struct:LodePNGInfo	typeref:typename:unsigned
+phys_x	include/lodepng.h	/^  unsigned phys_x; \/*pixels per unit in x direction*\/$/;"	m	struct:LodePNGInfo	typeref:typename:unsigned
+phys_y	include/lodepng.h	/^  unsigned phys_y; \/*pixels per unit in y direction*\/$/;"	m	struct:LodePNGInfo	typeref:typename:unsigned
 pi	include/glm/detail/intrinsic_common.inl	/^	static const __m128 GLM_VAR_USED pi = _mm_set_ps1(3.1415926535897932384626433832795f);$/;"	v	namespace:glm::detail	typeref:typename:const __m128 GLM_VAR_USED	file:
 pi	include/glm/detail/setup.hpp	/^		inline __m128 _mm_castsi128_ps(__m128i PI) { union { __m128 ps; __m128i pi; } c; c.pi = PI; re/;"	m	union:_mm_castsi128_ps::__anoned049d10040a	typeref:typename:__m128i
 pi	include/glm/detail/setup.hpp	/^		inline __m128i _mm_castps_si128(__m128 PS) { union { __m128 ps; __m128i pi; } c; c.ps = PS; re/;"	m	union:_mm_castps_si128::__anoned049d10030a	typeref:typename:__m128i
@@ -7710,6 +8098,8 @@ pointer_const	include/glm/detail/type_gentype.hpp	/^		typedef TYPE<VALTYPE> * co
 polar	include/glm/gtx/polar_coordinates.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> polar$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
 position	include/glm/detail/dummy.cpp	/^	glm::vec4 position; \/\/ Ppli$/;"	m	struct:light	typeref:typename:glm::vec4	file:
 position	include/glm/detail/dummy.cpp	/^	glm::vec4 position;$/;"	m	struct:intersection	typeref:typename:glm::vec4	file:
+position	src/tutorial18.cpp	/^    glm::vec3 position;$/;"	m	struct:Vertex	typeref:typename:glm::vec3	file:
+postProcessScanlines	src/lodepng.cpp	/^static unsigned postProcessScanlines(unsigned char* out, unsigned char* in,$/;"	f	typeref:typename:unsigned	file:
 pow	include/glm/detail/func_exponential.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> pow(vecType<T, P> const & base, vecType<T, P> const & exponent/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 pow	include/glm/gtx/integer.inl	/^	GLM_FUNC_QUALIFIER int pow(int x, int y)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER int
 pow	include/glm/gtx/integer.inl	/^	GLM_FUNC_QUALIFIER uint pow(uint x, uint y)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER uint
@@ -7723,11 +8113,13 @@ powerOfTwoBelow	include/glm/gtx/bit.inl	/^	GLM_FUNC_QUALIFIER genType powerOfTwo
 powerOfTwoBelow	include/glm/gtx/bit.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> powerOfTwoBelow(vecType<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 powerOfTwoNearest	include/glm/gtx/bit.inl	/^	GLM_FUNC_QUALIFIER genType powerOfTwoNearest(genType value)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 powerOfTwoNearest	include/glm/gtx/bit.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> powerOfTwoNearest(vecType<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
+preProcessScanlines	src/lodepng.cpp	/^static unsigned preProcessScanlines(unsigned char** out, size_t* outsize, const unsigned char* i/;"	f	typeref:typename:unsigned	file:
 precision	include/glm/detail/precision.hpp	/^	enum precision$/;"	g	namespace:glm
 precision	include/glm/gtx/io.hpp	/^			unsigned   precision;$/;"	m	class:glm::io::format_punct	typeref:typename:unsigned
 precision	include/glm/gtx/io.hpp	/^		struct precision$/;"	s	namespace:glm::io
 precision	include/glm/gtx/io.inl	/^	\/* explicit *\/ GLM_FUNC_QUALIFIER precision::precision(unsigned a)$/;"	f	class:glm::io::precision	typeref:typename:GLM_FUNC_QUALIFIER
 precision_	include/glm/gtx/io.hpp	/^			streamsize_type precision_;$/;"	m	class:glm::io::basic_state_saver	typeref:typename:streamsize_type
+predefined_filters	include/lodepng.h	/^  const unsigned char* predefined_filters;$/;"	m	struct:LodePNGEncoderSettings	typeref:typename:const unsigned char *
 prefix	include/glm/gtx/string_cast.inl	/^	struct prefix<bool>$/;"	s	namespace:glm::detail	file:
 prefix	include/glm/gtx/string_cast.inl	/^	struct prefix<double>$/;"	s	namespace:glm::detail	file:
 prefix	include/glm/gtx/string_cast.inl	/^	struct prefix<float>$/;"	s	namespace:glm::detail	file:
@@ -7783,6 +8175,19 @@ radialGradient	include/glm/gtx/gradient_paint.inl	/^	GLM_FUNC_QUALIFIER T radial
 radians	include/glm/detail/func_trigonometric.inl	/^	GLM_FUNC_QUALIFIER genType radians(genType degrees)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 radians	include/glm/detail/func_trigonometric.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> radians(vecType<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 radiansToDegrees	src/utilities.cpp	/^        double radiansToDegrees(double angle)$/;"	f	namespace:Utilities::Math	typeref:typename:double
+readBitFromReversedStream	src/lodepng.cpp	/^static unsigned char readBitFromReversedStream(size_t* bitpointer, const unsigned char* bitstrea/;"	f	typeref:typename:unsigned char	file:
+readBitFromStream	src/lodepng.cpp	/^static unsigned char readBitFromStream(size_t* bitpointer, const unsigned char* bitstream)$/;"	f	typeref:typename:unsigned char	file:
+readBitsFromReversedStream	src/lodepng.cpp	/^static unsigned readBitsFromReversedStream(size_t* bitpointer, const unsigned char* bitstream, s/;"	f	typeref:typename:unsigned	file:
+readBitsFromStream	src/lodepng.cpp	/^static unsigned readBitsFromStream(size_t* bitpointer, const unsigned char* bitstream, size_t nb/;"	f	typeref:typename:unsigned	file:
+readChunk_PLTE	src/lodepng.cpp	/^static unsigned readChunk_PLTE(LodePNGColorMode* color, const unsigned char* data, size_t chunkL/;"	f	typeref:typename:unsigned	file:
+readChunk_bKGD	src/lodepng.cpp	/^static unsigned readChunk_bKGD(LodePNGInfo* info, const unsigned char* data, size_t chunkLength)$/;"	f	typeref:typename:unsigned	file:
+readChunk_iTXt	src/lodepng.cpp	/^static unsigned readChunk_iTXt(LodePNGInfo* info, const LodePNGDecompressSettings* zlibsettings,$/;"	f	typeref:typename:unsigned	file:
+readChunk_pHYs	src/lodepng.cpp	/^static unsigned readChunk_pHYs(LodePNGInfo* info, const unsigned char* data, size_t chunkLength)$/;"	f	typeref:typename:unsigned	file:
+readChunk_tEXt	src/lodepng.cpp	/^static unsigned readChunk_tEXt(LodePNGInfo* info, const unsigned char* data, size_t chunkLength)$/;"	f	typeref:typename:unsigned	file:
+readChunk_tIME	src/lodepng.cpp	/^static unsigned readChunk_tIME(LodePNGInfo* info, const unsigned char* data, size_t chunkLength)$/;"	f	typeref:typename:unsigned	file:
+readChunk_tRNS	src/lodepng.cpp	/^static unsigned readChunk_tRNS(LodePNGColorMode* color, const unsigned char* data, size_t chunkL/;"	f	typeref:typename:unsigned	file:
+readChunk_zTXt	src/lodepng.cpp	/^static unsigned readChunk_zTXt(LodePNGInfo* info, const LodePNGDecompressSettings* zlibsettings,$/;"	f	typeref:typename:unsigned	file:
+read_text_chunks	include/lodepng.h	/^  unsigned read_text_chunks; \/*if false but remember_unknown_chunks is true, they're stored in /;"	m	struct:LodePNGDecoderSettings	typeref:typename:unsigned
 real	include/glm/gtx/dual_quaternion.hpp	/^		glm::tquat<T, P> real, dual;$/;"	m	struct:glm::tdualquat	typeref:typename:glm::tquat<T,P>
 rebuild_cache	build/Makefile	/^rebuild_cache:$/;"	t
 rebuild_cache/fast	build/Makefile	/^rebuild_cache\/fast: rebuild_cache$/;"	t
@@ -7794,6 +8199,10 @@ reflect3D	include/glm/gtx/transform2.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, P> ref
 refract	include/glm/detail/func_geometric.inl	/^	GLM_FUNC_QUALIFIER genType refract(genType const & I, genType const & N, genType const & eta)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 refract	include/glm/detail/func_geometric.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> refract(vecType<T, P> const & I, vecType<T, P> const & N, T et/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 refract	include/glm/gtx/simd_vec4.inl	/^GLM_FUNC_QUALIFIER detail::fvec4SIMD refract$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER detail::fvec4SIMD
+remember_unknown_chunks	include/lodepng.h	/^  unsigned remember_unknown_chunks;$/;"	m	struct:LodePNGDecoderSettings	typeref:typename:unsigned
+removeLightByID	src/lights/directional.cpp	/^void DirectionalLightList::removeLightByID(unsigned int lightID)$/;"	f	class:DirectionalLightList	typeref:typename:void
+removePaddingBits	src/lodepng.cpp	/^static void removePaddingBits(unsigned char* out, const unsigned char* in,$/;"	f	typeref:typename:void	file:
+renderContext	include/renderwindow.h	/^        SDL_GLContext renderContext;$/;"	m	class:RenderWindow	typeref:typename:SDL_GLContext
 repeat	include/glm/gtx/wrap.inl	/^	GLM_FUNC_QUALIFIER genType repeat$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 repeat	include/glm/gtx/wrap.inl	/^	GLM_FUNC_QUALIFIER tvec2<T, P> repeat$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec2<T,P>
 repeat	include/glm/gtx/wrap.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> repeat$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
@@ -7802,6 +8211,8 @@ return_type_scalar_multiplication	include/glm/gtx/scalar_multiplication.hpp	/^	u
 rgb2YCoCg	include/glm/gtx/color_space_YCoCg.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> rgb2YCoCg$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
 rgb2YCoCgR	include/glm/gtx/color_space_YCoCg.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> rgb2YCoCgR$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
 rgbColor	include/glm/gtx/color_space.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> rgbColor(const tvec3<T, P>& hsvColor)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
+rgba16ToPixel	src/lodepng.cpp	/^static void rgba16ToPixel(unsigned char* out, size_t i,$/;"	f	typeref:typename:void	file:
+rgba8ToPixel	src/lodepng.cpp	/^static unsigned rgba8ToPixel(unsigned char* out, size_t i,$/;"	f	typeref:typename:unsigned	file:
 rightHanded	include/glm/gtx/handed_coordinate_space.inl	/^	GLM_FUNC_QUALIFIER bool rightHanded$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER bool
 roll	include/glm/gtc/quaternion.inl	/^	GLM_FUNC_QUALIFIER T roll(tquat<T, P> const & q)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 root_five	include/glm/gtc/constants.inl	/^	GLM_FUNC_QUALIFIER genType root_five()$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
@@ -7872,22 +8283,29 @@ saturate	include/glm/gtx/compatibility.hpp	/^	template <typename T, precision P>
 saturation	include/glm/gtx/color_space.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> saturation(T const s)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,defaultp>
 saturation	include/glm/gtx/color_space.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> saturation(const T s, const tvec3<T, P>& color)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
 saturation	include/glm/gtx/color_space.inl	/^	GLM_FUNC_QUALIFIER tvec4<T, P> saturation(const T s, const tvec4<T, P>& color)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec4<T,P>
+save_file	src/lodepng.cpp	/^unsigned save_file(const std::vector<unsigned char>& buffer, const std::string& filename)$/;"	f	namespace:lodepng	typeref:typename:unsigned
 scale	include/glm/gtc/matrix_transform.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, P> scale$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,P>
 scale	include/glm/gtx/matrix_transform_2d.inl	/^	GLM_FUNC_QUALIFIER tmat3x3<T, P> scale($/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat3x3<T,P>
 scale	include/glm/gtx/transform.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, P> scale($/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,P>
 scaleBias	include/glm/gtx/transform2.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, P> scaleBias($/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,P>
 scale_slow	include/glm/gtc/matrix_transform.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, P> scale_slow$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,P>
-screenHeight	src/tutorial16.cpp	/^const unsigned int screenHeight = 600;$/;"	v	typeref:typename:const unsigned int
-screenWidth	src/tutorial16.cpp	/^const unsigned int screenWidth = 800;$/;"	v	typeref:typename:const unsigned int
+screenHeight	src/tutorial18.cpp	/^const unsigned int screenHeight = 600;$/;"	v	typeref:typename:const unsigned int
+screenWidth	src/tutorial18.cpp	/^const unsigned int screenWidth = 800;$/;"	v	typeref:typename:const unsigned int
+searchCodeIndex	src/lodepng.cpp	/^static size_t searchCodeIndex(const unsigned* array, size_t array_size, size_t value)$/;"	f	typeref:typename:size_t	file:
 sec	include/glm/gtc/reciprocal.inl	/^	GLM_FUNC_QUALIFIER genType sec(genType angle)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 sec	include/glm/gtc/reciprocal.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> sec(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 sech	include/glm/gtc/reciprocal.inl	/^	GLM_FUNC_QUALIFIER genType sech(genType angle)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 sech	include/glm/gtc/reciprocal.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> sech(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
+second	include/lodepng.h	/^  unsigned second;  \/*0-60 (to allow for leap seconds)*\/$/;"	m	struct:LodePNGTime	typeref:typename:unsigned
 separator	include/glm/gtx/io.hpp	/^			char_type  separator;$/;"	m	class:glm::io::format_punct	typeref:typename:char_type
-setGLVertexAttribPointer	src/material.cpp	/^void Material::setGLVertexAttribPointer(std::string attributeName, GLint size, GLenum type, GLbo/;"	f	class:Material	typeref:typename:void
-shaderAttributes	include/material.h	/^        std::unordered_map<std::string, GLint> shaderAttributes;$/;"	m	class:Material	typeref:typename:std::unordered_map<std::string,GLint>
-shaderProgram	include/material.h	/^        GLuint shaderProgram = 0;$/;"	m	class:Material	typeref:typename:GLuint
-shaderStages	include/material.h	/^        ShaderProgramStages shaderStages;$/;"	m	class:Material	typeref:typename:ShaderProgramStages
+setBitOfReversedStream	src/lodepng.cpp	/^static void setBitOfReversedStream(size_t* bitpointer, unsigned char* bitstream, unsigned char b/;"	f	typeref:typename:void	file:
+setBitOfReversedStream0	src/lodepng.cpp	/^static void setBitOfReversedStream0(size_t* bitpointer, unsigned char* bitstream, unsigned char /;"	f	typeref:typename:void	file:
+setGLVertexAttribPointer	src/materials/material.cpp	/^void Material::setGLVertexAttribPointer(std::string attributeName, GLint size, GLenum type, GLbo/;"	f	class:Material	typeref:typename:void
+setLights	src/lights/directional.cpp	/^void DirectionalLightList::setLights(const std::unordered_map<std::string, PhongLightAttributes>/;"	f	class:DirectionalLightList	typeref:typename:void
+setTextureParams	src/texture.cpp	/^void Texture::setTextureParams(GLuint wrapModeS, GLuint wrapModeT, GLuint minFilter, GLuint magF/;"	f	class:Texture	typeref:typename:void
+shaderAttributes	include/materials/material.h	/^        std::unordered_map<std::string, GLint> shaderAttributes;$/;"	m	class:Material	typeref:typename:std::unordered_map<std::string,GLint>
+shaderProgram	include/materials/material.h	/^        GLuint shaderProgram = 0;$/;"	m	class:Material	typeref:typename:GLuint
+shaderStages	include/materials/material.h	/^        ShaderProgramStages shaderStages;$/;"	m	class:Material	typeref:typename:ShaderProgramStages
 shearX	include/glm/gtx/matrix_transform_2d.inl	/^	GLM_FUNC_QUALIFIER tmat3x3<T, P> shearX($/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat3x3<T,P>
 shearX2D	include/glm/gtx/transform2.inl	/^	GLM_FUNC_QUALIFIER tmat3x3<T, P> shearX2D($/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat3x3<T,P>
 shearX3D	include/glm/gtx/transform2.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, P> shearX3D($/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,P>
@@ -7938,6 +8356,8 @@ size	include/glm/detail/type_vec3.inl	/^		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typen
 size	include/glm/detail/type_vec4.inl	/^		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tvec4<T, P>::size_type tvec4<T, P>::size() const$/;"	f	class:glm::tvec4	typeref:typename:GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tvec4<T,P>::size_type
 size	include/glm/gtc/quaternion.inl	/^		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tquat<T, P>::size_type tquat<T, P>::size() const$/;"	f	class:glm::tquat	typeref:typename:GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tquat<T,P>::size_type
 size	include/glm/gtx/dual_quaternion.inl	/^		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tdualquat<T, P>::size_type tdualquat<T, P>::size() c/;"	f	class:glm::tdualquat	typeref:typename:GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tdualquat<T,P>::size_type
+size	src/lodepng.cpp	/^  size_t size; \/*size in number of unsigned longs*\/$/;"	m	struct:uivector	typeref:typename:size_t	file:
+size	src/lodepng.cpp	/^  size_t size; \/*used size*\/$/;"	m	struct:ucvector	typeref:typename:size_t	file:
 size1	include/glm/gtx/std_based_type.hpp	/^	typedef tvec1<std::size_t, defaultp>		size1;$/;"	t	namespace:glm	typeref:typename:tvec1<std::size_t,defaultp>
 size1_t	include/glm/gtx/std_based_type.hpp	/^	typedef tvec1<std::size_t, defaultp>		size1_t;$/;"	t	namespace:glm	typeref:typename:tvec1<std::size_t,defaultp>
 size2	include/glm/gtx/std_based_type.hpp	/^	typedef tvec2<std::size_t, defaultp>		size2;$/;"	t	namespace:glm	typeref:typename:tvec2<std::size_t,defaultp>
@@ -8004,18 +8424,48 @@ src/gl3w.c.s	build/Makefile	/^src\/gl3w.c.s:$/;"	t
 src/gl3w.i	build/Makefile	/^src\/gl3w.i: src\/gl3w.c.i$/;"	t
 src/gl3w.o	build/Makefile	/^src\/gl3w.o: src\/gl3w.c.o$/;"	t
 src/gl3w.s	build/Makefile	/^src\/gl3w.s: src\/gl3w.c.s$/;"	t
-src/material.cpp.i	build/Makefile	/^src\/material.cpp.i:$/;"	t
-src/material.cpp.o	build/Makefile	/^src\/material.cpp.o:$/;"	t
-src/material.cpp.s	build/Makefile	/^src\/material.cpp.s:$/;"	t
-src/material.i	build/Makefile	/^src\/material.i: src\/material.cpp.i$/;"	t
-src/material.o	build/Makefile	/^src\/material.o: src\/material.cpp.o$/;"	t
-src/material.s	build/Makefile	/^src\/material.s: src\/material.cpp.s$/;"	t
-src/tutorial16.cpp.i	build/Makefile	/^src\/tutorial16.cpp.i:$/;"	t
-src/tutorial16.cpp.o	build/Makefile	/^src\/tutorial16.cpp.o:$/;"	t
-src/tutorial16.cpp.s	build/Makefile	/^src\/tutorial16.cpp.s:$/;"	t
-src/tutorial16.i	build/Makefile	/^src\/tutorial16.i: src\/tutorial16.cpp.i$/;"	t
-src/tutorial16.o	build/Makefile	/^src\/tutorial16.o: src\/tutorial16.cpp.o$/;"	t
-src/tutorial16.s	build/Makefile	/^src\/tutorial16.s: src\/tutorial16.cpp.s$/;"	t
+src/lights/directional.cpp.i	build/Makefile	/^src\/lights\/directional.cpp.i:$/;"	t
+src/lights/directional.cpp.o	build/Makefile	/^src\/lights\/directional.cpp.o:$/;"	t
+src/lights/directional.cpp.s	build/Makefile	/^src\/lights\/directional.cpp.s:$/;"	t
+src/lights/directional.i	build/Makefile	/^src\/lights\/directional.i: src\/lights\/directional.cpp.i$/;"	t
+src/lights/directional.o	build/Makefile	/^src\/lights\/directional.o: src\/lights\/directional.cpp.o$/;"	t
+src/lights/directional.s	build/Makefile	/^src\/lights\/directional.s: src\/lights\/directional.cpp.s$/;"	t
+src/lodepng.cpp.i	build/Makefile	/^src\/lodepng.cpp.i:$/;"	t
+src/lodepng.cpp.o	build/Makefile	/^src\/lodepng.cpp.o:$/;"	t
+src/lodepng.cpp.s	build/Makefile	/^src\/lodepng.cpp.s:$/;"	t
+src/lodepng.i	build/Makefile	/^src\/lodepng.i: src\/lodepng.cpp.i$/;"	t
+src/lodepng.o	build/Makefile	/^src\/lodepng.o: src\/lodepng.cpp.o$/;"	t
+src/lodepng.s	build/Makefile	/^src\/lodepng.s: src\/lodepng.cpp.s$/;"	t
+src/materials/material.cpp.i	build/Makefile	/^src\/materials\/material.cpp.i:$/;"	t
+src/materials/material.cpp.o	build/Makefile	/^src\/materials\/material.cpp.o:$/;"	t
+src/materials/material.cpp.s	build/Makefile	/^src\/materials\/material.cpp.s:$/;"	t
+src/materials/material.i	build/Makefile	/^src\/materials\/material.i: src\/materials\/material.cpp.i$/;"	t
+src/materials/material.o	build/Makefile	/^src\/materials\/material.o: src\/materials\/material.cpp.o$/;"	t
+src/materials/material.s	build/Makefile	/^src\/materials\/material.s: src\/materials\/material.cpp.s$/;"	t
+src/materials/phongmaterial.cpp.i	build/Makefile	/^src\/materials\/phongmaterial.cpp.i:$/;"	t
+src/materials/phongmaterial.cpp.o	build/Makefile	/^src\/materials\/phongmaterial.cpp.o:$/;"	t
+src/materials/phongmaterial.cpp.s	build/Makefile	/^src\/materials\/phongmaterial.cpp.s:$/;"	t
+src/materials/phongmaterial.i	build/Makefile	/^src\/materials\/phongmaterial.i: src\/materials\/phongmaterial.cpp.i$/;"	t
+src/materials/phongmaterial.o	build/Makefile	/^src\/materials\/phongmaterial.o: src\/materials\/phongmaterial.cpp.o$/;"	t
+src/materials/phongmaterial.s	build/Makefile	/^src\/materials\/phongmaterial.s: src\/materials\/phongmaterial.cpp.s$/;"	t
+src/renderwindow.cpp.i	build/Makefile	/^src\/renderwindow.cpp.i:$/;"	t
+src/renderwindow.cpp.o	build/Makefile	/^src\/renderwindow.cpp.o:$/;"	t
+src/renderwindow.cpp.s	build/Makefile	/^src\/renderwindow.cpp.s:$/;"	t
+src/renderwindow.i	build/Makefile	/^src\/renderwindow.i: src\/renderwindow.cpp.i$/;"	t
+src/renderwindow.o	build/Makefile	/^src\/renderwindow.o: src\/renderwindow.cpp.o$/;"	t
+src/renderwindow.s	build/Makefile	/^src\/renderwindow.s: src\/renderwindow.cpp.s$/;"	t
+src/texture.cpp.i	build/Makefile	/^src\/texture.cpp.i:$/;"	t
+src/texture.cpp.o	build/Makefile	/^src\/texture.cpp.o:$/;"	t
+src/texture.cpp.s	build/Makefile	/^src\/texture.cpp.s:$/;"	t
+src/texture.i	build/Makefile	/^src\/texture.i: src\/texture.cpp.i$/;"	t
+src/texture.o	build/Makefile	/^src\/texture.o: src\/texture.cpp.o$/;"	t
+src/texture.s	build/Makefile	/^src\/texture.s: src\/texture.cpp.s$/;"	t
+src/tutorial18.cpp.i	build/Makefile	/^src\/tutorial18.cpp.i:$/;"	t
+src/tutorial18.cpp.o	build/Makefile	/^src\/tutorial18.cpp.o:$/;"	t
+src/tutorial18.cpp.s	build/Makefile	/^src\/tutorial18.cpp.s:$/;"	t
+src/tutorial18.i	build/Makefile	/^src\/tutorial18.i: src\/tutorial18.cpp.i$/;"	t
+src/tutorial18.o	build/Makefile	/^src\/tutorial18.o: src\/tutorial18.cpp.o$/;"	t
+src/tutorial18.s	build/Makefile	/^src\/tutorial18.s: src\/tutorial18.cpp.s$/;"	t
 src/utilities.cpp.i	build/Makefile	/^src\/utilities.cpp.i:$/;"	t
 src/utilities.cpp.o	build/Makefile	/^src\/utilities.cpp.o:$/;"	t
 src/utilities.cpp.s	build/Makefile	/^src\/utilities.cpp.s:$/;"	t
@@ -8065,6 +8515,10 @@ step	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> step
 step	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> step(vecType<T, P> const & edge, vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 step	include/glm/gtx/simd_vec4.inl	/^GLM_FUNC_QUALIFIER detail::fvec4SIMD step$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER detail::fvec4SIMD
 streamsize_type	include/glm/gtx/io.hpp	/^			typedef ::std::streamsize              streamsize_type;$/;"	t	class:glm::io::basic_state_saver	typeref:typename:::std::streamsize
+string_cleanup	src/lodepng.cpp	/^static void string_cleanup(char** out)$/;"	f	typeref:typename:void	file:
+string_init	src/lodepng.cpp	/^static void string_init(char** out)$/;"	f	typeref:typename:void	file:
+string_resize	src/lodepng.cpp	/^static unsigned string_resize(char** out, size_t size)$/;"	f	typeref:typename:unsigned	file:
+string_set	src/lodepng.cpp	/^static void string_set(char** out, const char* in)$/;"	f	typeref:typename:void	file:
 swizzle	include/glm/gtx/simd_vec4.inl	/^GLM_FUNC_QUALIFIER fvec4SIMD fvec4SIMD::swizzle() const$/;"	f	class:glm::detail::fvec4SIMD	typeref:typename:GLM_FUNC_QUALIFIER fvec4SIMD
 swizzle	include/glm/gtx/simd_vec4.inl	/^GLM_FUNC_QUALIFIER fvec4SIMD& fvec4SIMD::swizzle()$/;"	f	class:glm::detail::fvec4SIMD	typeref:typename:GLM_FUNC_QUALIFIER fvec4SIMD &
 t	include/glm/detail/type_vec2.hpp	/^				struct{ T s, t; };$/;"	m	struct:glm::tvec2::__anon622abe50010a::__anon622abe500408	typeref:typename:T
@@ -8073,6 +8527,7 @@ t	include/glm/detail/type_vec3.hpp	/^				struct{ T s, t, p; };$/;"	m	struct:glm:
 t	include/glm/detail/type_vec3.hpp	/^			union { T y, g, t; };$/;"	m	union:glm::tvec3::__anon623cd6d1060a	typeref:typename:T
 t	include/glm/detail/type_vec4.hpp	/^				struct { T s, t, p, q; };$/;"	m	struct:glm::tvec4::__anon624eef52010a::__anon624eef520408	typeref:typename:T
 t	include/glm/detail/type_vec4.hpp	/^			union { T y, g, t; };$/;"	m	union:glm::tvec4::__anon624eef52060a	typeref:typename:T
+tail	src/lodepng.cpp	/^  struct BPMNode* tail; \/*the next nodes in this chain (null if last)*\/$/;"	m	struct:BPMNode	typeref:struct:BPMNode *	file:
 tan	include/glm/detail/func_trigonometric.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> tan(vecType<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 tanh	include/glm/detail/func_trigonometric.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> tanh(vecType<T, P> const & v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
 taylorInvSqrt	include/glm/detail/_noise.hpp	/^	GLM_FUNC_QUALIFIER T taylorInvSqrt(T const & r)$/;"	f	namespace:glm::detail	typeref:typename:GLM_FUNC_QUALIFIER T
@@ -8096,9 +8551,17 @@ tdualquat	include/glm/gtx/dual_quaternion.inl	/^	GLM_FUNC_QUALIFIER tdualquat<T,
 tdualquat	include/glm/gtx/dual_quaternion.inl	/^	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(tquat<T, P> const & q, tvec3<T, P> const& p)$/;"	f	class:glm::tdualquat	typeref:typename:GLM_FUNC_QUALIFIER
 tdualquat	include/glm/gtx/dual_quaternion.inl	/^	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(tquat<T, P> const & r)$/;"	f	class:glm::tdualquat	typeref:typename:GLM_FUNC_QUALIFIER
 tdualquat	include/glm/gtx/dual_quaternion.inl	/^	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(tquat<T, P> const & r, tquat<T, P> const & d)$/;"	f	class:glm::tdualquat	typeref:typename:GLM_FUNC_QUALIFIER
+text_compression	include/lodepng.h	/^  unsigned text_compression;$/;"	m	struct:LodePNGEncoderSettings	typeref:typename:unsigned
+text_keys	include/lodepng.h	/^  char** text_keys; \/*the keyword of a text chunk (e.g. "Comment")*\/$/;"	m	struct:LodePNGInfo	typeref:typename:char **
+text_num	include/lodepng.h	/^  size_t text_num; \/*the amount of texts in these char** buffers (there may be more texts in it/;"	m	struct:LodePNGInfo	typeref:typename:size_t
+text_strings	include/lodepng.h	/^  char** text_strings; \/*the actual text*\/$/;"	m	struct:LodePNGInfo	typeref:typename:char **
+textureID	include/texture.h	/^        GLuint textureID; \/\/handle to the texture data buffer on the GPU$/;"	m	class:Texture	typeref:typename:GLuint
+textureTarget	include/texture.h	/^        GLenum textureTarget; \/\/1d, 2d, 3d, etc$/;"	m	class:Texture	typeref:typename:GLenum
 third	include/glm/gtc/constants.inl	/^	GLM_FUNC_QUALIFIER genType third()$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 three	include/glm/detail/intrinsic_common.inl	/^	static const __m128 GLM_VAR_USED three = _mm_set_ps1(3.0f);$/;"	v	namespace:glm::detail	typeref:typename:const __m128 GLM_VAR_USED	file:
 three_over_two_pi	include/glm/gtc/constants.inl	/^	GLM_FUNC_QUALIFIER genType three_over_two_pi()$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
+time	include/lodepng.h	/^  LodePNGTime time;$/;"	m	struct:LodePNGInfo	typeref:typename:LodePNGTime
+time_defined	include/lodepng.h	/^  unsigned time_defined; \/*set to 1 to make the encoder generate a tIME chunk*\/$/;"	m	struct:LodePNGInfo	typeref:typename:unsigned
 tmat2x2	include/glm/detail/glm.cpp	/^template struct tmat2x2<float32, highp>;$/;"	v	namespace:glm	typeref:typename:struct
 tmat2x2	include/glm/detail/glm.cpp	/^template struct tmat2x2<float32, lowp>;$/;"	v	namespace:glm	typeref:typename:struct
 tmat2x2	include/glm/detail/glm.cpp	/^template struct tmat2x2<float32, mediump>;$/;"	v	namespace:glm	typeref:typename:struct
@@ -8341,6 +8804,8 @@ transpose_type	include/glm/detail/type_mat4x2.hpp	/^		typedef tmat2x4<T, P> tran
 transpose_type	include/glm/detail/type_mat4x3.hpp	/^		typedef tmat3x4<T, P> transpose_type;$/;"	t	struct:glm::tmat4x3	typeref:typename:tmat3x4<T,P>
 transpose_type	include/glm/detail/type_mat4x4.hpp	/^		typedef tmat4x4<T, P> transpose_type;$/;"	t	struct:glm::tmat4x4	typeref:typename:tmat4x4<T,P>
 transpose_type	include/glm/gtx/simd_mat4.hpp	/^		typedef fmat4x4SIMD transpose_type;$/;"	t	namespace:glm::detail	typeref:typename:fmat4x4SIMD
+tree1d	src/lodepng.cpp	/^  unsigned* tree1d;$/;"	m	struct:HuffmanTree	typeref:typename:unsigned *	file:
+tree2d	src/lodepng.cpp	/^  unsigned* tree2d;$/;"	m	struct:HuffmanTree	typeref:typename:unsigned *	file:
 triangleNormal	include/glm/gtx/normal.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> triangleNormal$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
 trunc	include/glm/detail/func_common.inl	/^		GLM_FUNC_QUALIFIER genType trunc(genType x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
 trunc	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> trunc(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
@@ -8673,6 +9138,14 @@ u8vec4	include/glm/fwd.hpp	/^	typedef mediump_u8vec4			u8vec4;	$/;"	t	namespace:
 u8vec4	include/glm/gtc/type_precision.hpp	/^	typedef tvec4<u8, defaultp> u8vec4;$/;"	t	namespace:glm	typeref:typename:tvec4<u8,defaultp>
 uaddCarry	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER uint uaddCarry(uint const & x, uint const & y, uint & Carry)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER uint
 uaddCarry	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER vecType<uint, P> uaddCarry(vecType<uint, P> const & x, vecType<uint, P> cons/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<uint,P>
+ucvector	src/lodepng.cpp	/^typedef struct ucvector$/;"	s	file:
+ucvector	src/lodepng.cpp	/^} ucvector;$/;"	t	typeref:struct:ucvector	file:
+ucvector_cleanup	src/lodepng.cpp	/^static void ucvector_cleanup(void* p)$/;"	f	typeref:typename:void	file:
+ucvector_init	src/lodepng.cpp	/^static void ucvector_init(ucvector* p)$/;"	f	typeref:typename:void	file:
+ucvector_init_buffer	src/lodepng.cpp	/^static void ucvector_init_buffer(ucvector* p, unsigned char* buffer, size_t size)$/;"	f	typeref:typename:void	file:
+ucvector_push_back	src/lodepng.cpp	/^static unsigned ucvector_push_back(ucvector* p, unsigned char c)$/;"	f	typeref:typename:unsigned	file:
+ucvector_reserve	src/lodepng.cpp	/^static unsigned ucvector_reserve(ucvector* p, size_t allocsize)$/;"	f	typeref:typename:unsigned	file:
+ucvector_resize	src/lodepng.cpp	/^static unsigned ucvector_resize(ucvector* p, size_t size)$/;"	f	typeref:typename:unsigned	file:
 uif32	include/glm/detail/type_half.inl	/^		GLM_FUNC_QUALIFIER uif32() :$/;"	f	union:glm::detail::uif32	typeref:typename:GLM_FUNC_QUALIFIER	file:
 uif32	include/glm/detail/type_half.inl	/^		GLM_FUNC_QUALIFIER uif32(float f) :$/;"	f	union:glm::detail::uif32	typeref:typename:GLM_FUNC_QUALIFIER	file:
 uif32	include/glm/detail/type_half.inl	/^		GLM_FUNC_QUALIFIER uif32(uint32 i) :$/;"	f	union:glm::detail::uif32	typeref:typename:GLM_FUNC_QUALIFIER	file:
@@ -8710,6 +9183,14 @@ uintBitsToFloat	include/glm/detail/func_common.inl	/^	GLM_FUNC_QUALIFIER vecType
 uint_t	include/glm/detail/type_int.hpp	/^	typedef highp_uint					uint_t;$/;"	t	namespace:glm	typeref:typename:highp_uint
 uint_t	include/glm/detail/type_int.hpp	/^	typedef lowp_uint					uint_t;$/;"	t	namespace:glm	typeref:typename:lowp_uint
 uint_t	include/glm/detail/type_int.hpp	/^	typedef mediump_uint				uint_t;$/;"	t	namespace:glm	typeref:typename:mediump_uint
+uivector	src/lodepng.cpp	/^typedef struct uivector$/;"	s	file:
+uivector	src/lodepng.cpp	/^} uivector;$/;"	t	typeref:struct:uivector	file:
+uivector_cleanup	src/lodepng.cpp	/^static void uivector_cleanup(void* p)$/;"	f	typeref:typename:void	file:
+uivector_init	src/lodepng.cpp	/^static void uivector_init(uivector* p)$/;"	f	typeref:typename:void	file:
+uivector_push_back	src/lodepng.cpp	/^static unsigned uivector_push_back(uivector* p, unsigned c)$/;"	f	typeref:typename:unsigned	file:
+uivector_reserve	src/lodepng.cpp	/^static unsigned uivector_reserve(uivector* p, size_t allocsize)$/;"	f	typeref:typename:unsigned	file:
+uivector_resize	src/lodepng.cpp	/^static unsigned uivector_resize(uivector* p, size_t size)$/;"	f	typeref:typename:unsigned	file:
+uivector_resizev	src/lodepng.cpp	/^static unsigned uivector_resizev(uivector* p, size_t size, unsigned value)$/;"	f	typeref:typename:unsigned	file:
 umat2	include/glm/gtc/matrix_integer.hpp	/^	typedef highp_umat2								umat2;$/;"	t	namespace:glm	typeref:typename:highp_umat2
 umat2	include/glm/gtc/matrix_integer.hpp	/^	typedef lowp_umat2								umat2;$/;"	t	namespace:glm	typeref:typename:lowp_umat2
 umat2	include/glm/gtc/matrix_integer.hpp	/^	typedef mediump_umat2							umat2;$/;"	t	namespace:glm	typeref:typename:mediump_umat2
@@ -8749,10 +9230,14 @@ umat4x4	include/glm/gtc/matrix_integer.hpp	/^	typedef mediump_umat4x4							umat
 umulExtended	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER void umulExtended(uint const & x, uint const & y, uint & msb, uint & lsb)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER void
 umulExtended	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER void umulExtended(vecType<uint, P> const & x, vecType<uint, P> const & y, ve/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER void
 unProject	include/glm/gtc/matrix_transform.inl	/^	GLM_FUNC_QUALIFIER tvec3<T, P> unProject$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tvec3<T,P>
-unbind	src/material.cpp	/^void Material::unbind()$/;"	f	class:Material	typeref:typename:void
+unbind	src/materials/material.cpp	/^void Material::unbind()$/;"	f	class:Material	typeref:typename:void
+unfilter	src/lodepng.cpp	/^static unsigned unfilter(unsigned char* out, const unsigned char* in, unsigned w, unsigned h, un/;"	f	typeref:typename:unsigned	file:
+unfilterScanline	src/lodepng.cpp	/^static unsigned unfilterScanline(unsigned char* recon, const unsigned char* scanline, const unsi/;"	f	typeref:typename:unsigned	file:
 unformatted	include/glm/gtx/io.inl	/^	GLM_FUNC_QUALIFIER std::basic_ios<CTy,CTr>& unformatted(std::basic_ios<CTy,CTr>& ios)$/;"	f	namespace:glm::io	typeref:typename:GLM_FUNC_QUALIFIER std::basic_ios<CTy,CTr> &
-uniformAttributes	include/material.h	/^        std::unordered_map<std::string, GLint> uniformAttributes;$/;"	m	class:Material	typeref:typename:std::unordered_map<std::string,GLint>
+uniformAttributes	include/materials/material.h	/^        std::unordered_map<std::string, GLint> uniformAttributes;$/;"	m	class:Material	typeref:typename:std::unordered_map<std::string,GLint>
 uninitialize	include/glm/detail/setup.hpp	/^	enum ctor{uninitialize};$/;"	e	enum:glm::ctor
+unknown_chunks_data	include/lodepng.h	/^  unsigned char* unknown_chunks_data[3];$/;"	m	struct:LodePNGInfo	typeref:typename:unsigned char * [3]
+unknown_chunks_size	include/lodepng.h	/^  size_t unknown_chunks_size[3]; \/*size in bytes of the unknown chunks, given for protection*\/$/;"	m	struct:LodePNGInfo	typeref:typename:size_t[3]
 unpackDouble2x32	include/glm/detail/func_packing.inl	/^	GLM_FUNC_QUALIFIER uvec2 unpackDouble2x32(double v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER uvec2
 unpackF2x11_1x10	include/glm/gtc/packing.inl	/^	GLM_FUNC_QUALIFIER vec3 unpackF2x11_1x10(uint32 v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vec3
 unpackHalf1x16	include/glm/gtc/packing.inl	/^	GLM_FUNC_QUALIFIER float unpackHalf1x16(uint16 v)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER float
@@ -8777,8 +9262,12 @@ unpackUnorm4x8	include/glm/detail/func_packing.inl	/^	GLM_FUNC_QUALIFIER vec4 un
 update	src/camera.cpp	/^void Camera::update(const Controls& input)$/;"	f	class:Camera	typeref:typename:void
 update	src/controls.cpp	/^void Controls::update()$/;"	f	class:Controls	typeref:typename:void
 updateCameraRotationAngles	src/camera.cpp	/^void Camera::updateCameraRotationAngles(const std::pair<int, int>& mouseDelta)$/;"	f	class:Camera	typeref:typename:void
+updateHashChain	src/lodepng.cpp	/^static void updateHashChain(Hash* hash, size_t wpos, unsigned hashval, unsigned short numzeros)$/;"	f	typeref:typename:void	file:
+update_adler32	src/lodepng.cpp	/^static unsigned update_adler32(unsigned adler, const unsigned char* data, unsigned len)$/;"	f	typeref:typename:unsigned	file:
+use_lz77	include/lodepng.h	/^  unsigned use_lz77; \/*whether or not to use LZ77. Should be 1 for proper compression.*\/$/;"	m	struct:LodePNGCompressSettings	typeref:typename:unsigned
 usubBorrow	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER uint usubBorrow(uint const & x, uint const & y, uint & Borrow)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER uint
 usubBorrow	include/glm/detail/func_integer.inl	/^	GLM_FUNC_QUALIFIER vecType<uint, P> usubBorrow(vecType<uint, P> const & x, vecType<uint, P> con/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<uint,P>
+uvCoords	src/tutorial18.cpp	/^    glm::vec2 uvCoords;$/;"	m	struct:Vertex	typeref:typename:glm::vec2	file:
 uvec1	include/glm/gtc/vec1.hpp	/^	typedef highp_uvec1			uvec1;$/;"	t	namespace:glm	typeref:typename:highp_uvec1
 uvec1	include/glm/gtc/vec1.hpp	/^	typedef lowp_uvec1			uvec1;$/;"	t	namespace:glm	typeref:typename:lowp_uvec1
 uvec1	include/glm/gtc/vec1.hpp	/^	typedef mediump_uvec1		uvec1;$/;"	t	namespace:glm	typeref:typename:mediump_uvec1
@@ -8792,6 +9281,7 @@ uvec4	include/glm/detail/type_vec.hpp	/^	typedef highp_uvec4			uvec4;$/;"	t	name
 uvec4	include/glm/detail/type_vec.hpp	/^	typedef lowp_uvec4			uvec4;$/;"	t	namespace:glm	typeref:typename:lowp_uvec4
 uvec4	include/glm/detail/type_vec.hpp	/^	typedef mediump_uvec4		uvec4;$/;"	t	namespace:glm	typeref:typename:mediump_uvec4
 v3Scale	include/glm/gtx/matrix_decompose.inl	/^	GLM_FUNC_QUALIFIER void v3Scale(tvec3<T, P> & v, T desiredLength)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER void
+val	src/lodepng.cpp	/^  int* val; \/*circular pos to hash value*\/$/;"	m	struct:Hash	typeref:typename:int *	file:
 value	include/glm/detail/type_mat2x2.hpp	/^		col_type value[2];$/;"	m	struct:glm::tmat2x2	typeref:typename:col_type[2]
 value	include/glm/detail/type_mat2x3.hpp	/^		col_type value[2];$/;"	m	struct:glm::tmat2x3	typeref:typename:col_type[2]
 value	include/glm/detail/type_mat2x4.hpp	/^		col_type value[2];$/;"	m	struct:glm::tmat2x4	typeref:typename:col_type[2]
@@ -8871,7 +9361,7 @@ vec4_cast	include/glm/gtx/simd_vec4.inl	/^GLM_FUNC_QUALIFIER vec4 vec4_cast$/;"	
 vec_type	include/glm/detail/_swizzle.hpp	/^		typedef VecType         vec_type;        $/;"	t	struct:glm::detail::_swizzle_base2	typeref:typename:VecType
 vec_type	include/glm/detail/_swizzle.hpp	/^		typedef VecType vec_type;$/;"	t	struct:glm::detail::_swizzle_base2	typeref:typename:VecType
 version	src/gl3w.c	/^} version;$/;"	v	typeref:struct:__anon5d41850a0108
-vertexShader	include/material.h	/^    GLuint vertexShader = 0;$/;"	m	struct:ShaderProgramStages	typeref:typename:GLuint
+vertexShader	include/materials/material.h	/^    GLuint vertexShader = 0;$/;"	m	struct:ShaderProgramStages	typeref:typename:GLuint
 verticalAngle	include/camera.h	/^        float verticalAngle;$/;"	m	class:Camera	typeref:typename:float
 viewMatrix	include/camera.h	/^        glm::mat4 viewMatrix;$/;"	m	class:Camera	typeref:typename:glm::mat4
 w	include/glm/detail/type_vec4.hpp	/^				struct { T x, y, z, w;};$/;"	m	struct:glm::tvec4::__anon624eef52010a::__anon624eef520208	typeref:typename:T
@@ -8881,15 +9371,20 @@ w	include/glm/gtc/packing.inl	/^			uint w : 2;$/;"	m	struct:glm::detail::u10u10u
 w	include/glm/gtc/quaternion.hpp	/^		T x, y, z, w;$/;"	m	struct:glm::tquat	typeref:typename:T
 w	include/glm/gtx/simd_quat.hpp	/^			struct {float x, y, z, w;};$/;"	m	struct:glm::detail::__anonf0ac7c26010a::__anonf0ac7c260208	typeref:typename:float
 w	include/glm/gtx/simd_vec4.hpp	/^			struct {float x, y, z, w;};$/;"	m	struct:glm::detail::__anonbe76097d010a::__anonbe76097d0208	typeref:typename:float
+weight	src/lodepng.cpp	/^  int weight; \/*the sum of all weights in this chain*\/$/;"	m	struct:BPMNode	typeref:typename:int	file:
 wformat_saver	include/glm/gtx/io.hpp	/^		typedef basic_format_saver<wchar_t> wformat_saver;$/;"	t	namespace:glm::io	typeref:typename:basic_format_saver<wchar_t>
 width	include/glm/gtx/io.hpp	/^			unsigned   width;$/;"	m	class:glm::io::format_punct	typeref:typename:unsigned
 width	include/glm/gtx/io.hpp	/^		struct width$/;"	s	namespace:glm::io
 width	include/glm/gtx/io.inl	/^	\/* explicit *\/ GLM_FUNC_QUALIFIER width::width(unsigned a)$/;"	f	class:glm::io::width	typeref:typename:GLM_FUNC_QUALIFIER
 width_	include/glm/gtx/io.hpp	/^			streamsize_type width_;$/;"	m	class:glm::io::basic_state_saver	typeref:typename:streamsize_type
+window	include/renderwindow.h	/^        SDL_Window *window = nullptr;$/;"	m	class:RenderWindow	typeref:typename:SDL_Window *
+windowsize	include/lodepng.h	/^  unsigned windowsize; \/*must be a power of two <= 32768. higher compresses more but is slower./;"	m	struct:LodePNGCompressSettings	typeref:typename:unsigned
 word	include/glm/gtc/ulp.inl	/^	unsigned int word;$/;"	m	union:__anona4a85f36010a	typeref:typename:unsigned int	file:
 word	include/glm/gtx/raw_data.hpp	/^	typedef detail::uint16		word;$/;"	t	namespace:glm	typeref:typename:detail::uint16
 wrapAngle	include/glm/gtx/fast_trigonometry.inl	/^	GLM_FUNC_QUALIFIER T wrapAngle(T angle)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 wrapAngle	include/glm/gtx/fast_trigonometry.inl	/^	GLM_FUNC_QUALIFIER vecType<T, P> wrapAngle(vecType<T, P> const & x)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER vecType<T,P>
+writeLZ77data	src/lodepng.cpp	/^static void writeLZ77data(size_t* bp, ucvector* out, const uivector* lz77_encoded,$/;"	f	typeref:typename:void	file:
+writeSignature	src/lodepng.cpp	/^static void writeSignature(ucvector* out)$/;"	f	typeref:typename:void	file:
 wstate_saver	include/glm/gtx/io.hpp	/^		typedef basic_state_saver<wchar_t> wstate_saver;$/;"	t	namespace:glm::io	typeref:typename:basic_state_saver<wchar_t>
 x	include/glm/detail/type_vec1.hpp	/^				T x;$/;"	m	union:glm::tvec1::__anon6218a5cf010a	typeref:typename:T
 x	include/glm/detail/type_vec1.hpp	/^			union {T x, r, s;};$/;"	m	union:glm::tvec1::__anon6218a5cf020a	typeref:typename:T
@@ -8917,6 +9412,7 @@ y	include/glm/gtx/simd_quat.hpp	/^			struct {float x, y, z, w;};$/;"	m	struct:gl
 y	include/glm/gtx/simd_vec4.hpp	/^			struct {float x, y, z, w;};$/;"	m	struct:glm::detail::__anonbe76097d010a::__anonbe76097d0208	typeref:typename:float
 yaw	include/glm/gtc/quaternion.inl	/^	GLM_FUNC_QUALIFIER T yaw(tquat<T, P> const & q)$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER T
 yawPitchRoll	include/glm/gtx/euler_angles.inl	/^	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> yawPitchRoll$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER tmat4x4<T,defaultp>
+year	include/lodepng.h	/^  unsigned year;    \/*2 bytes used (0-65535)*\/$/;"	m	struct:LodePNGTime	typeref:typename:unsigned
 z	include/glm/detail/type_vec3.hpp	/^				struct{ T x, y, z; };$/;"	m	struct:glm::tvec3::__anon623cd6d1010a::__anon623cd6d10208	typeref:typename:T
 z	include/glm/detail/type_vec3.hpp	/^			union { T z, b, p; };$/;"	m	union:glm::tvec3::__anon623cd6d1070a	typeref:typename:T
 z	include/glm/detail/type_vec4.hpp	/^				struct { T x, y, z, w;};$/;"	m	struct:glm::tvec4::__anon624eef52010a::__anon624eef520208	typeref:typename:T
@@ -8928,7 +9424,16 @@ z	include/glm/gtx/simd_quat.hpp	/^			struct {float x, y, z, w;};$/;"	m	struct:gl
 z	include/glm/gtx/simd_vec4.hpp	/^			struct {float x, y, z, w;};$/;"	m	struct:glm::detail::__anonbe76097d010a::__anonbe76097d0208	typeref:typename:float
 zero	include/glm/detail/intrinsic_common.inl	/^	static const __m128 GLM_VAR_USED zero = _mm_setzero_ps();$/;"	v	namespace:glm::detail	typeref:typename:const __m128 GLM_VAR_USED	file:
 zero	include/glm/gtc/constants.inl	/^	GLM_FUNC_QUALIFIER genType zero()$/;"	f	namespace:glm	typeref:typename:GLM_FUNC_QUALIFIER genType
-~Material	src/material.cpp	/^Material::~Material()$/;"	f	class:Material
+zeros	src/lodepng.cpp	/^  unsigned short* zeros; \/*length of zeros streak, used as a second hash chain*\/$/;"	m	struct:Hash	typeref:typename:unsigned short *	file:
+zlib_compress	src/lodepng.cpp	/^static unsigned zlib_compress(unsigned char** out, size_t* outsize, const unsigned char* in,$/;"	f	typeref:typename:unsigned	file:
+zlib_decompress	src/lodepng.cpp	/^static unsigned zlib_decompress(unsigned char** out, size_t* outsize, const unsigned char* in,$/;"	f	typeref:typename:unsigned	file:
+zlibsettings	include/lodepng.h	/^  LodePNGCompressSettings zlibsettings; \/*settings for the zlib encoder, such as window size, ./;"	m	struct:LodePNGEncoderSettings	typeref:typename:LodePNGCompressSettings
+zlibsettings	include/lodepng.h	/^  LodePNGDecompressSettings zlibsettings; \/*in here is the setting to ignore Adler32 checksums*/;"	m	struct:LodePNGDecoderSettings	typeref:typename:LodePNGDecompressSettings
+~LodePNGState	include/lodepng.h	/^  virtual ~LodePNGState(){}$/;"	f	struct:LodePNGState
+~Material	src/materials/material.cpp	/^Material::~Material()$/;"	f	class:Material
+~RenderWindow	src/renderwindow.cpp	/^RenderWindow::~RenderWindow()$/;"	f	class:RenderWindow
+~State	src/lodepng.cpp	/^State::~State()$/;"	f	class:lodepng::State
+~Texture	src/texture.cpp	/^Texture::~Texture()$/;"	f	class:Texture
 ~basic_format_saver	include/glm/gtx/io.inl	/^	basic_format_saver<CTy,CTr>::~basic_format_saver()$/;"	f	class:glm::io::basic_format_saver	typeref:typename:GLM_FUNC_QUALIFIER
 ~basic_state_saver	include/glm/gtx/io.inl	/^	GLM_FUNC_QUALIFIER basic_state_saver<CTy,CTr>::~basic_state_saver()$/;"	f	class:glm::io::basic_state_saver	typeref:typename:GLM_FUNC_QUALIFIER
 ~tvec4	include/glm/detail/type_vec4.hpp	/^		GLM_FUNC_DECL ~tvec4(){}$/;"	f	struct:glm::tvec4	typeref:typename:GLM_FUNC_DECL

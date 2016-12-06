@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 
 project(Tutorial18)
 
-set(CMAKE_CXX_FLAGS "-std=c++11 -g")
+set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -g")
 set(PROJECT_SOURCE_DIR "${PROJECT_BINARY_DIR}/src")
 
 include_directories("include" "/usr/include/nvidia-370")
