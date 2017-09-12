@@ -18,7 +18,7 @@ add_executable(${PROJECT_NAME}
     src/renderwindow.cpp
     src/materials/material.cpp
     src/materials/phongmaterial.cpp
-    src/lights/directional.cpp
+    src/lights/lightlist.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} SDL2 GL dl)

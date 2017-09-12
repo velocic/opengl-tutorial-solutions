@@ -7,7 +7,7 @@
 
 #include <unordered_map>
 
-struct PhongLightAttributes
+struct DirectionalLightAttributes
 {
     GLint colorUniformLocation;
     GLint ambientIntensityUniformLocation;
@@ -17,10 +17,22 @@ struct PhongLightAttributes
     GLint specularPowerUniformLocation;
 };
 
+struct PointLightAttributes
+{
+    GLint colorUniformLocation;
+    GLint ambientIntensityUniformLocation;
+    GLint positionUniformLocation;
+    GLint diffuseIntensityUniformLocation;
+    GLint attenuationConstantUniformLocation;
+    GLint attenuationLinearUniformLocation;
+    GLint attenuationExponentialUniformLocation;
+};
+
 class PhongMaterial : public Material
 {
     private:
-        std::unordered_map<std::string, PhongLightAttributes> lightUniformAttributes;
+        std::unordered_map<std::string, DirectionalLightAttributes> directionalLightUniformAttributes;
+        std::unordered_map<std::string, PointLightAttributes> pointLightUniformAttributes;
         GLint cameraWorldPositionUniformLocation;
     public:
         PhongMaterial(
@@ -29,10 +41,13 @@ class PhongMaterial : public Material
             const std::vector<uint8_t> &fragmentShaderSource
         );
         bool addCameraPositionUniformAttribute(std::string uniformName);
-        bool addLightUniformAttribute(std::string uniformName);
+        bool addDirectionalLightUniformAttribute(std::string uniformName);
+        bool addPointLightUniformAttribute(std::string uniformName);
         GLint getCameraPositionUniformAttribute();
-        PhongLightAttributes getLightUniformAttribute(std::string uniformName);
-        const std::unordered_map<std::string, PhongLightAttributes> &getLightUniforms();
+        DirectionalLightAttributes getDirectionalLightUniformAttribute(std::string uniformName);
+        PointLightAttributes getPointLightUniformAttribute(std::string uniformName);
+        const std::unordered_map<std::string, DirectionalLightAttributes> &getDirectionalLightUniforms();
+        const std::unordered_map<std::string, PointLightAttributes> &getPointLightUniforms();
 };
 
 #endif

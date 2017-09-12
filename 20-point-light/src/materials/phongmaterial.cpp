@@ -10,10 +10,10 @@ PhongMaterial::PhongMaterial(
 {
 }
 
-bool PhongMaterial::addLightUniformAttribute(std::string uniformName)
+bool PhongMaterial::addDirectionalLightUniformAttribute(std::string uniformName)
 {
     if (isMaterialValid() == false) {
-        std::cout << "addUniformAttribute called on Material instance with invalid state.";
+        std::cout << "addDirectionalLightUniformAttribute called on Material instance with invalid state.";
         return false;
     }
 
@@ -26,7 +26,7 @@ bool PhongMaterial::addLightUniformAttribute(std::string uniformName)
     GLint specularIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".specularIntensity").c_str());
     GLint specularPowerLocation = glGetUniformLocation(shaderProgram, (uniformName + ".specularPower").c_str());
 
-    PhongLightAttributes newLightAttributes = {
+    DirectionalLightAttributes newLightAttributes = {
         colorLocation,
         ambientIntensityLocation,
         directionLocation,
@@ -43,13 +43,60 @@ bool PhongMaterial::addLightUniformAttribute(std::string uniformName)
         newLightAttributes.specularIntensityUniformLocation == -1 ||
         newLightAttributes.specularPowerUniformLocation == -1
     ) {
-        std::cout << "Cannot set light in PhongMaterial. One or more uniform locations is invalid." << std::endl;
+        std::cout << "Cannot set Directional light in PhongMaterial. One or more uniform locations is invalid." << std::endl;
         return false;
     }
 
 
-    lightUniformAttributes.insert(
-        std::pair<std::string, PhongLightAttributes>(uniformName, newLightAttributes)
+    directionalLightUniformAttributes.insert(
+        std::pair<std::string, DirectionalLightAttributes>(uniformName, newLightAttributes)
+    );
+
+    return true;
+}
+
+bool PhongMaterial::addPointLightUniformAttribute(std::string uniformName)
+{
+    if (isMaterialValid() == false) {
+        std::cout << "addPointLightUniformAttribute called on Material instance with invalid state.";
+        return false;
+    }
+
+    auto shaderProgram = getShaderProgram();
+
+    GLint colorLocation = glGetUniformLocation(shaderProgram, (uniformName + ".color").c_str());
+    GLint ambientIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".ambientIntensity").c_str());
+    GLint positionLocation = glGetUniformLocation(shaderProgram, (uniformName + ".position").c_str());
+    GLint diffuseIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".diffuseIntensity").c_str());
+    GLint attenuationConstantUniformLocation = glGetUniformLocation(shaderProgram, (uniformName + ".attenuationConstant").c_str());
+    GLint attenuationLinearUniformLocation = glGetUniformLocation(shaderProgram, (uniformName + ".attenuationLinear").c_str());
+    GLint attenuationExponentialUniformLocation = glGetUniformLocation(shaderProgram, (uniformName + ".attenuationExponential").c_str());
+
+    PointLightAttributes newLightAttributes = {
+        colorLocation,
+        ambientIntensityLocation,
+        positionLocation,
+        diffuseIntensityLocation,
+        attenuationConstantUniformLocation,
+        attenuationLinearUniformLocation,
+        attenuationExponentialUniformLocation
+    };
+
+    if (
+        colorLocation == -1 ||
+        ambientIntensityLocation == -1 ||
+        positionLocation == -1 ||
+        diffuseIntensityLocation == -1 ||
+        attenuationConstantUniformLocation == -1 ||
+        attenuationLinearUniformLocation == -1 ||
+        attenuationExponentialUniformLocation == -1
+    ) {
+        std::cout << "Cannot set Point light in PhongMaterial. One or more uniform locations is invalid." << std::endl;
+        return false;
+    }
+
+    pointLightUniformAttributes.insert(
+        std::pair<std::string, PointLightAttributes>(uniformName, newLightAttributes)
     );
 
     return true;
@@ -60,21 +107,38 @@ GLint PhongMaterial::getCameraPositionUniformAttribute()
     return cameraWorldPositionUniformLocation;
 }
 
-PhongLightAttributes PhongMaterial::getLightUniformAttribute(std::string uniformName)
+DirectionalLightAttributes PhongMaterial::getDirectionalLightUniformAttribute(std::string uniformName)
 {
-    auto mapIterator = lightUniformAttributes.find(uniformName);
+    auto mapIterator = directionalLightUniformAttributes.find(uniformName);
 
-    if (mapIterator == lightUniformAttributes.end()) {
-        PhongLightAttributes emptyAttributes = {-1, -1, -1, -1, -1, -1};
+    if (mapIterator == directionalLightUniformAttributes.end()) {
+        DirectionalLightAttributes emptyAttributes = {-1, -1, -1, -1, -1, -1};
         return emptyAttributes;
     }
 
     return mapIterator->second;
 }
 
-const std::unordered_map<std::string, PhongLightAttributes> &PhongMaterial::getLightUniforms()
+PointLightAttributes PhongMaterial::getPointLightUniformAttribute(std::string uniformName)
 {
-    return lightUniformAttributes;
+    auto mapIterator = pointLightUniformAttributes.find(uniformName);
+
+    if (mapIterator == pointLightUniformAttributes.end()) {
+        PointLightAttributes emptyAttributes = {-1, -1, -1, -1, -1, -1, -1};
+        return emptyAttributes;
+    }
+
+    return mapIterator->second;
+}
+
+const std::unordered_map<std::string, DirectionalLightAttributes> &PhongMaterial::getDirectionalLightUniforms()
+{
+    return directionalLightUniformAttributes;
+}
+
+const std::unordered_map<std::string, PointLightAttributes> &PhongMaterial::getPointLightUniforms()
+{
+    return pointLightUniformAttributes;
 }
 
 bool PhongMaterial::addCameraPositionUniformAttribute(std::string uniformName)
@@ -87,3 +151,4 @@ bool PhongMaterial::addCameraPositionUniformAttribute(std::string uniformName)
 
     return true;
 }
+

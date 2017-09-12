@@ -10,7 +10,7 @@
 
 #include <camera.h>
 #include <controls.h>
-#include <lights/directional.h>
+#include <lights/lightlist.h>
 #include <materials/phongmaterial.h>
 #include <renderwindow.h>
 #include <texture.h>
@@ -59,10 +59,10 @@ int main()
 
     //Vector, UV, normal
     std::vector<Vertex> vertices = {
-        {glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)},
-        {glm::vec3(0.0f, -1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.5f, 0.0f)},
-        {glm::vec3(1.0f, -1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(1.0f, 0.0f)},
-        {glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.5f, 1.0f)}
+        {glm::vec3(-10.0f, -10.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)},
+        {glm::vec3(0.0f, -10.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.5f, 0.0f)},
+        {glm::vec3(10.0f, -10.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(1.0f, 0.0f)},
+        {glm::vec3(0.0f, 10.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.5f, 1.0f)}
     };
 
     //Note: the order of indices for each vertex matters. They are used to determine the "facing" of the traingle.
@@ -173,10 +173,11 @@ int main()
     glUniform1i(basicPassthroughMaterial.getUniformAttribute("sampler"), 0);
 
     //Add a directional light into the scene
-    basicPassthroughMaterial.addLightUniformAttribute("directionalLight");
+    basicPassthroughMaterial.addDirectionalLightUniformAttribute("directionalLight");
+    basicPassthroughMaterial.addPointLightUniformAttribute("pointLight");
     basicPassthroughMaterial.addCameraPositionUniformAttribute("cameraPosition");
-    DirectionalLightList directionalLights(playerCamera);
-    auto lightHandle = directionalLights.addDirectionalLight(
+    LightList lights(playerCamera);
+    auto directionalLightHandle = lights.addDirectionalLight(
         glm::vec3(1.0f, 1.0f, 1.0f), //light color
         glm::vec3(1.0f, 1.0f, 0.0f), //light direction
         0.1f, //ambient intensity
@@ -184,7 +185,20 @@ int main()
         1.0f, //specular intensity
         32    //specular power
     );
-    directionalLights.setLights(basicPassthroughMaterial.getLightUniforms(), basicPassthroughMaterial.getCameraPositionUniformAttribute());
+    auto pointLightHandle = lights.addPointLight(
+        glm::vec3(1.0f, 0.5f, 0.0f), //color
+        glm::vec3(0.0f, 0.0f, 8.0f), //position
+        0.1f,
+        0.5f,
+        1.0f,
+        0.1f,
+        0.0f
+    );
+    lights.setLights(
+        basicPassthroughMaterial.getDirectionalLightUniforms(),
+        basicPassthroughMaterial.getPointLightUniforms(),
+        basicPassthroughMaterial.getCameraPositionUniformAttribute()
+    );
     basicPassthroughMaterial.unbind();
 
     //Load the texture for our basic pyramid object
@@ -222,27 +236,31 @@ int main()
 
         //Quick hack for ambient light controls
         if (playerControls.isKeyPressed(ControlKeys::AmbientLightUp)) {
-            directionalLights.getLightByID(lightHandle)->ambientIntensity += 0.05f;
+            lights.getLightByID(directionalLightHandle)->ambientIntensity += 0.05f;
         }
 
         if (playerControls.isKeyPressed(ControlKeys::AmbientLightDown)) {
-            directionalLights.getLightByID(lightHandle)->ambientIntensity -= 0.05f;
+            lights.getLightByID(directionalLightHandle)->ambientIntensity -= 0.05f;
         }
 
         scale += 0.002f;
 
         //Spin & move the dummy pyriamid
-        // rotationMatrix = glm::rotate(rotationMatrix, (float)(2 * Utilities::Math::PI * (2.0/360)), glm::vec3(0, 1, 0));
-        // translationMatrix = glm::translate(glm::mat4(), glm::vec3(sinf(scale * 2), 0, -3));
-        //
-        // worldMatrix = translationMatrix * rotationMatrix * scaleMatrix;
+        rotationMatrix = glm::rotate(rotationMatrix, (float)(2 * Utilities::Math::PI * (2.0/360)), glm::vec3(0, 1, 0));
+        translationMatrix = glm::translate(glm::mat4(), glm::vec3(sinf(scale * 2), 0, -3));
+
+        worldMatrix = translationMatrix * rotationMatrix * scaleMatrix;
 
         viewMatrix = playerCamera->getViewMatrix();
         WVPMatrix = perspectiveProjection * viewMatrix * worldMatrix;
 
         basicPassthroughMaterial.bind();
 
-        directionalLights.setLights(basicPassthroughMaterial.getLightUniforms(), basicPassthroughMaterial.getCameraPositionUniformAttribute());
+        lights.setLights(
+            basicPassthroughMaterial.getDirectionalLightUniforms(),
+            basicPassthroughMaterial.getPointLightUniforms(),
+            basicPassthroughMaterial.getCameraPositionUniformAttribute()
+        );
         glUniformMatrix4fv(WVPMatrixHandle, 1, GL_FALSE, &WVPMatrix[0][0]);
         glUniformMatrix4fv(worldMatrixHandle, 1, GL_FALSE, &worldMatrix[0][0]);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
