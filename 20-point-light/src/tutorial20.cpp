@@ -188,11 +188,13 @@ int main()
     auto pointLightHandle = lights.addPointLight(
         glm::vec3(1.0f, 0.5f, 0.0f), //color
         glm::vec3(0.0f, 0.0f, 8.0f), //position
-        0.1f,
-        0.5f,
-        1.0f,
-        0.1f,
-        0.0f
+        0.1f, //ambient intensity
+        0.5f, //diffuse intensity
+        1.0f, //specular intensity
+        32,   //specular power
+        1.0f, //attenuation constant
+        0.1f, //attenuation linear
+        0.0f  //attenuation exponential
     );
     lights.setLights(
         basicPassthroughMaterial.getDirectionalLightUniforms(),
@@ -221,6 +223,8 @@ int main()
     );
     pyramidTexture.bind(GL_TEXTURE0);
 
+    auto pointLightBase = lights.getLightByID(pointLightHandle);
+    auto pointLight = static_cast<PointLight*>(pointLightBase);
     while (userRequestedExit == false)
     {
         while (SDL_PollEvent(&event)) {
@@ -249,7 +253,14 @@ int main()
         rotationMatrix = glm::rotate(rotationMatrix, (float)(2 * Utilities::Math::PI * (2.0/360)), glm::vec3(0, 1, 0));
         translationMatrix = glm::translate(glm::mat4(), glm::vec3(sinf(scale * 2), 0, -3));
 
-        worldMatrix = translationMatrix * rotationMatrix * scaleMatrix;
+        // worldMatrix = translationMatrix * rotationMatrix * scaleMatrix;
+
+        //Move the point light back and forth
+        // int lightMoveIncrement = 1;
+        // if (pointLight->position.x > 10 || pointLight->position.x < -10) {
+        //     lightMoveIncrement *= -1;
+        // }
+        // pointLight->position.x += lightMoveIncrement;
 
         viewMatrix = playerCamera->getViewMatrix();
         WVPMatrix = perspectiveProjection * viewMatrix * worldMatrix;

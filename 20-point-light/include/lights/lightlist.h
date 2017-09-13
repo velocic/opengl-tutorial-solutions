@@ -17,14 +17,14 @@ struct Light
     glm::vec3 color;
     float ambientIntensity;
     float diffuseIntensity;
+    float specularIntensity;
+    float specularPower;
 };
 
 struct DirectionalLight : Light
 {
     glm::vec3 direction;
     size_t id;
-    float specularIntensity;
-    float specularPower;
 };
 
 struct PointLight : Light
@@ -48,8 +48,25 @@ class LightList
            : camera(camera)
         {}
 
-        size_t addDirectionalLight(glm::vec3 color, glm::vec3 direction, float ambientIntensity, float diffuseIntensity, float specularIntensity, float specularPower);
-        size_t addPointLight(glm::vec3 color, glm::vec3 position, float ambientIntensity, float diffuseIntensity, float attenuationConstant, float attenuationLinear, float attenuationExponential);
+        size_t addDirectionalLight(
+            glm::vec3 color,
+            glm::vec3 direction,
+            float ambientIntensity,
+            float diffuseIntensity,
+            float specularIntensity,
+            float specularPower
+        );
+        size_t addPointLight(
+            glm::vec3 color,
+            glm::vec3 position,
+            float ambientIntensity,
+            float diffuseIntensity,
+            float specularIntensity,
+            float specularPower,
+            float attenuationConstant,
+            float attenuationLinear,
+            float attenuationExponential
+        );
         void clear();
         //Note: don't keep these pointers around for long after retrieval
         //They are potentially invalidated after every vector insert/delete

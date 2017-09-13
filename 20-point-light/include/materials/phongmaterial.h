@@ -26,6 +26,8 @@ struct PointLightAttributes
     GLint attenuationConstantUniformLocation;
     GLint attenuationLinearUniformLocation;
     GLint attenuationExponentialUniformLocation;
+    GLint specularIntensityUniformLocation;
+    GLint specularPowerUniformLocation;
 };
 
 class PhongMaterial : public Material

@@ -19,12 +19,12 @@ bool PhongMaterial::addDirectionalLightUniformAttribute(std::string uniformName)
 
     auto shaderProgram = getShaderProgram();
 
-    GLint colorLocation = glGetUniformLocation(shaderProgram, (uniformName + ".color").c_str());
-    GLint ambientIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".ambientIntensity").c_str());
+    GLint colorLocation = glGetUniformLocation(shaderProgram, (uniformName + ".base.color").c_str());
+    GLint ambientIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".base.ambientIntensity").c_str());
     GLint directionLocation = glGetUniformLocation(shaderProgram, (uniformName + ".direction").c_str());
-    GLint diffuseIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".diffuseIntensity").c_str());
-    GLint specularIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".specularIntensity").c_str());
-    GLint specularPowerLocation = glGetUniformLocation(shaderProgram, (uniformName + ".specularPower").c_str());
+    GLint diffuseIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".base.diffuseIntensity").c_str());
+    GLint specularIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".base.specularIntensity").c_str());
+    GLint specularPowerLocation = glGetUniformLocation(shaderProgram, (uniformName + ".base.specularPower").c_str());
 
     DirectionalLightAttributes newLightAttributes = {
         colorLocation,
@@ -64,13 +64,15 @@ bool PhongMaterial::addPointLightUniformAttribute(std::string uniformName)
 
     auto shaderProgram = getShaderProgram();
 
-    GLint colorLocation = glGetUniformLocation(shaderProgram, (uniformName + ".color").c_str());
-    GLint ambientIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".ambientIntensity").c_str());
+    GLint colorLocation = glGetUniformLocation(shaderProgram, (uniformName + ".base.color").c_str());
+    GLint ambientIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".base.ambientIntensity").c_str());
     GLint positionLocation = glGetUniformLocation(shaderProgram, (uniformName + ".position").c_str());
-    GLint diffuseIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".diffuseIntensity").c_str());
+    GLint diffuseIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".base.diffuseIntensity").c_str());
     GLint attenuationConstantUniformLocation = glGetUniformLocation(shaderProgram, (uniformName + ".attenuationConstant").c_str());
     GLint attenuationLinearUniformLocation = glGetUniformLocation(shaderProgram, (uniformName + ".attenuationLinear").c_str());
     GLint attenuationExponentialUniformLocation = glGetUniformLocation(shaderProgram, (uniformName + ".attenuationExponential").c_str());
+    GLint specularIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".base.specularIntensity").c_str());
+    GLint specularPowerLocation = glGetUniformLocation(shaderProgram, (uniformName + ".base.specularPower").c_str());
 
     PointLightAttributes newLightAttributes = {
         colorLocation,

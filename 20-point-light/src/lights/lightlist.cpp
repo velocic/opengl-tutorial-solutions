@@ -1,7 +1,14 @@
 #include <lights/lightlist.h>
 #include <iostream>
 
-size_t LightList::addDirectionalLight(glm::vec3 color, glm::vec3 direction, float ambientIntensity, float diffuseIntensity, float specularIntensity, float specularPower)
+size_t LightList::addDirectionalLight(
+    glm::vec3 color,
+    glm::vec3 direction,
+    float ambientIntensity,
+    float diffuseIntensity,
+    float specularIntensity,
+    float specularPower
+)
 {
     DirectionalLight newLight;
     newLight.color = color;
@@ -18,16 +25,29 @@ size_t LightList::addDirectionalLight(glm::vec3 color, glm::vec3 direction, floa
     return assignedIDCount - 1;
 }
 
-size_t LightList::addPointLight(glm::vec3 color, glm::vec3 position, float ambientIntensity, float diffuseIntensity, float attenuationConstant, float attenuationLinear, float attenuationExponential)
+size_t LightList::addPointLight(
+    glm::vec3 color,
+    glm::vec3 position,
+    float ambientIntensity,
+    float diffuseIntensity,
+    float specularIntensity,
+    float specularPower,
+    float attenuationConstant,
+    float attenuationLinear,
+    float attenuationExponential
+)
 {
     PointLight newLight;
     newLight.color = color;
     newLight.position = position;
+    newLight.id = assignedIDCount;
     newLight.ambientIntensity = ambientIntensity;
     newLight.diffuseIntensity = diffuseIntensity;
     newLight.attenuationConstant = attenuationConstant;
     newLight.attenuationLinear = attenuationLinear;
     newLight.attenuationExponential = attenuationExponential;
+    newLight.specularIntensity = specularIntensity;
+    newLight.specularPower = specularPower;
 
     pointLights.push_back(newLight);
     ++assignedIDCount;
@@ -43,6 +63,12 @@ void LightList::clear()
 Light *LightList::getLightByID(unsigned int lightID)
 {
     for (auto it = directionalLights.begin(); it != directionalLights.end(); ++it) {
+        if (it->id == lightID) {
+            return &(*it);
+        }
+    }
+
+    for (auto it = pointLights.begin(); it != pointLights.end(); ++it) {
         if (it->id == lightID) {
             return &(*it);
         }
@@ -158,6 +184,16 @@ void LightList::setLights(
         glUniform1f(
             lightUniform.second.attenuationExponentialUniformLocation,
             currentLight.attenuationExponential
+        );
+
+        glUniform1f(
+            lightUniform.second.specularIntensityUniformLocation,
+            currentLight.specularIntensity
+        );
+
+        glUniform1f(
+            lightUniform.second.specularPowerUniformLocation,
+            currentLight.specularPower
         );
 
         ++lightCounter;

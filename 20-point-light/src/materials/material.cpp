@@ -165,7 +165,7 @@ GLuint Material::compileShaderProgramFromSource(const std::vector<uint8_t> &shad
     glGetShaderiv(shader, GL_COMPILE_STATUS, &compilationSuccess);
 
     if (!compilationSuccess) {
-        GLchar infoLog[1024];
+        GLchar infoLog[1024] = {0};
         glGetShaderInfoLog(shader, sizeof(infoLog), nullptr, infoLog);
 
         for (int i = 0; i < 1024; ++i) {
