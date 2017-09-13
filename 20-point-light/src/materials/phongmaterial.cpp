@@ -81,7 +81,9 @@ bool PhongMaterial::addPointLightUniformAttribute(std::string uniformName)
         diffuseIntensityLocation,
         attenuationConstantUniformLocation,
         attenuationLinearUniformLocation,
-        attenuationExponentialUniformLocation
+        attenuationExponentialUniformLocation,
+        specularIntensityLocation,
+        specularPowerLocation
     };
 
     if (
@@ -91,7 +93,9 @@ bool PhongMaterial::addPointLightUniformAttribute(std::string uniformName)
         diffuseIntensityLocation == -1 ||
         attenuationConstantUniformLocation == -1 ||
         attenuationLinearUniformLocation == -1 ||
-        attenuationExponentialUniformLocation == -1
+        attenuationExponentialUniformLocation == -1 ||
+        specularIntensityLocation == -1 ||
+        specularPowerLocation == -1
     ) {
         std::cout << "Cannot set Point light in PhongMaterial. One or more uniform locations is invalid." << std::endl;
         return false;

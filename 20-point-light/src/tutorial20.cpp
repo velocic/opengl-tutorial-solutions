@@ -173,7 +173,7 @@ int main()
     glUniform1i(basicPassthroughMaterial.getUniformAttribute("sampler"), 0);
 
     //Add a directional light into the scene
-    basicPassthroughMaterial.addDirectionalLightUniformAttribute("directionalLight");
+    // basicPassthroughMaterial.addDirectionalLightUniformAttribute("directionalLight");
     basicPassthroughMaterial.addPointLightUniformAttribute("pointLight");
     basicPassthroughMaterial.addCameraPositionUniformAttribute("cameraPosition");
     LightList lights(playerCamera);
@@ -256,11 +256,11 @@ int main()
         // worldMatrix = translationMatrix * rotationMatrix * scaleMatrix;
 
         //Move the point light back and forth
-        // int lightMoveIncrement = 1;
-        // if (pointLight->position.x > 10 || pointLight->position.x < -10) {
-        //     lightMoveIncrement *= -1;
-        // }
-        // pointLight->position.x += lightMoveIncrement;
+        float lightMoveIncrement = .1;
+        if (pointLight->position.x > 15 || pointLight->position.x < -15) {
+            pointLight->position.x = -15;
+        }
+        pointLight->position.x += lightMoveIncrement;
 
         viewMatrix = playerCamera->getViewMatrix();
         WVPMatrix = perspectiveProjection * viewMatrix * worldMatrix;
