@@ -173,7 +173,7 @@ int main()
     glUniform1i(basicPassthroughMaterial.getUniformAttribute("sampler"), 0);
 
     //Add a directional light into the scene
-    // basicPassthroughMaterial.addDirectionalLightUniformAttribute("directionalLight");
+    basicPassthroughMaterial.addDirectionalLightUniformAttribute("directionalLight");
     basicPassthroughMaterial.addPointLightUniformAttribute("pointLight");
     basicPassthroughMaterial.addCameraPositionUniformAttribute("cameraPosition");
     LightList lights(playerCamera);
