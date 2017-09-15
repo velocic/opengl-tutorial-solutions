@@ -126,6 +126,7 @@ void LightList::removeLightByID(unsigned int lightID)
 void LightList::setLights(
     const std::unordered_map<std::string, DirectionalLightAttributes> &directionalLightUniforms,
     const std::unordered_map<std::string, PointLightAttributes> &pointLightUniforms,
+    const std::unordered_map<std::string, SpotLightAttributes> &spotLightUniforms,
     GLint cameraPositionUniform
 )
 {
@@ -228,6 +229,75 @@ void LightList::setLights(
         glUniform1f(
             lightUniform.second.specularPowerUniformLocation,
             currentLight.specularPower
+        );
+
+        ++lightCounter;
+    }
+
+    lightCounter = 0;
+
+    for (auto& lightUniform : spotLightUniforms) {
+        auto& currentLight = spotLights[lightCounter];
+
+        glUniform3f(
+            lightUniform.second.colorUniformLocation,
+            currentLight.color.r,
+            currentLight.color.g,
+            currentLight.color.b
+        );
+
+        glUniform1f(
+            lightUniform.second.ambientIntensityUniformLocation,
+            currentLight.ambientIntensity
+        );
+
+        glUniform1f(
+            lightUniform.second.diffuseIntensityUniformLocation,
+            currentLight.diffuseIntensity
+        );
+
+        glUniform3f(
+            lightUniform.second.positionUniformLocation,
+            currentLight.position.x,
+            currentLight.position.y,
+            currentLight.position.z
+        );
+
+        glUniform3f(
+            lightUniform.second.directionUniformLocation,
+            currentLight.direction.x,
+            currentLight.direction.y,
+            currentLight.direction.z
+        );
+
+        glUniform1f(
+            lightUniform.second.attenuationConstantUniformLocation,
+            currentLight.attenuationConstant
+        );
+
+        glUniform1f(
+            lightUniform.second.attenuationLinearUniformLocation,
+            currentLight.attenuationLinear
+        );
+
+        glUniform1f(
+            lightUniform.second.attenuationExponentialUniformLocation,
+            currentLight.attenuationExponential
+        );
+
+        glUniform1f(
+            lightUniform.second.specularIntensityUniformLocation,
+            currentLight.specularIntensity
+        );
+
+        glUniform1f(
+            lightUniform.second.specularPowerUniformLocation,
+            currentLight.specularPower
+        );
+
+        glUniform1f(
+            lightUniform.second.falloffUniformLocation,
+            currentLight.falloff
         );
 
         ++lightCounter;

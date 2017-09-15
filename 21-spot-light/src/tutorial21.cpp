@@ -106,7 +106,7 @@ int main()
         std::cout << "Failed to load " + fragmentShaderPath << std::endl;
     }
 
-    PhongMaterial basicPassthroughMaterial(vertexShaderSource, geometryShaderSource, fragmentShaderSource);
+    PhongMaterial threeLightsMaterial(vertexShaderSource, geometryShaderSource, fragmentShaderSource);
 
     SDL_Event event;
     bool userRequestedExit = false;
@@ -144,22 +144,22 @@ int main()
     glm::mat4 WVPMatrix;
 
     //Get handle to WVP uniform in the shader program
-    basicPassthroughMaterial.addUniformAttribute("WVPMatrix");
-    auto WVPMatrixHandle = basicPassthroughMaterial.getUniformAttribute("WVPMatrix");
+    threeLightsMaterial.addUniformAttribute("WVPMatrix");
+    auto WVPMatrixHandle = threeLightsMaterial.getUniformAttribute("WVPMatrix");
 
     //Get handle to world matrix uniform for use w/ normals for lighting
-    basicPassthroughMaterial.addUniformAttribute("worldMatrix");
-    auto worldMatrixHandle = basicPassthroughMaterial.getUniformAttribute("worldMatrix");
+    threeLightsMaterial.addUniformAttribute("worldMatrix");
+    auto worldMatrixHandle = threeLightsMaterial.getUniformAttribute("worldMatrix");
 
     //Initialize glVertexAttribPointers while VBO is bound
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
-    basicPassthroughMaterial.addAttribute("position");
-    basicPassthroughMaterial.setGLVertexAttribPointer("position", 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-    basicPassthroughMaterial.addAttribute("normal");
-    basicPassthroughMaterial.setGLVertexAttribPointer("normal", 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)sizeof(glm::vec3));
-    basicPassthroughMaterial.addAttribute("texCoord");
-    basicPassthroughMaterial.setGLVertexAttribPointer("texCoord", 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(sizeof(glm::vec3) * 2));
+    threeLightsMaterial.addAttribute("position");
+    threeLightsMaterial.setGLVertexAttribPointer("position", 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+    threeLightsMaterial.addAttribute("normal");
+    threeLightsMaterial.setGLVertexAttribPointer("normal", 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)sizeof(glm::vec3));
+    threeLightsMaterial.addAttribute("texCoord");
+    threeLightsMaterial.setGLVertexAttribPointer("texCoord", 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(sizeof(glm::vec3) * 2));
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     //Set the sampler uniform for the fragment shader that we're going to use.
@@ -168,14 +168,15 @@ int main()
 
     //Note: need to bind the material so the contained shader program is active, otherwise
     //the glUniform* don't set values on the appropriate shader program
-    basicPassthroughMaterial.bind();
-    basicPassthroughMaterial.addUniformAttribute("sampler");
-    glUniform1i(basicPassthroughMaterial.getUniformAttribute("sampler"), 0);
+    threeLightsMaterial.bind();
+    threeLightsMaterial.addUniformAttribute("sampler");
+    glUniform1i(threeLightsMaterial.getUniformAttribute("sampler"), 0);
 
     //Add a directional light into the scene
-    basicPassthroughMaterial.addDirectionalLightUniformAttribute("directionalLight");
-    basicPassthroughMaterial.addPointLightUniformAttribute("pointLight");
-    basicPassthroughMaterial.addCameraPositionUniformAttribute("cameraPosition");
+    threeLightsMaterial.addDirectionalLightUniformAttribute("directionalLight");
+    threeLightsMaterial.addPointLightUniformAttribute("pointLight");
+    threeLightsMaterial.addSpotLightUniformAttribute("spotLight");
+    threeLightsMaterial.addCameraPositionUniformAttribute("cameraPosition");
     LightList lights(playerCamera);
     auto directionalLightHandle = lights.addDirectionalLight(
         glm::vec3(1.0f, 1.0f, 1.0f), //light color
@@ -196,12 +197,26 @@ int main()
         0.1f, //attenuation linear
         0.0f  //attenuation exponential
     );
-    lights.setLights(
-        basicPassthroughMaterial.getDirectionalLightUniforms(),
-        basicPassthroughMaterial.getPointLightUniforms(),
-        basicPassthroughMaterial.getCameraPositionUniformAttribute()
+    auto spotLightHandle = lights.addSpotLight(
+        glm::vec3(1.0f, 0.5f, 0.0f), //color
+        glm::vec3(0.0f, 0.0f, 8.0f), //position
+        glm::vec3(0.0f, -1.0f, 0.0f), //direction
+        0.1f, //ambient intensity
+        0.5f, //diffuse intensity
+        1.0f, //specular intensity
+        32,   //specular power
+        1.0f, //attenuation constant
+        0.1f, //attenuation linear
+        0.0f,  //attenuation exponential
+        20.0f //falloff angle
     );
-    basicPassthroughMaterial.unbind();
+    lights.setLights(
+        threeLightsMaterial.getDirectionalLightUniforms(),
+        threeLightsMaterial.getPointLightUniforms(),
+        threeLightsMaterial.getSpotLightUniforms(),
+        threeLightsMaterial.getCameraPositionUniformAttribute()
+    );
+    threeLightsMaterial.unbind();
 
     //Load the texture for our basic pyramid object
     std::vector<uint8_t> rawImageData;
@@ -265,19 +280,20 @@ int main()
         viewMatrix = playerCamera->getViewMatrix();
         WVPMatrix = perspectiveProjection * viewMatrix * worldMatrix;
 
-        basicPassthroughMaterial.bind();
+        threeLightsMaterial.bind();
 
         lights.setLights(
-            basicPassthroughMaterial.getDirectionalLightUniforms(),
-            basicPassthroughMaterial.getPointLightUniforms(),
-            basicPassthroughMaterial.getCameraPositionUniformAttribute()
+            threeLightsMaterial.getDirectionalLightUniforms(),
+            threeLightsMaterial.getPointLightUniforms(),
+            threeLightsMaterial.getSpotLightUniforms(),
+            threeLightsMaterial.getCameraPositionUniformAttribute()
         );
         glUniformMatrix4fv(WVPMatrixHandle, 1, GL_FALSE, &WVPMatrix[0][0]);
         glUniformMatrix4fv(worldMatrixHandle, 1, GL_FALSE, &worldMatrix[0][0]);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
         glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
-        basicPassthroughMaterial.unbind();
+        threeLightsMaterial.unbind();
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
         SDL_GL_SwapWindow(renderWindow.getRenderWindowHandle());

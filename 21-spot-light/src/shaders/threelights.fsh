@@ -30,8 +30,16 @@ struct PointLight
     float attenuationExponential;
 };
 
+struct SpotLight
+{
+    PointLight point;
+    vec3 direction;
+    float falloff;
+};
+
 uniform DirectionalLight directionalLight;
 uniform PointLight pointLight;
+uniform SpotLight spotLight;
 uniform vec3 cameraPosition;
 uniform sampler2D sampler;
 

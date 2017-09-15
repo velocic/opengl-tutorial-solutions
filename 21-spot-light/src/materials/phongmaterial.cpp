@@ -194,6 +194,18 @@ PointLightAttributes PhongMaterial::getPointLightUniformAttribute(std::string un
     return mapIterator->second;
 }
 
+SpotLightAttributes PhongMaterial::getSpotLightUniformAttribute(std::string uniformName) const
+{
+    auto mapIterator = spotLightUniformAttributes.find(uniformName);
+
+    if (mapIterator == spotLightUniformAttributes.end()) {
+        SpotLightAttributes emptyAttributes = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+        return emptyAttributes;
+    }
+
+    return mapIterator->second;
+}
+
 const std::unordered_map<std::string, DirectionalLightAttributes> &PhongMaterial::getDirectionalLightUniforms() const
 {
     return directionalLightUniformAttributes;
@@ -202,6 +214,11 @@ const std::unordered_map<std::string, DirectionalLightAttributes> &PhongMaterial
 const std::unordered_map<std::string, PointLightAttributes> &PhongMaterial::getPointLightUniforms() const
 {
     return pointLightUniformAttributes;
+}
+
+const std::unordered_map<std::string, SpotLightAttributes> &PhongMaterial::getSpotLightUniforms() const
+{
+    return spotLightUniformAttributes;
 }
 
 bool PhongMaterial::addCameraPositionUniformAttribute(std::string uniformName)
