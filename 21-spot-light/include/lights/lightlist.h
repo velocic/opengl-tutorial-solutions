@@ -15,25 +15,30 @@
 struct Light
 {
     glm::vec3 color;
-    float ambientIntensity;
-    float diffuseIntensity;
-    float specularIntensity;
-    float specularPower;
+    float ambientIntensity = 0.0;
+    float diffuseIntensity = 0.0;
+    float specularIntensity = 0.0;
+    float specularPower = 0.0;
+    size_t id = 0;
 };
 
 struct DirectionalLight : Light
 {
     glm::vec3 direction;
-    size_t id;
 };
 
 struct PointLight : Light
 {
     glm::vec3 position;
-    size_t id;
-    float attenuationConstant;
-    float attenuationLinear;
-    float attenuationExponential;
+    float attenuationConstant = 0.0;
+    float attenuationLinear = 0.0;
+    float attenuationExponential = 0.0;
+};
+
+struct SpotLight : PointLight
+{
+    glm::vec3 direction;
+    float falloff = 0.0;
 };
 
 class LightList
@@ -41,6 +46,7 @@ class LightList
     private:
         std::vector<DirectionalLight> directionalLights;
         std::vector<PointLight> pointLights;
+        std::vector<SpotLight> spotLights;
         size_t assignedIDCount = 0;
         std::weak_ptr<Camera> camera;
     public:
@@ -66,6 +72,19 @@ class LightList
             float attenuationConstant,
             float attenuationLinear,
             float attenuationExponential
+        );
+        size_t addSpotLight(
+            glm::vec3 color,
+            glm::vec3 position,
+            glm::vec3 direction,
+            float ambientIntensity,
+            float diffuseIntensity,
+            float specularIntensity,
+            float specularPower,
+            float attenuationConstant,
+            float attenuationLinear,
+            float attenuationExponential,
+            float falloff
         );
         void clear();
         //Note: don't keep these pointers around for long after retrieval

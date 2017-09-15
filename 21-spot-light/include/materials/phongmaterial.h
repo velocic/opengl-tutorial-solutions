@@ -30,11 +30,27 @@ struct PointLightAttributes
     GLint specularPowerUniformLocation;
 };
 
+struct SpotLightAttributes
+{
+    GLint colorUniformLocation;
+    GLint ambientIntensityUniformLocation;
+    GLint positionUniformLocation;
+    GLint directionUniformLocation;
+    GLint diffuseIntensityUniformLocation;
+    GLint attenuationConstantUniformLocation;
+    GLint attenuationLinearUniformLocation;
+    GLint attenuationExponentialUniformLocation;
+    GLint specularIntensityUniformLocation;
+    GLint specularPowerUniformLocation;
+    GLint falloffUniformLocation;
+};
+
 class PhongMaterial : public Material
 {
     private:
         std::unordered_map<std::string, DirectionalLightAttributes> directionalLightUniformAttributes;
         std::unordered_map<std::string, PointLightAttributes> pointLightUniformAttributes;
+        std::unordered_map<std::string, SpotLightAttributes> spotLightUniformAttributes;
         GLint cameraWorldPositionUniformLocation;
     public:
         PhongMaterial(
@@ -45,11 +61,14 @@ class PhongMaterial : public Material
         bool addCameraPositionUniformAttribute(std::string uniformName);
         bool addDirectionalLightUniformAttribute(std::string uniformName);
         bool addPointLightUniformAttribute(std::string uniformName);
-        GLint getCameraPositionUniformAttribute();
-        DirectionalLightAttributes getDirectionalLightUniformAttribute(std::string uniformName);
-        PointLightAttributes getPointLightUniformAttribute(std::string uniformName);
-        const std::unordered_map<std::string, DirectionalLightAttributes> &getDirectionalLightUniforms();
-        const std::unordered_map<std::string, PointLightAttributes> &getPointLightUniforms();
+        bool addSpotLightUniformAttribute(std::string uniformName);
+        GLint getCameraPositionUniformAttribute() const;
+        DirectionalLightAttributes getDirectionalLightUniformAttribute(std::string uniformName) const;
+        PointLightAttributes getPointLightUniformAttribute(std::string uniformName) const;
+        SpotLightAttributes getSpotLightUniformAttribute(std::string uniformName) const;
+        const std::unordered_map<std::string, DirectionalLightAttributes> &getDirectionalLightUniforms() const;
+        const std::unordered_map<std::string, PointLightAttributes> &getPointLightUniforms() const;
+        const std::unordered_map<std::string, SpotLightAttributes> &getSpotLightUniforms() const;
 };
 
 #endif

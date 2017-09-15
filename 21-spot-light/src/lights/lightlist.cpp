@@ -55,6 +55,40 @@ size_t LightList::addPointLight(
     return assignedIDCount - 1;
 }
 
+size_t LightList::addSpotLight(
+    glm::vec3 color,
+    glm::vec3 position,
+    glm::vec3 direction,
+    float ambientIntensity,
+    float diffuseIntensity,
+    float specularIntensity,
+    float specularPower,
+    float attenuationConstant,
+    float attenuationLinear,
+    float attenuationExponential,
+    float falloff
+)
+{
+    SpotLight newLight;
+    newLight.color = color;
+    newLight.position = position;
+    newLight.direction = direction;
+    newLight.id = assignedIDCount;
+    newLight.ambientIntensity = ambientIntensity;
+    newLight.diffuseIntensity = diffuseIntensity;
+    newLight.attenuationConstant = attenuationConstant;
+    newLight.attenuationLinear = attenuationLinear;
+    newLight.attenuationExponential = attenuationExponential;
+    newLight.specularIntensity = specularIntensity;
+    newLight.specularPower = specularPower;
+    newLight.falloff = falloff;
+
+    spotLights.push_back(newLight);
+    ++assignedIDCount;
+
+    return assignedIDCount - 1;
+}
+
 void LightList::clear()
 {
     directionalLights.clear();

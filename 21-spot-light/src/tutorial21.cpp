@@ -55,7 +55,7 @@ int main()
 {
     //Initialize SDL2 with video and event modes enabled,
     //and request an OpenGL 3.3 Core Profile
-    RenderWindow renderWindow("ogldev.atspace.co.uk Tutorial 20 -- Point Light", screenWidth, screenHeight);
+    RenderWindow renderWindow("ogldev.atspace.co.uk Tutorial 21 -- Spot Light", screenWidth, screenHeight);
 
     //Vector, UV, normal
     std::vector<Vertex> vertices = {
@@ -93,7 +93,7 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     std::string vertexShaderPath = "../src/shaders/passthrough.vsh";
-    std::string fragmentShaderPath = "../src/shaders/passthrough.fsh";
+    std::string fragmentShaderPath = "../src/shaders/threelights.fsh";
     std::vector<uint8_t> vertexShaderSource;
     std::vector<uint8_t> geometryShaderSource;
     std::vector<uint8_t> fragmentShaderSource;
