@@ -180,7 +180,7 @@ int main()
     LightList lights(playerCamera);
     auto directionalLightHandle = lights.addDirectionalLight(
         glm::vec3(1.0f, 1.0f, 1.0f), //light color
-        glm::vec3(1.0f, 1.0f, 0.0f), //light direction
+        glm::normalize(glm::vec3(1.0f, 1.0f, 0.0f)), //light direction
         0.1f, //ambient intensity
         0.8f, //diffuse intensity
         1.0f, //specular intensity
@@ -198,17 +198,17 @@ int main()
         0.0f  //attenuation exponential
     );
     auto spotLightHandle = lights.addSpotLight(
-        glm::vec3(1.0f, 0.5f, 0.0f), //color
-        glm::vec3(0.0f, 0.0f, 8.0f), //position
-        glm::vec3(0.0f, -1.0f, 0.0f), //direction
+        glm::vec3(0.0f, 1.0f, 0.0f), //color
+        glm::vec3(-5.0f, -7.0f, 15.0f), //position
+        glm::normalize(glm::vec3(0.0f, 0.0f, -1.0f)), //direction
         0.1f, //ambient intensity
-        0.5f, //diffuse intensity
+        0.8f, //diffuse intensity
         1.0f, //specular intensity
         32,   //specular power
         1.0f, //attenuation constant
         0.1f, //attenuation linear
         0.0f,  //attenuation exponential
-        20.0f //falloff angle
+        40.0f //falloff angle
     );
     lights.setLights(
         threeLightsMaterial.getDirectionalLightUniforms(),
@@ -240,6 +240,8 @@ int main()
 
     auto pointLightBase = lights.getLightByID(pointLightHandle);
     auto pointLight = static_cast<PointLight*>(pointLightBase);
+    auto spotLightBase = lights.getLightByID(spotLightHandle);
+    auto spotLight = static_cast<SpotLight*>(spotLightBase);
     while (userRequestedExit == false)
     {
         while (SDL_PollEvent(&event)) {
@@ -276,6 +278,11 @@ int main()
             pointLight->position.x = -15;
         }
         pointLight->position.x += lightMoveIncrement;
+
+        if (spotLight->position.z < 5) {
+            spotLight->position.z = 15;
+        }
+        spotLight->position.z -= lightMoveIncrement * .5;
 
         viewMatrix = playerCamera->getViewMatrix();
         WVPMatrix = perspectiveProjection * viewMatrix * worldMatrix;

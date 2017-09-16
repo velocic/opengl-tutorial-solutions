@@ -1,4 +1,6 @@
 #include <lights/lightlist.h>
+#include <utilities.h>
+#include <cmath>
 #include <iostream>
 
 size_t LightList::addDirectionalLight(
@@ -103,6 +105,12 @@ Light *LightList::getLightByID(unsigned int lightID)
     }
 
     for (auto it = pointLights.begin(); it != pointLights.end(); ++it) {
+        if (it->id == lightID) {
+            return &(*it);
+        }
+    }
+
+    for (auto it = spotLights.begin(); it != spotLights.end(); ++it) {
         if (it->id == lightID) {
             return &(*it);
         }
@@ -297,7 +305,7 @@ void LightList::setLights(
 
         glUniform1f(
             lightUniform.second.falloffUniformLocation,
-            currentLight.falloff
+            std::cos(Utilities::Math::degreesToRadians(currentLight.falloff)) //Calculate cosine once here, rather than per-fragment in the fragment shader
         );
 
         ++lightCounter;

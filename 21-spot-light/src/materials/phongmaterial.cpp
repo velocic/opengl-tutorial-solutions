@@ -120,7 +120,7 @@ bool PhongMaterial::addSpotLightUniformAttribute(std::string uniformName)
     GLint colorLocation = glGetUniformLocation(shaderProgram, (uniformName + ".point.base.color").c_str());
     GLint ambientIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".point.base.ambientIntensity").c_str());
     GLint positionLocation = glGetUniformLocation(shaderProgram, (uniformName + ".point.position").c_str());
-    GLint directionLocation = glGetUniformLocation(shaderProgram, (uniformName = ".direction").c_str());
+    GLint directionLocation = glGetUniformLocation(shaderProgram, (uniformName + ".direction").c_str());
     GLint diffuseIntensityLocation = glGetUniformLocation(shaderProgram, (uniformName + ".point.base.diffuseIntensity").c_str());
     GLint attenuationConstantUniformLocation = glGetUniformLocation(shaderProgram, (uniformName + ".point.attenuationConstant").c_str());
     GLint attenuationLinearUniformLocation = glGetUniformLocation(shaderProgram, (uniformName + ".point.attenuationLinear").c_str());

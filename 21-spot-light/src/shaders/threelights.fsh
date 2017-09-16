@@ -87,6 +87,19 @@ vec4 calculatePointLight(PointLight light, vec3 fragmentWorldPos, vec3 normal)
     return color / attenuation;
 }
 
+vec4 calculateSpotLight(SpotLight light, vec3 fragmentWorldPos, vec3 normal)
+{
+    vec3 fragmentToLight = normalize(fragmentWorldPos - light.point.position);
+    float spotFactor = dot(fragmentToLight, light.direction);
+
+    if (spotFactor > light.falloff) {
+        vec4 color = calculatePointLight(light.point, fragmentWorldPos, normal);
+        return color * (1.0 - (1.0 - spotFactor) * 1.0/(1.0 - light.falloff));
+    } else {
+        return vec4(0, 0, 0, 0);
+    }
+}
+
 void main()
 {
     vec3 normal = normalize(normal0);
@@ -96,8 +109,9 @@ void main()
 
     vec4 directionalLightColor = calculateDirectionalLight(directionalLight, fragmentToDirectionalLightDirection, normal);
     vec4 pointLightColor = calculatePointLight(pointLight, worldPos0, normal);
+    vec4 spotLightColor = calculateSpotLight(spotLight, worldPos0, normal);
 
-    vec4 finalLightColor = directionalLightColor + pointLightColor;
+    vec4 finalLightColor = directionalLightColor + pointLightColor + spotLightColor;
 
     fragColor = texture2D(sampler, texCoord0.xy) * finalLightColor;
 }
