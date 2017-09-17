@@ -5,7 +5,7 @@
 
 #include <materials/material.h>
 
-#include <unordered_map>
+#include <vector>
 
 struct DirectionalLightAttributes
 {
@@ -48,9 +48,9 @@ struct SpotLightAttributes
 class PhongMaterial : public Material
 {
     private:
-        std::unordered_map<std::string, DirectionalLightAttributes> directionalLightUniformAttributes;
-        std::unordered_map<std::string, PointLightAttributes> pointLightUniformAttributes;
-        std::unordered_map<std::string, SpotLightAttributes> spotLightUniformAttributes;
+        std::vector<DirectionalLightAttributes> directionalLightUniformAttributes;
+        std::vector<PointLightAttributes> pointLightUniformAttributes;
+        std::vector<SpotLightAttributes> spotLightUniformAttributes;
         GLint cameraWorldPositionUniformLocation;
     public:
         PhongMaterial(
@@ -58,17 +58,14 @@ class PhongMaterial : public Material
             const std::vector<uint8_t> &geometryShaderSource,
             const std::vector<uint8_t> &fragmentShaderSource
         );
-        bool addCameraPositionUniformAttribute(std::string uniformName);
-        bool addDirectionalLightUniformAttribute(std::string uniformName);
-        bool addPointLightUniformAttribute(std::string uniformName);
-        bool addSpotLightUniformAttribute(std::string uniformName);
+        bool addCameraPositionUniformAttribute();
+        bool addDirectionalLightUniformAttributes(unsigned int numDirectionalLights);
+        bool addPointLightUniformAttributes(unsigned int numPointLights);
+        bool addSpotLightUniformAttributes(unsigned int numSpotLights);
         GLint getCameraPositionUniformAttribute() const;
-        DirectionalLightAttributes getDirectionalLightUniformAttribute(std::string uniformName) const;
-        PointLightAttributes getPointLightUniformAttribute(std::string uniformName) const;
-        SpotLightAttributes getSpotLightUniformAttribute(std::string uniformName) const;
-        const std::unordered_map<std::string, DirectionalLightAttributes> &getDirectionalLightUniforms() const;
-        const std::unordered_map<std::string, PointLightAttributes> &getPointLightUniforms() const;
-        const std::unordered_map<std::string, SpotLightAttributes> &getSpotLightUniforms() const;
+        const std::vector<DirectionalLightAttributes> &getDirectionalLightUniforms() const;
+        const std::vector<PointLightAttributes> &getPointLightUniforms() const;
+        const std::vector<SpotLightAttributes> &getSpotLightUniforms() const;
 };
 
 #endif

@@ -172,11 +172,11 @@ int main()
     threeLightsMaterial.addUniformAttribute("sampler");
     glUniform1i(threeLightsMaterial.getUniformAttribute("sampler"), 0);
 
-    //Add a directional light into the scene
-    threeLightsMaterial.addDirectionalLightUniformAttribute("directionalLight");
-    threeLightsMaterial.addPointLightUniformAttribute("pointLight");
-    threeLightsMaterial.addSpotLightUniformAttribute("spotLight");
-    threeLightsMaterial.addCameraPositionUniformAttribute("cameraPosition");
+    //Enable one directional, point, and spot light and set up their parameters
+    threeLightsMaterial.addDirectionalLightUniformAttributes(1);
+    threeLightsMaterial.addPointLightUniformAttributes(1);
+    threeLightsMaterial.addSpotLightUniformAttributes(2);
+    threeLightsMaterial.addCameraPositionUniformAttribute();
     LightList lights(playerCamera);
     auto directionalLightHandle = lights.addDirectionalLight(
         glm::vec3(1.0f, 1.0f, 1.0f), //light color
@@ -201,6 +201,19 @@ int main()
         glm::vec3(0.0f, 1.0f, 0.0f), //color
         glm::vec3(-5.0f, -7.0f, 15.0f), //position
         glm::normalize(glm::vec3(0.0f, 0.0f, -1.0f)), //direction
+        0.1f, //ambient intensity
+        0.8f, //diffuse intensity
+        1.0f, //specular intensity
+        32,   //specular power
+        1.0f, //attenuation constant
+        0.1f, //attenuation linear
+        0.0f,  //attenuation exponential
+        40.0f //falloff angle
+    );
+    auto spotLightHandle2 = lights.addSpotLight(
+        glm::vec3(1.0f, 0.0f, 1.0f), //color
+        glm::vec3(15.0f, -7.0f, 7.0f), //position
+        glm::normalize(glm::vec3(-1.0f, 0.0f, 0.0f)), //direction
         0.1f, //ambient intensity
         0.8f, //diffuse intensity
         1.0f, //specular intensity

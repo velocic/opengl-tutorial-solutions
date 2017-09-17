@@ -6,6 +6,10 @@ in vec3 worldPos0;
 
 out vec4 fragColor;
 
+const int numDirectionalLights = 1;
+const int numPointLights = 1;
+const int numSpotLights = 2;
+
 struct Light
 {
     vec3 color;
@@ -37,9 +41,9 @@ struct SpotLight
     float falloff;
 };
 
-uniform DirectionalLight directionalLight;
-uniform PointLight pointLight;
-uniform SpotLight spotLight;
+uniform DirectionalLight directionalLight[numDirectionalLights];
+uniform PointLight pointLight[numPointLights];
+uniform SpotLight spotLight[numSpotLights];
 uniform vec3 cameraPosition;
 uniform sampler2D sampler;
 
@@ -105,11 +109,22 @@ void main()
     vec3 normal = normalize(normal0);
 
     //Reverse the direction of the light vector, so it points from fragment->light source
-    vec3 fragmentToDirectionalLightDirection = -directionalLight.direction;
 
-    vec4 directionalLightColor = calculateDirectionalLight(directionalLight, fragmentToDirectionalLightDirection, normal);
-    vec4 pointLightColor = calculatePointLight(pointLight, worldPos0, normal);
-    vec4 spotLightColor = calculateSpotLight(spotLight, worldPos0, normal);
+    vec4 directionalLightColor = vec4(0, 0, 0, 0);
+    for (int i = 0; i < numDirectionalLights; ++i) {
+        vec3 fragmentToDirectionalLightDirection = -directionalLight[i].direction;
+        directionalLightColor += calculateDirectionalLight(directionalLight[i], fragmentToDirectionalLightDirection, normal);
+    }
+
+    vec4 pointLightColor = vec4(0, 0, 0, 0);
+    for (int i = 0; i < numPointLights; ++i) {
+        pointLightColor += calculatePointLight(pointLight[i], worldPos0, normal);
+    }
+
+    vec4 spotLightColor = vec4(0, 0, 0, 0);
+    for (int i = 0; i < numSpotLights; ++i) {
+        spotLightColor += calculateSpotLight(spotLight[i], worldPos0, normal);
+    }
 
     vec4 finalLightColor = directionalLightColor + pointLightColor + spotLightColor;
 

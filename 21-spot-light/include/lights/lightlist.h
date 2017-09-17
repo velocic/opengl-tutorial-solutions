@@ -92,9 +92,9 @@ class LightList
         Light *getLightByID(unsigned int lightID);
         void removeLightByID(unsigned int lightID);
         void setLights(
-            const std::unordered_map<std::string, DirectionalLightAttributes> &directionalLightUniforms,
-            const std::unordered_map<std::string, PointLightAttributes> &pointLightUniforms,
-            const std::unordered_map<std::string, SpotLightAttributes> &spotLightUniforms,
+            const std::vector<DirectionalLightAttributes> &directionalLightUniforms,
+            const std::vector<PointLightAttributes> &pointLightUniforms,
+            const std::vector<SpotLightAttributes> &spotLightUniforms,
             GLint cameraPositionUniform
         );
         void setViewingCamera(std::weak_ptr<Camera> camera);
