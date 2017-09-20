@@ -9,6 +9,10 @@ Texture::~Texture()
 
 void Texture::bind(GLenum textureUnit)
 {
+    if (type == TextureType::Invalid) {
+        std::cout << "error: bind called on texture with invalid state" << std::endl;
+    }
+
     //Make active the texture unit we want to bind to
     //this allows us to use many textures simultaneously in the future
     glActiveTexture(textureUnit);
@@ -19,15 +23,22 @@ void Texture::freeResources()
 {
     glDeleteTextures(1, &textureID);
     textureTarget = 0;
+    type = TextureType::Invalid;
 }
 
-bool Texture::load(GLenum textureTarget, const std::vector<uint8_t>& imageData, TextureFormat textureFormat)
+TextureType Texture::getType()
+{
+    return type;
+}
+
+bool Texture::load(GLenum textureTarget, const std::vector<uint8_t>& imageData, TextureFormat textureFormat, TextureType type)
 {
     //Check if we've been assigned a texture handle previously. If so, free everything
     if (textureID != 0) {
         freeResources();
     }
 
+    this->type = type;
     this->textureTarget = textureTarget;
 
     unsigned int width;

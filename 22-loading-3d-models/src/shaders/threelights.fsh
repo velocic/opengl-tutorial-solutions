@@ -10,6 +10,10 @@ const int numDirectionalLights = 1;
 const int numPointLights = 1;
 const int numSpotLights = 2;
 
+const int numDiffuseTextures = 1;
+//const int numSpecularTextures = 1;
+//const int numNormalTextures = 1;
+
 struct Light
 {
     vec3 color;
@@ -45,7 +49,14 @@ uniform DirectionalLight directionalLight[numDirectionalLights];
 uniform PointLight pointLight[numPointLights];
 uniform SpotLight spotLight[numSpotLights];
 uniform vec3 cameraPosition;
-uniform sampler2D sampler;
+
+//IMPORTANT NOTE: from https://stackoverflow.com/questions/12030711/glsl-array-of-textures-of-differing-size/12031821#12031821
+// "In GLSL 1.30 to 3.30, you can have sampler arrays, but with severe restrictions on the index.
+// The index MUST be an integral constant expression. Thus, while you can declare a sampler array, you CANT
+// loop over it."
+uniform sampler2D diffuse[numDiffuseTextures];
+//uniform sampler2D specular[numSpecularTextures];
+//uniform sampler2D normal[numNormalTextures];
 
 vec4 calculateBaseLight(Light light, vec3 fragmentToLightDirection, vec3 normal)
 {
@@ -108,10 +119,9 @@ void main()
 {
     vec3 normal = normalize(normal0);
 
-    //Reverse the direction of the light vector, so it points from fragment->light source
-
     vec4 directionalLightColor = vec4(0, 0, 0, 0);
     for (int i = 0; i < numDirectionalLights; ++i) {
+        //Reverse the direction of the light vector, so it points from fragment->light source
         vec3 fragmentToDirectionalLightDirection = -directionalLight[i].direction;
         directionalLightColor += calculateDirectionalLight(directionalLight[i], fragmentToDirectionalLightDirection, normal);
     }
@@ -128,5 +138,7 @@ void main()
 
     vec4 finalLightColor = directionalLightColor + pointLightColor + spotLightColor;
 
-    fragColor = texture2D(sampler, texCoord0.xy) * finalLightColor;
+    //Still using a single diffuse texture for now, but starting to build capability of
+    //supporting more
+    fragColor = texture2D(diffuse[0], texCoord0.xy) * finalLightColor;
 }
