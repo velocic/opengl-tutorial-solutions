@@ -1,12 +1,11 @@
-#include <mesh.h>
+#include <asset/mesh.h>
 #include <iostream>
 
 Mesh::Mesh(
     std::vector<Vertex>&& vertices,
-    std::vector<unsigned int>&& indices
+    std::vector<unsigned int>&& indices,
     std::vector<Texture>&& textures
-)
-    vertices(vertices),
+) : vertices(vertices),
     indices(indices),
     textures(textures)
 {
@@ -17,8 +16,6 @@ Mesh::Mesh(
     if (vertices.size() == 0) {
         std::cout << "error: mesh created with 0 vertex indices" << std::endl;
     }
-
-    bufferMeshData();
 }
 
 Mesh::~Mesh()
@@ -60,7 +57,7 @@ void Mesh::bufferMeshData(
     glVertexAttribPointer(normalAttributeLocation, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)sizeof(glm::vec3));
 
     //Link the uv coord attribute in the vertex shader to the glm::vec2 uvCoords in each Vertex object
-    glVertexAttribPointer(uvCoordinateAttributeLocation, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)sizeof(glm::vec3 * 2));
+    glVertexAttribPointer(uvCoordinateAttributeLocation, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(glm::vec3) * 2));
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
@@ -68,18 +65,43 @@ void Mesh::bufferMeshData(
 
 void Mesh::draw(Material& material)
 {
-    //TODO: figure this all out. Unfinished/not correct
-    //diffuse, specular, normal, etc textures will be named ex: diffuse0 - diffuseN
-    //in the shader to allow easily setting them here
-    unsigned int diffuseTextureIndex = 0;
-    unsigned int specularTextureIndex = 0;
-    for (unsigned int i = 0; i < textures.size(); ++i) {
-        glActiveTexture(GL_TEXTURE0 + i);
+    const auto& diffuseTexUnits = material.getDiffuseTextureUnits();
+    const auto& specularTexUnits = material.getSpecularTextureUnits();
+    const auto& normalTexUnits = material.getNormalTextureUnits();
 
-        //TODO: set texture unit values here
+    unsigned int numBoundDiffuseTextures = 0;
+    unsigned int numBoundSpecularTextures = 0;
+    unsigned int numBoundNormalTextures = 0;
+
+    for (const auto& texture : textures) {
+        if (texture.getType() == TextureType::Diffuse) {
+            if (numBoundDiffuseTextures >= diffuseTexUnits.size()) {
+                std::cout << "warning: material does not contain enough diffuse texture units for mesh" << std::endl;
+                continue;
+            }
+            glActiveTexture(GL_TEXTURE0 + diffuseTexUnits[numBoundDiffuseTextures]);
+            glBindTexture(GL_TEXTURE_2D, texture.getID());
+            ++numBoundDiffuseTextures;
+
+        } else if (texture.getType() == TextureType::Specular) {
+            if (numBoundSpecularTextures >= specularTexUnits.size()) {
+                std::cout << "warning: material does not contain enough specular texture units for mesh" << std::endl;
+                continue;
+            }
+            glActiveTexture(GL_TEXTURE0 + specularTexUnits[numBoundSpecularTextures]);
+            glBindTexture(GL_TEXTURE_2D, texture.getID());
+            ++numBoundSpecularTextures;
+        } else if (texture.getType() == TextureType::Normal) {
+            if (numBoundNormalTextures >= normalTexUnits.size()) {
+                std::cout << "warning: material does not contain enough normal texture units for mesh" << std::endl;
+                continue;
+            }
+            glActiveTexture(GL_TEXTURE0 + normalTexUnits[numBoundNormalTextures]);
+            glBindTexture(GL_TEXTURE_2D, texture.getID());
+            ++numBoundNormalTextures;
+        }
     }
     glActiveTexture(GL_TEXTURE0);
 
-    glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
 }

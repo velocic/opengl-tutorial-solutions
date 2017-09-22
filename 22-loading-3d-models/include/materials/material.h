@@ -25,6 +25,10 @@ class Material
         std::unordered_map<std::string, GLint> shaderAttributes;
         std::unordered_map<std::string, GLint> uniformAttributes;
 
+        std::vector<unsigned int> diffuseTextureUnitIndices;
+        std::vector<unsigned int> specularTextureUnitIndices;
+        std::vector<unsigned int> normalTextureUnitIndices;
+
         GLuint compileShaderProgramFromSource(const std::vector<uint8_t> &shaderSource, GLenum shaderType);
         GLuint linkShaderProgram(const ShaderProgramStages& shaderStages);
     protected:
@@ -44,7 +48,11 @@ class Material
         void bind();
         GLint getAttribute(std::string attributeName);
         GLint getUniformAttribute(std::string uniformName);
+        const std::vector<unsigned int> &getDiffuseTextureUnits() const {return diffuseTextureUnitIndices;}
+        const std::vector<unsigned int> &getSpecularTextureUnits() const {return specularTextureUnitIndices;}
+        const std::vector<unsigned int> &getNormalTextureUnits() const {return normalTextureUnitIndices;}
         inline bool isMaterialValid() {return isValid;}
+        bool setTextureUnits(unsigned int numDiffuseTextures, unsigned int numSpecularTextures, unsigned int numNormalTextures);
 
         //Calls glVertexAttribPointer, but allows use of shader attribute location
         //by name. Must be called after proper VBO is bound, which needs to happen

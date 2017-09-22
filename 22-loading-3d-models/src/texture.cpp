@@ -26,7 +26,7 @@ void Texture::freeResources()
     type = TextureType::Invalid;
 }
 
-TextureType Texture::getType()
+TextureType Texture::getType() const
 {
     return type;
 }

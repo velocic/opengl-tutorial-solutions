@@ -21,6 +21,7 @@ add_executable(${PROJECT_NAME}
     src/materials/material.cpp
     src/materials/phongmaterial.cpp
     src/lights/lightlist.cpp
+    src/asset/mesh.cpp
 )
 
 target_link_libraries(

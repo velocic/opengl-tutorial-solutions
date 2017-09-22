@@ -147,6 +147,56 @@ void Material::setGLVertexAttribPointer(std::string attributeName, GLint size, G
     glBindVertexArray(0);
 }
 
+bool Material::setTextureUnits(unsigned int numDiffuseTextures, unsigned int numSpecularTextures, unsigned int numNormalTextures)
+{
+    unsigned int textureUnitIndex = 0;
+
+    for (unsigned int i = 0; i < numDiffuseTextures; ++i) {
+        auto uniformName = "diffuse[" + std::to_string(i) + "]";
+        auto isValidUniform = addUniformAttribute(uniformName);
+
+        if (isValidUniform == false) {
+            std::cout << uniformName << " is an invalid uniform name" << std::endl;
+            return false;
+        }
+
+        auto texLocation = getUniformAttribute(uniformName);
+        glUniform1i(texLocation, textureUnitIndex); 
+        diffuseTextureUnitIndices.push_back(textureUnitIndex);
+        ++textureUnitIndex;
+    }
+
+    for (unsigned int i = 0; i < numSpecularTextures; ++i) {
+        auto uniformName = "specular[" + std::to_string(i) + "]";
+        auto isValidUniform = addUniformAttribute(uniformName);
+
+        if (isValidUniform == false) {
+            std::cout << uniformName << " is an invalid uniform name" << std::endl;
+            return false;
+        }
+
+        glUniform1i(getUniformAttribute(uniformName), textureUnitIndex);
+        specularTextureUnitIndices.push_back(textureUnitIndex);
+        ++textureUnitIndex;
+    }
+
+    for (unsigned int i = 0; i < numNormalTextures; ++i) {
+        auto uniformName = "normal[" + std::to_string(i) + "]";
+        auto isValidUniform = addUniformAttribute(uniformName);
+
+        if (isValidUniform == false) {
+            std::cout << uniformName << " is an invalid uniform name" << std::endl;
+        }
+
+        glUniform1i(getUniformAttribute(uniformName), textureUnitIndex);
+        normalTextureUnitIndices.push_back(textureUnitIndex);
+        ++textureUnitIndex;
+    }
+
+    return true;
+}
+
+
 void Material::unbind()
 {
     glUseProgram(0);

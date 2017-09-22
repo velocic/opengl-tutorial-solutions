@@ -51,7 +51,7 @@ class PhongMaterial : public Material
         std::vector<DirectionalLightAttributes> directionalLightUniformAttributes;
         std::vector<PointLightAttributes> pointLightUniformAttributes;
         std::vector<SpotLightAttributes> spotLightUniformAttributes;
-        GLint cameraWorldPositionUniformLocation;
+        GLint cameraWorldPositionUniformLocation = 0;
     public:
         PhongMaterial(
             const std::vector<uint8_t> &vertexShaderSource,

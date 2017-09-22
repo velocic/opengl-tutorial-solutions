@@ -169,10 +169,9 @@ int main()
     //Note: need to bind the material so the contained shader program is active, otherwise
     //the glUniform* don't set values on the appropriate shader program
     threeLightsMaterial.bind();
-    threeLightsMaterial.addUniformAttribute("sampler");
-    glUniform1i(threeLightsMaterial.getUniformAttribute("sampler"), 0);
+    threeLightsMaterial.setTextureUnits(1, 0, 0);
 
-    //Enable one directional, point, and spot light and set up their parameters
+    //Enable one directional, point, and 2 spot light and set up their parameters
     threeLightsMaterial.addDirectionalLightUniformAttributes(1);
     threeLightsMaterial.addPointLightUniformAttributes(1);
     threeLightsMaterial.addSpotLightUniformAttributes(2);
@@ -241,7 +240,7 @@ int main()
     }
 
     Texture pyramidTexture;
-    pyramidTexture.load(GL_TEXTURE_2D, rawImageData, TextureFormat::PNG);
+    pyramidTexture.load(GL_TEXTURE_2D, rawImageData, TextureFormat::PNG, TextureType::Specular);
     pyramidTexture.setTextureParams(
         GL_REPEAT,
         GL_REPEAT,

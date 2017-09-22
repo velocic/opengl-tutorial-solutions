@@ -27,7 +27,8 @@ class Texture
         ~Texture();
         void bind(GLenum textureUnit);
         void freeResources();
-        TextureType getType();
+        GLuint getID() const {return textureID;}
+        TextureType getType() const;
         bool load(GLenum textureTarget, const std::vector<uint8_t>& imageData, TextureFormat textureFormat, TextureType type);
         void setTextureParams(GLuint wrapModeS, GLuint wrapModeT, GLuint minFilter, GLuint magFilter, bool generateMipmap);
 };

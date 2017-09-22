@@ -2,6 +2,9 @@
 #define MESH_H
 
 #include <GL/gl3w.h>
+#include <glm/glm.hpp>
+
+#include <materials/material.h>
 #include <texture.h>
 
 #include <vector>
@@ -23,15 +26,15 @@ class Mesh
         GLuint VBO = 0;
         GLuint IBO = 0;
 
-        void bufferMeshData();
+        void bufferMeshData(GLint vertexPositionAttributeLocation, GLint uvCoordinateAttributeLocation, GLint normalAttributeLocation);
     public:
         Mesh(
             std::vector<Vertex>&& vertices,
-            std::vector<unsigned int>&& indices
+            std::vector<unsigned int>&& indices,
             std::vector<Texture>&& textures
         );
         ~Mesh();
         void draw(Material& material);
-}
+};
 
 #endif
