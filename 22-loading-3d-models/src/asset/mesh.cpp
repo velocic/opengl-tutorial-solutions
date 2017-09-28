@@ -31,6 +31,8 @@ void Mesh::bufferMeshData(Material& material)
     glGenBuffers(1, &VBO);
     glGenBuffers(1, &IBO);
 
+    glBindVertexArray(VAO);
+
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(
         GL_ARRAY_BUFFER,
@@ -46,6 +48,8 @@ void Mesh::bufferMeshData(Material& material)
         &indices[0],
         GL_STATIC_DRAW
     );
+
+    glBindVertexArray(0);
 
     //Link the vertex position attribute in the vertex shader to the glm::vec3 position
     //in each Vertex object
@@ -101,6 +105,7 @@ void Mesh::draw(Material& material)
     }
     glActiveTexture(GL_TEXTURE0);
 
+    //NOTE: Do I need to explicitly bind the VBO & IBO here? or is that state all wired up when the VAO is bound?
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);

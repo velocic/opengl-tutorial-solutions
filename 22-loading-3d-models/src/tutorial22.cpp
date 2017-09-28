@@ -69,11 +69,16 @@ int main()
         0, 1, 2
     };
 
+    GLuint VAO = 0;
+    glGenVertexArrays(1, &VAO);
+    glBindVertexArray(VAO);
+
     //Create an index buffer to share vertices among triangles
     GLuint IBO;
     glGenBuffers(1, &IBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices[0]) * indices.size(), indices.data(), GL_STATIC_DRAW);
+    glBindVertexArray(0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 
@@ -81,12 +86,11 @@ int main()
 
     //Allocate a buffer for our vertices
     GLuint VBO = 0;
-    GLuint VAO = 0;
-    glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), vertices.data(), GL_STATIC_DRAW);
+    glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     std::string vertexShaderPath = "../src/shaders/passthrough.vsh";
@@ -307,12 +311,10 @@ int main()
         glUniformMatrix4fv(WVPMatrixHandle, 1, GL_FALSE, &WVPMatrix[0][0]);
         glUniformMatrix4fv(worldMatrixHandle, 1, GL_FALSE, &worldMatrix[0][0]);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);
         threeLightsMaterial.unbind();
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
         SDL_GL_SwapWindow(renderWindow.getRenderWindowHandle());
     }
