@@ -1,4 +1,5 @@
 #include <materials/material.h>
+#include <algorithm>
 #include <iostream>
 
 Material::Material(
@@ -21,9 +22,7 @@ Material::Material(
 
     shaderProgram = linkShaderProgram(shaderStages);
 
-    glGenVertexArrays(1, &VAO);
-
-    if (shaderProgram > 0 && VAO > 0) {
+    if (shaderProgram > 0) {
         isValid = true;
     }
 }
@@ -37,17 +36,19 @@ Material::~Material()
 
     glDeleteProgram(shaderProgram);
 
-    //glDeleteVertexArrays silently ignored if the name is unused, or 0 is passed
-    glDeleteVertexArrays(1, &VAO);
-
     isValid = false;
 }
 
-bool Material::addAttribute(std::string attributeName)
+bool Material::addAttribute(GLuint VAO, std::string attributeName)
 {
     if (isValid == false) {
         //TODO: Replace cout with logfile writing
-        std::cout << "addAttribute called on Material instance with invalid state.";
+        std::cout << "addAttribute called on Material instance with invalid state." << std::endl;
+        return false;
+    }
+
+    if (VAO == 0) {
+        std::cout << "addAttribute called on null vertex array object." << std::endl;
         return false;
     }
 
@@ -58,9 +59,7 @@ bool Material::addAttribute(std::string attributeName)
         return false;
     }
 
-    shaderAttributes.insert(
-        std::pair<std::string, GLint>(attributeName, attributeLocation)
-    );
+    shaderAttributes[VAO].emplace_back(attributeName, attributeLocation);
     glEnableVertexAttribArray(attributeLocation);
     glBindVertexArray(0);
 
@@ -97,20 +96,25 @@ void Material::bind()
     }
 
     //Bind all necessary resources used by this material; Shader program,
-    //VAO, textures & maps once available
+    //textures & maps once available
     glUseProgram(shaderProgram);
-    glBindVertexArray(VAO);
 }
 
-GLint Material::getAttribute(std::string attributeName)
+GLint Material::getAttribute(GLuint VAO, std::string attributeName)
 {
-    auto mapIterator = shaderAttributes.find(attributeName);
+    auto attribIndex = std::find_if(
+        shaderAttributes[VAO].begin(),
+        shaderAttributes[VAO].end(),
+        [attributeName](const auto& entry) -> bool {
+            return entry.first == attributeName;
+        }
+    );
 
-    if (mapIterator == shaderAttributes.end()) {
+    if (attribIndex == std::end(shaderAttributes[VAO])) {
         return -1;
     }
 
-    return mapIterator->second;
+    return attribIndex->second;
 
 }
 
@@ -125,18 +129,22 @@ GLint Material::getUniformAttribute(std::string uniformName)
     return mapIterator->second;
 }
 
-void Material::setGLVertexAttribPointer(std::string attributeName, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid *glPointer)
+void Material::setGLVertexAttribPointer(GLuint VAO, std::string attributeName, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid *glPointer)
 {
     if (isValid == false) {
         //TODO: Replace cout with logfile writing
-        std::cout << "setGLVertexAttribPointer called on Material instance with invalid state.";
+        std::cout << "setGLVertexAttribPointer called on Material instance with invalid state." << std::endl;
         return;
+    }
+
+    if (VAO == 0) {
+        std::cout << "setGLVertexAttribPointer called with a null vertex array object." << std::endl;
     }
 
     glBindVertexArray(VAO);
 
     glVertexAttribPointer(
-        getAttribute(attributeName),
+        getAttribute(VAO, attributeName),
         size,
         type,
         normalized,

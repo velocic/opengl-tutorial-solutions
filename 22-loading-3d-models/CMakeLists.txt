@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(Tutorial22)
 
-set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -g")
+set(CMAKE_CXX_FLAGS "-std=c++14 -Wall -g")
 set(PROJECT_SOURCE_DIR "${PROJECT_BINARY_DIR}/src")
 
 find_package(PkgConfig)

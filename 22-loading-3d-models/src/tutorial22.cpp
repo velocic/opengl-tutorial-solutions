@@ -11,6 +11,7 @@
 #include <camera.h>
 #include <controls.h>
 #include <lights/lightlist.h>
+#include <asset/mesh.h>
 #include <materials/phongmaterial.h>
 #include <renderwindow.h>
 #include <texture.h>
@@ -18,13 +19,6 @@
 
 const unsigned int screenWidth = 800;
 const unsigned int screenHeight = 600;
-
-struct Vertex
-{
-    glm::vec3 position;
-    glm::vec3 normal;
-    glm::vec2 uvCoords;
-};
 
 void calculateNormals(
     const std::vector<GLuint> &indices,
@@ -86,7 +80,10 @@ int main()
     calculateNormals(indices, vertices);
 
     //Allocate a buffer for our vertices
-    GLuint VBO;
+    GLuint VBO = 0;
+    GLuint VAO = 0;
+    glGenVertexArrays(1, &VAO);
+    glBindVertexArray(VAO);
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), vertices.data(), GL_STATIC_DRAW);
@@ -154,12 +151,12 @@ int main()
     //Initialize glVertexAttribPointers while VBO is bound
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
-    threeLightsMaterial.addAttribute("position");
-    threeLightsMaterial.setGLVertexAttribPointer("position", 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-    threeLightsMaterial.addAttribute("normal");
-    threeLightsMaterial.setGLVertexAttribPointer("normal", 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)sizeof(glm::vec3));
-    threeLightsMaterial.addAttribute("texCoord");
-    threeLightsMaterial.setGLVertexAttribPointer("texCoord", 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(sizeof(glm::vec3) * 2));
+    threeLightsMaterial.addAttribute(VAO, "position");
+    threeLightsMaterial.setGLVertexAttribPointer(VAO, "position", 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+    threeLightsMaterial.addAttribute(VAO, "normal");
+    threeLightsMaterial.setGLVertexAttribPointer(VAO, "normal", 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)sizeof(glm::vec3));
+    threeLightsMaterial.addAttribute(VAO, "texCoord");
+    threeLightsMaterial.setGLVertexAttribPointer(VAO, "texCoord", 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(sizeof(glm::vec3) * 2));
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     //Set the sampler uniform for the fragment shader that we're going to use.
@@ -311,7 +308,9 @@ int main()
         glUniformMatrix4fv(worldMatrixHandle, 1, GL_FALSE, &worldMatrix[0][0]);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+        glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
+        glBindVertexArray(0);
         threeLightsMaterial.unbind();
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 

@@ -18,11 +18,10 @@ class Material
     private:
         ShaderProgramStages shaderStages;
         GLuint shaderProgram = 0;
-        GLuint VAO = 0;
         bool isValid = false;
         //Map of the variables we've enabled in the shader using glEnableVertexAttribArray after querying
-        //an attribute index with glGetAttribLocation
-        std::unordered_map<std::string, GLint> shaderAttributes;
+        //an attribute index with glGetAttribLocation, sorted per vertex array object
+        std::unordered_map<GLuint, std::vector<std::pair<std::string, GLint>>> shaderAttributes;
         std::unordered_map<std::string, GLint> uniformAttributes;
 
         std::vector<unsigned int> diffuseTextureUnitIndices;
@@ -40,13 +39,13 @@ class Material
             const std::vector<uint8_t> &fragmentShaderSource
         );
 
-        //Delete shaders, linked program, VBO & VAO
+        //Delete shaders, linked program
         ~Material();
 
-        bool addAttribute(std::string attributeName);
+        bool addAttribute(GLuint VAO, std::string attributeName);
         bool addUniformAttribute(std::string uniformName);
         void bind();
-        GLint getAttribute(std::string attributeName);
+        GLint getAttribute(GLuint VAO, std::string attributeName);
         GLint getUniformAttribute(std::string uniformName);
         const std::vector<unsigned int> &getDiffuseTextureUnits() const {return diffuseTextureUnitIndices;}
         const std::vector<unsigned int> &getSpecularTextureUnits() const {return specularTextureUnitIndices;}
@@ -59,6 +58,7 @@ class Material
         //externally from this class.
         //Defaults values assume non-normalized, tightly-packed data buffer
         void setGLVertexAttribPointer(
+            GLuint VAO,
             std::string attributeName,
             GLint size,
             GLenum type,

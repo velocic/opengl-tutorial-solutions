@@ -23,10 +23,11 @@ class Mesh
         std::vector<unsigned int> indices;
         std::vector<Texture> textures;
 
+        GLuint VAO = 0;
         GLuint VBO = 0;
         GLuint IBO = 0;
 
-        void bufferMeshData(GLint vertexPositionAttributeLocation, GLint uvCoordinateAttributeLocation, GLint normalAttributeLocation);
+        void bufferMeshData(Material& material);
     public:
         Mesh(
             std::vector<Vertex>&& vertices,

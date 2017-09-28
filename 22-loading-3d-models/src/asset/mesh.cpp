@@ -22,14 +22,12 @@ Mesh::~Mesh()
 {
     glDeleteBuffers(1, &VBO);
     glDeleteBuffers(1, &IBO);
+    glDeleteVertexArrays(1, &VAO);
 }
 
-void Mesh::bufferMeshData(
-    GLint vertexPositionAttributeLocation,
-    GLint uvCoordinateAttributeLocation,
-    GLint normalAttributeLocation
-)
+void Mesh::bufferMeshData(Material& material)
 {
+    glGenBuffers(1, &VAO);
     glGenBuffers(1, &VBO);
     glGenBuffers(1, &IBO);
 
@@ -51,13 +49,13 @@ void Mesh::bufferMeshData(
 
     //Link the vertex position attribute in the vertex shader to the glm::vec3 position
     //in each Vertex object
-    glVertexAttribPointer(vertexPositionAttributeLocation, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
+    material.setGLVertexAttribPointer(VAO, "position", 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)0);
 
     //Link the normals in the vertex shader to the glm::vec3 normal in each Vertex object
-    glVertexAttribPointer(normalAttributeLocation, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)sizeof(glm::vec3));
+    material.setGLVertexAttribPointer(VAO, "normal", 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)sizeof(glm::vec3));
 
     //Link the uv coord attribute in the vertex shader to the glm::vec2 uvCoords in each Vertex object
-    glVertexAttribPointer(uvCoordinateAttributeLocation, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(glm::vec3) * 2));
+    material.setGLVertexAttribPointer(VAO, "texCoord", 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(sizeof(glm::vec3) * 2));
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
@@ -103,5 +101,7 @@ void Mesh::draw(Material& material)
     }
     glActiveTexture(GL_TEXTURE0);
 
+    glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
 }
