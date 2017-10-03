@@ -105,7 +105,6 @@ void Mesh::draw(Material& material)
     }
     glActiveTexture(GL_TEXTURE0);
 
-    //NOTE: Do I need to explicitly bind the VBO & IBO here? or is that state all wired up when the VAO is bound?
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
